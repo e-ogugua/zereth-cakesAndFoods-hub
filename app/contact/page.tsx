@@ -2,32 +2,68 @@
 
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
-import { MapPin, Phone, Mail, Clock, Cake, Instagram, Facebook } from 'lucide-react';
+import { Clock, Instagram, Facebook } from 'lucide-react';
 import { getOptimizedImagePath } from '@/lib/image-utils';
 import Image from 'next/image';
+import { ContactInfo } from '@/components/contact-info';
+import { motion } from 'framer-motion';
+import { cn } from '@/lib/utils';
 
-type FormData = {
-  name: string;
-  email: string;
-  phone: string;
-  message: string;
-};
+// Form validation schema
+const formSchema = z.object({
+  name: z.string().min(2, 'Name must be at least 2 characters'),
+  email: z.string().email('Please enter a valid email'),
+  phone: z.string().min(10, 'Please enter a valid phone number'),
+  message: z.string().min(10, 'Message must be at least 10 characters'),
+  occasion: z.string().optional(),
+  date: z.string().optional(),
+});
+
+type FormData = z.infer<typeof formSchema>;
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>();
+  const [selectedOccasion, setSelectedOccasion] = useState('');
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+    setValue,
+  } = useForm<FormData>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+      phone: '',
+      message: '',
+      occasion: '',
+      date: '',
+    },
+  });
+
+  const occasions = [
+    { id: 'birthday', label: 'Birthday' },
+    { id: 'wedding', label: 'Wedding' },
+    { id: 'anniversary', label: 'Anniversary' },
+    { id: 'corporate', label: 'Corporate Event' },
+    { id: 'other', label: 'Other' },
+  ];
 
   const onSubmit = async (data: FormData) => {
     try {
       setIsSubmitting(true);
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      console.log('Form submitted:', data);
+      await new Promise(resolve => setTimeout(resolve, 1500));
       toast.success('Message sent! We\'ll get back to you soon.');
       reset();
+      setSelectedOccasion('');
     } catch (error) {
       toast.error('Failed to send message. Please try again.');
     } finally {
@@ -37,112 +73,231 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen">
-      <section className="relative h-[40vh] flex items-center justify-center bg-muted">
+      {/* Hero Section */}
+      <section className="relative h-[50vh] flex items-center justify-center bg-muted overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-black/50" />
-          <Image src={getOptimizedImagePath("/baker-mike-workspace.jpg")} alt="Contact Us" fill className="object-cover" priority />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/30" />
+          <Image 
+            src={getOptimizedImagePath("/baker-mike-workspace.jpg")} 
+            alt="Contact Us" 
+            fill 
+            className="object-cover" 
+            priority 
+            sizes="100vw"
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+          />
         </div>
         <div className="container relative z-10 text-center text-white px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Get In Touch</h1>
-          <p className="text-xl">We'd love to hear from you</p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="max-w-3xl mx-auto"
+          >
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 font-serif tracking-tight">Let's Create Something Sweet</h1>
+            <p className="text-xl md:text-2xl text-gray-200">Get in touch to discuss your custom cake order</p>
+          </motion.div>
         </div>
       </section>
 
-      <section className="py-16 bg-background">
-        <div className="container px-4 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div>
-            <h2 className="text-3xl font-bold mb-6">Send Us a Message</h2>
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
-                <Input id="name" placeholder="Your name" {...register('name', { required: true })} />
-                {errors.name && <p className="mt-1 text-sm text-destructive">Name is required</p>}
+      {/* Contact Form Section */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container px-4">
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Contact Form */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="bg-card p-6 md:p-8 rounded-xl shadow-sm border"
+            >
+              <div className="mb-8 text-center">
+                <h2 className="text-3xl font-bold mb-2 font-serif">Send Us a Message</h2>
+                <p className="text-muted-foreground">We'll get back to you within 24 hours</p>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
-                  <Input id="email" type="email" placeholder="your@email.com" 
-                    {...register('email', { required: true, pattern: /\S+@\S+\.\S+/ })} 
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">
+                      Full Name <span className="text-destructive">*</span>
+                    </label>
+                    <Input
+                      placeholder="Your name"
+                      {...register('name')}
+                      className={cn({
+                        'border-destructive': errors.name,
+                      })}
+                    />
+                    {errors.name && (
+                      <p className="text-sm text-destructive mt-1">
+                        {errors.name.message}
+                      </p>
+                    )}
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">
+                      Email <span className="text-destructive">*</span>
+                    </label>
+                    <Input
+                      type="email"
+                      placeholder="your.email@example.com"
+                      {...register('email')}
+                      className={cn({
+                        'border-destructive': errors.email,
+                      })}
+                    />
+                    {errors.email && (
+                      <p className="text-sm text-destructive mt-1">
+                        {errors.email.message}
+                      </p>
+                    )}
+                  </div>
+                </div>
+                
+                <div className="space-y-2">
+                  <label className="text-sm font-medium">
+                    Phone Number <span className="text-destructive">*</span>
+                  </label>
+                  <Input
+                    type="tel"
+                    placeholder="e.g., 08060147046"
+                    {...register('phone')}
+                    className={cn({
+                      'border-destructive': errors.phone,
+                    })}
                   />
-                  {errors.email && <p className="mt-1 text-sm text-destructive">Valid email is required</p>}
+                  {errors.phone && (
+                    <p className="text-sm text-destructive mt-1">
+                      {errors.phone.message}
+                    </p>
+                  )}
                 </div>
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium mb-2">Phone</label>
-                  <Input id="phone" type="tel" placeholder="+234 800 000 0000" 
-                    {...register('phone', { required: true })} 
+                
+                <div className="space-y-2">
+                  <label className="text-sm font-medium">
+                    Occasion (Optional)
+                  </label>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                    {occasions.map((occasion) => (
+                      <button
+                        key={occasion.id}
+                        type="button"
+                        onClick={() => {
+                          setSelectedOccasion(occasion.id);
+                          setValue('occasion', occasion.id);
+                        }}
+                        className={cn(
+                          'text-sm px-3 py-2 rounded-md border transition-colors',
+                          selectedOccasion === occasion.id
+                            ? 'bg-primary/10 border-primary text-primary font-medium'
+                            : 'border-input hover:bg-accent hover:text-accent-foreground'
+                        )}
+                      >
+                        {occasion.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="space-y-2">
+                  <label className="text-sm font-medium">
+                    Event Date (Optional)
+                  </label>
+                  <Input
+                    type="date"
+                    {...register('date')}
+                    min={new Date().toISOString().split('T')[0]}
                   />
-                  {errors.phone && <p className="mt-1 text-sm text-destructive">Phone is required</p>}
                 </div>
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
-                <Textarea id="message" rows={5} placeholder="Your message..." 
-                  {...register('message', { required: true, minLength: 10 })} 
-                />
-                {errors.message && <p className="mt-1 text-sm text-destructive">Message is too short</p>}
-              </div>
-
-              <Button type="submit" className="w-full" disabled={isSubmitting}>
-                {isSubmitting ? 'Sending...' : 'Send Message'}
-              </Button>
-            </form>
-          </div>
-
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
-              <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <MapPin className="h-6 w-6 mt-1 text-primary flex-shrink-0" />
+                
+                <div className="space-y-2">
+                  <label className="text-sm font-medium">
+                    Your Message <span className="text-destructive">*</span>
+                  </label>
+                  <Textarea
+                    rows={5}
+                    placeholder="Tell us about your cake requirements..."
+                    {...register('message')}
+                    className={cn({
+                      'border-destructive': errors.message,
+                    })}
+                  />
+                  {errors.message && (
+                    <p className="text-sm text-destructive mt-1">
+                      {errors.message.message}
+                    </p>
+                  )}
+                </div>
+                
+                <Button 
+                  type="submit" 
+                  size="lg" 
+                  className="w-full"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                </Button>
+              </form>
+            </motion.div>
+            
+            {/* Contact Information */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="space-y-8"
+            >
+              <div className="bg-card p-6 md:p-8 rounded-xl shadow-sm border h-full">
+                <div className="space-y-8">
                   <div>
-                    <h4 className="font-medium">Our Location</h4>
-                    <p className="text-muted-foreground">Abuja, Nigeria</p>
+                    <h2 className="text-3xl font-bold mb-2 font-serif">Contact Information</h2>
+                    <p className="text-muted-foreground">We're here to help with any questions</p>
+                  </div>
+                  
+                  <ContactInfo variant="detailed" />
+                  
+                  <div className="pt-4 border-t">
+                    <h3 className="text-lg font-semibold mb-4">Business Hours</h3>
+                    <div className="flex items-start gap-4">
+                      <Clock className="h-5 w-5 mt-0.5 text-primary flex-shrink-0" />
+                      <div>
+                        <p className="font-medium">Monday - Saturday</p>
+                        <p className="text-muted-foreground">9:00 AM - 7:00 PM</p>
+                        <p className="font-medium mt-3">Sunday</p>
+                        <p className="text-muted-foreground">Closed</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="pt-4 border-t">
+                    <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
+                    <div className="flex gap-3">
+                      <a 
+                        href="https://facebook.com/zerethfoods" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="h-10 w-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+                        aria-label="Facebook"
+                      >
+                        <Facebook className="h-5 w-5" />
+                      </a>
+                      <a 
+                        href="https://instagram.com/zerethfoods" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="h-10 w-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+                        aria-label="Instagram"
+                      >
+                        <Instagram className="h-5 w-5" />
+                      </a>
+                    </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-4">
-                  <Phone className="h-6 w-6 text-primary" />
-                  <div>
-                    <h4 className="font-medium">Phone</h4>
-                    <a href="tel:+2348000000000" className="text-muted-foreground hover:text-primary">
-                      +234 800 000 0000
-                    </a>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <Mail className="h-6 w-6 text-primary" />
-                  <div>
-                    <h4 className="font-medium">Email</h4>
-                    <a href="mailto:info@zerethcakeshub.com" className="text-muted-foreground hover:text-primary">
-                      info@zerethcakeshub.com
-                    </a>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <Clock className="h-6 w-6 text-primary" />
-                  <div>
-                    <h4 className="font-medium">Hours</h4>
-                    <p className="text-muted-foreground">Mon - Sat: 9:00 AM - 7:00 PM</p>
-                    <p className="text-muted-foreground">Sunday: Closed</p>
-                  </div>
-                </div>
               </div>
-            </div>
-
-            <div>
-              <h3 className="text-2xl font-semibold mb-6">Follow Us</h3>
-              <div className="flex gap-4">
-                <a href="https://instagram.com/zerethfoods" target="_blank" rel="noopener noreferrer" 
-                  className="h-10 w-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
-                  <Instagram className="h-5 w-5" />
-                </a>
-                <a href="https://facebook.com/zerethfoods" target="_blank" rel="noopener noreferrer"
-                  className="h-10 w-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
-                  <Facebook className="h-5 w-5" />
-                </a>
-              </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>

@@ -1,8 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Cake, Heart, Star, Calendar, Phone, Clock, Instagram, Facebook, Youtube } from 'lucide-react';
+import { Cake, Heart, Star, Calendar, Phone, Clock, Instagram, Facebook, Youtube, ChevronRight } from 'lucide-react';
 import { getOptimizedImagePath } from '@/lib/image-utils';
+import { Testimonials } from '@/components/testimonials';
 
 export default function HomePage() {
   return (
@@ -19,7 +20,7 @@ export default function HomePage() {
           />
           <div className="absolute inset-0 bg-black/40" />
         </div>
-        
+
         <div className="container relative z-10 text-center text-white px-4">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             Where Edible Art Meets Extraordinary Taste
@@ -115,13 +116,13 @@ export default function HomePage() {
             <div className="md:w-1/2">
               <h2 className="text-3xl font-bold mb-6">Meet Joshua Ogugua</h2>
               <p className="text-lg text-muted-foreground mb-6">
-                I'm the founder of Zereth Cakes Hub, where my passion for baking meets creativity. 
-                With years of experience in crafting beautiful and delicious cakes, I take pride 
+                I'm the founder of Zereth Cakes Hub, where my passion for baking meets creativity.
+                With years of experience in crafting beautiful and delicious cakes, I take pride
                 in creating edible art that makes every celebration special.
               </p>
               <p className="text-lg text-muted-foreground mb-8">
-                When I'm not in the kitchen, you can find me at the gym, spending time with my 
-                two beautiful daughters, or serving in my ministry, Jepliggom.
+                When I'm not in the kitchen, you can find me at the gym, spending time with my
+                wife and two beautiful daughters, or serving in my ministry, Jepliggom.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button variant="outline" className="gap-2">
@@ -153,6 +154,29 @@ export default function HomePage() {
             <Button size="lg" variant="outline" className="border-white/20 hover:bg-white/10">
               <Instagram className="mr-2 h-5 w-5" />
               Follow on Instagram
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <Testimonials />
+
+      {/* CTA Section */}
+      <section className="py-16 md:py-24 bg-primary/5">
+        <div className="container px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold font-serif mb-6">Ready to Order Your Perfect Cake?</h2>
+          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Contact us today to discuss your custom cake requirements or visit our bakery to see our delicious creations in person.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="gap-2 group">
+              Order Now
+              <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Button>
+            <Button size="lg" variant="outline" className="gap-2 group">
+              <Phone className="h-4 w-4" />
+              Call Us
             </Button>
           </div>
         </div>

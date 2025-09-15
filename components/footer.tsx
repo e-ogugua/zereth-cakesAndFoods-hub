@@ -92,59 +92,54 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/services" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                Our Services
-              </Link>
-              </li>
-              <li>
-                <Link href="/custom-cake" className="text-background/80 hover:text-background transition-colors">
-                  Custom Cake Designer
+                  Services
                 </Link>
               </li>
               <li>
-                <Link href="/bakers" className="text-background/80 hover:text-background transition-colors">
-                  Find Bakers
+                <Link href="/gallery" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  Gallery
                 </Link>
               </li>
               <li>
-                <Link href="/occasions" className="text-background/80 hover:text-background transition-colors">
-                  Shop by Occasion
+                <Link href="/about" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  About Us
                 </Link>
               </li>
               <li>
-                <Link href="/trending" className="text-background/80 hover:text-background transition-colors">
-                  Trending Now
+                <Link href="/contact" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  Contact
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* For Bakers */}
+          {/* Baker Services */}
           <div>
-            <h4 className="font-semibold mb-4">For Bakers</h4>
+            <h4 className="font-semibold mb-4">Baker Services</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/gallery" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                Gallery
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                About Us
-              </Link>
-            </li>
-            <li>
-              <Link href="/testimonials" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                Testimonials
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                Contact Us
-              </Link>
+                <Link href="/baker-dashboard" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  Baker Dashboard
+                </Link>
               </li>
               <li>
-                <Link href="/baker-support" className="text-background/80 hover:text-background transition-colors">
-                  Baker Support
+                <Link href="/baker-signup" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  Become a Baker
+                </Link>
+              </li>
+              <li>
+                <Link href="/bakers" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  Our Bakers
+                </Link>
+              </li>
+              <li>
+                <Link href="/categories" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  Categories
+                </Link>
+              </li>
+              <li>
+                <Link href="/checkout" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  Checkout
                 </Link>
               </li>
             </ul>

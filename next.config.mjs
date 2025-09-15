@@ -15,15 +15,14 @@ const nextConfig = {
     '@radix-ui/react-slot',
     '@radix-ui/react-toast',
     'lucide-react',
-    'sonner'
+    'sonner',
+    'framer-motion'
   ],
   webpack: (config) => {
     // Important: return the modified config
     return config;
   },
-  experimental: {
-    serverComponentsExternalPackages: ['sharp', 'onnxruntime-node']
-  }
+  serverExternalPackages: ['sharp', 'onnxruntime-node']
 }
 
 export default nextConfig

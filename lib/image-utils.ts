@@ -1,7 +1,7 @@
 // Helper function to get optimized image path
 export function getOptimizedImagePath(originalPath: string): string {
   // If it's already an optimized path, return as is
-  if (originalPath.includes('/optimized/')) {
+  if (originalPath.includes('/optimized/') || originalPath.endsWith('.webp')) {
     return originalPath;
   }
   
