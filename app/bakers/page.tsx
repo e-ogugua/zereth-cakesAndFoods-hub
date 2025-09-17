@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Star, MapPin, Clock, Award } from "lucide-react"
+import { CustomImage } from "@/components/ui/Image"
 
 const bakers = [
   {
@@ -17,7 +18,7 @@ const bakers = [
     totalReviews: 127,
     isVerified: true,
     deliveryZones: ["Downtown", "Midtown", "Uptown"],
-    avatar: "/baker-sarah-portrait.jpg",
+    avatar: "/baker-Joshua-potrait.png",
     coverImage: "/baker-sarah-workspace.jpg",
     featured: true,
   },
@@ -32,7 +33,7 @@ const bakers = [
     totalReviews: 89,
     isVerified: true,
     deliveryZones: ["Eastside", "Westside", "Central"],
-    avatar: "/baker-mike-portrait.jpg",
+    avatar: "/baker-mike-workspace.jpg",
     coverImage: "/baker-mike-workspace.jpg",
     featured: false,
   },
@@ -70,30 +71,39 @@ export default function BakersPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {bakers.map((baker) => (
             <Card key={baker.id} className="group hover:shadow-lg transition-all duration-300 overflow-hidden">
-              <div className="relative">
-                <img
-                  src={baker.coverImage || "/placeholder.svg"}
+              <div className="relative h-32">
+                <CustomImage
+                  src={baker.coverImage || "/placeholder.jpg"}
                   alt={`${baker.businessName} workspace`}
-                  className="w-full h-32 object-cover"
+                  containerClassName="h-full w-full"
+                  className="object-cover w-full h-full"
+                  static
+                  fill
                 />
-
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
                 {baker.featured && (
-                  <Badge className="absolute top-3 left-3 bg-secondary text-secondary-foreground">Featured Baker</Badge>
+                  <Badge className="absolute top-2 left-2 bg-primary/90 backdrop-blur-sm">
+                    Featured
+                  </Badge>
                 )}
-
                 {baker.isVerified && (
                   <Badge className="absolute top-3 right-3 bg-primary text-primary-foreground">
                     <Award className="h-3 w-3 mr-1" />
                     Verified
                   </Badge>
                 )}
+              </div>
 
-                {/* Baker Avatar */}
-                <div className="absolute -bottom-6 left-6">
-                  <img
-                    src={baker.avatar || "/placeholder.svg"}
+              {/* Baker Avatar */}
+              <div className="absolute -bottom-6 left-6">
+                <div className="w-12 h-12 rounded-full border-4 border-background overflow-hidden">
+                  <CustomImage
+                    src={baker.avatar || "/placeholder-user.jpg"}
                     alt={baker.name}
-                    className="w-12 h-12 rounded-full border-4 border-background object-cover"
+                    className="object-cover w-full h-full"
+                    static
+                    width={48}
+                    height={48}
                   />
                 </div>
               </div>

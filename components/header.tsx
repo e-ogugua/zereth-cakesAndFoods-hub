@@ -16,10 +16,10 @@ export function Header() {
       <div className="bg-muted py-2 px-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center text-sm text-muted-foreground">
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-1">
+            <a href="tel:+2348060147046" className="flex items-center gap-1 hover:text-foreground transition-colors">
               <Phone className="h-3 w-3" />
-              <span>+1 (555) 123-CAKE</span>
-            </div>
+              <span>+234 806 014 7046</span>
+            </a>
             <div className="flex items-center gap-1">
               <MapPin className="h-3 w-3" />
               <span>Free delivery in select areas</span>
@@ -40,13 +40,13 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-xl">Z</span>
+          <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition-opacity group">
+            <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300">
+              <span className="text-primary-foreground font-bold text-4xl">Z</span>
             </div>
-            <div>
-              <h1 className="font-bold text-xl text-foreground">Zereth</h1>
-              <p className="text-xs text-muted-foreground">CakesAndFoods Hub</p>
+            <div className="transform group-hover:scale-[1.02] transition-transform duration-300">
+              <h1 className="font-bold text-3xl md:text-4xl bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">Zereth</h1>
+              <p className="text-sm md:text-base text-muted-foreground font-medium">Cakes & Foods Hub</p>
             </div>
           </Link>
 

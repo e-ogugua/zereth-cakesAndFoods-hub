@@ -34,14 +34,14 @@ export function OurStory() {
                 visible: { ...fadeInUp.visible, transition: { ...fadeInUp.visible.transition, delay: 0.2 } }
               }}
             >
-              <h2 className="text-3xl font-bold mb-6">Our Story</h2>
-              <div className="prose prose-lg text-muted-foreground">
-                <p className="mb-6">
+              <h2 className="text-3xl font-bold mb-6 text-foreground">Our Story</h2>
+              <div className="prose prose-lg text-foreground/90">
+                <p className="mb-6 leading-relaxed">
                   Zereth Cakes Hub was born out of a passion for creating beautiful, delicious cakes that make every occasion special. 
                   What started as a small home-based bakery has grown into a beloved local institution, known for our commitment to 
                   quality, creativity, and exceptional customer service.
                 </p>
-                <p>
+                <p className="leading-relaxed">
                   Every cake we create is made with the finest ingredients, from locally-sourced dairy and eggs to premium chocolate 
                   and vanilla. Our team of talented bakers and decorators pour their hearts into every creation, ensuring that each 
                   cake is as beautiful as it is delicious.
@@ -57,28 +57,28 @@ export function OurStory() {
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-            <h3 className="text-2xl font-bold mb-6 text-center">Our Philosophy</h3>
+            <h3 className="text-2xl font-bold mb-8 text-center text-foreground">Our Philosophy</h3>
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
+              <div className="text-center p-6 bg-background rounded-lg shadow-sm border">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Cake className="h-8 w-8 text-primary" />
                 </div>
-                <h4 className="font-bold mb-2">Quality Ingredients</h4>
-                <p className="text-muted-foreground">We use only the finest, freshest ingredients in all our creations.</p>
+                <h4 className="font-bold mb-3 text-foreground">Quality Ingredients</h4>
+                <p className="text-foreground/80">We use only the finest, freshest ingredients in all our creations.</p>
               </div>
-              <div className="text-center">
+              <div className="text-center p-6 bg-background rounded-lg shadow-sm border">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Heart className="h-8 w-8 text-primary" />
                 </div>
-                <h4 className="font-bold mb-2">Made with Love</h4>
-                <p className="text-muted-foreground">Every cake is crafted with care and attention to detail.</p>
+                <h4 className="font-bold mb-3 text-foreground">Made with Love</h4>
+                <p className="text-foreground/80">Every cake is crafted with care and attention to detail.</p>
               </div>
-              <div className="text-center">
+              <div className="text-center p-6 bg-background rounded-lg shadow-sm border">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Sparkles className="h-8 w-8 text-primary" />
                 </div>
-                <h4 className="font-bold mb-2">Creative Designs</h4>
-                <p className="text-muted-foreground">Custom creations to make your celebration truly special.</p>
+                <h4 className="font-bold mb-3 text-foreground">Creative Designs</h4>
+                <p className="text-foreground/80">Custom creations to make your celebration truly special.</p>
               </div>
             </div>
           </motion.div>

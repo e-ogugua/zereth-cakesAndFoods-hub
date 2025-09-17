@@ -2,8 +2,10 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Cake, Instagram } from 'lucide-react';
+import { OrderButton } from '@/components/order-button';
+import { Cake, Instagram, Facebook, Twitter, ArrowRight, Search, X, Phone, ChevronRight } from 'lucide-react';
 import { getOptimizedImagePath } from '@/lib/image-utils';
 
 // Sample gallery items - replace with your actual images
@@ -19,7 +21,7 @@ const galleryItems = [
   { id: 9, category: 'wedding', src: getOptimizedImagePath('/artisanal-croissants-selection.jpg'), alt: 'Rustic Wedding Cake' },
   { id: 10, category: 'bento', src: getOptimizedImagePath('/artisanal-pastries-fresh-baked.jpg'), alt: 'Elegant Bento Cake' },
   { id: 11, category: 'birthday', src: getOptimizedImagePath('/baker-emma-workspace.jpg'), alt: 'Adult Birthday Cake' },
-  { id: 12, category: 'custom', src: getOptimizedImagePath('/baker-sarah-workspace.jpg'), alt: 'Special Design Cake' },
+  { id: 12, category: 'custom', src: getOptimizedImagePath('/baker-joshua-workspace.jpg'), alt: 'Special Design Cake' },
 ];
 
 const categories = [
@@ -123,12 +125,19 @@ export default function GalleryPage() {
             <p className="text-xl mb-8">
               Let's create something amazing together for your next special occasion!
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-primary hover:bg-white/90">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <OrderButton 
+                size="lg" 
+                className="bg-white text-primary hover:bg-white/90"
+              >
                 Order Now
-              </Button>
-              <Button size="lg" variant="outline" className="border-white/20 hover:bg-white/10">
-                Contact Us
+                <ChevronRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
+              </OrderButton>
+              <Button asChild size="lg" variant="outline" className="border-white/20 hover:bg-white/10">
+                <a href="tel:+2348060147046" className="flex items-center">
+                  <Phone className="mr-2 h-5 w-5" />
+                  Call Us Now
+                </a>
               </Button>
             </div>
           </div>

@@ -10,10 +10,10 @@ type AuthorImageProps = {
   withDecoration?: boolean;
 };
 
-export function AuthorImage({ 
-  className = '', 
+export function AuthorImage({
+  className = '',
   size = 'md',
-  withDecoration = true 
+  withDecoration = true
 }: AuthorImageProps) {
   const sizeClasses = {
     sm: 'w-20 h-20',
@@ -38,10 +38,10 @@ export function AuthorImage({
           priority
         />
       </motion.div>
-      
+
       {withDecoration && (
         <>
-          <motion.div 
+          <motion.div
             className="absolute -top-2 -right-2 w-8 h-8 md:w-10 md:h-10 rounded-full bg-primary/90 flex items-center justify-center text-white z-10"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
@@ -51,8 +51,8 @@ export function AuthorImage({
               <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10a1 1 0 01-1.64 0l-7-10A1 1 0 014 7h4V2a1 1 0 011.7-.7l1.6 1.6 1.6-1.6a1 1 0 011.4.146z" clipRule="evenodd" />
             </svg>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             className="absolute -bottom-2 -left-2 w-10 h-10 md:w-14 md:h-14 rounded-full bg-secondary/80 flex items-center justify-center z-0"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}

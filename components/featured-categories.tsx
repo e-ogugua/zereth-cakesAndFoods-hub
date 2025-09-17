@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { ArrowRight } from "lucide-react"
+import { OptimizedImage } from "@/components/ui/optimized-image"
 
 const categories = [
   {
@@ -69,16 +70,19 @@ export function FeaturedCategories() {
           {categories.map((category) => (
             <Link key={category.id} href={`/categories/${category.id}`}>
               <Card className="group hover:shadow-lg transition-all duration-300 overflow-hidden border-0 bg-background">
-                <div className="relative overflow-hidden">
-                  <img
-                    src={category.image || "/placeholder.svg"}
+                <div className="relative h-48 overflow-hidden">
+                  <OptimizedImage
+                    src={category.image.replace(/^\//, '') || "placeholder.svg"}
                     alt={category.name}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    containerClassName="h-full w-full"
+                    className="group-hover:scale-105 transition-transform duration-300"
+                    overlayClassName={category.trending ? "bg-gradient-to-t from-black/10 to-transparent" : ""}
                   />
                   {category.trending && (
-                    <Badge className="absolute top-3 left-3 bg-secondary text-secondary-foreground">Trending</Badge>
+                    <Badge className="absolute top-2 right-2 bg-primary/90 backdrop-blur-sm">
+                      Trending
+                    </Badge>
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
 
                 <CardContent className="p-6">

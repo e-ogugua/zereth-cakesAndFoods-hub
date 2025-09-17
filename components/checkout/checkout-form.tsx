@@ -10,6 +10,7 @@ import { Separator } from "@/components/ui/separator"
 import { Badge } from "@/components/ui/badge"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { CreditCard, Truck, Shield, MapPin, Clock } from "lucide-react"
+import { OptimizedImage } from "@/components/ui/optimized-image"
 import {
   SUPPORTED_CURRENCIES,
   getAvailablePaymentMethods,
@@ -88,11 +89,14 @@ export function CheckoutForm({ items, subtotal, onPaymentComplete }: CheckoutFor
           <CardContent className="space-y-4">
             {items.map((item) => (
               <div key={item.id} className="flex items-center gap-4">
-                <img
-                  src={item.image || "/placeholder.svg"}
-                  alt={item.name}
-                  className="w-16 h-16 object-cover rounded-md"
-                />
+                <div className="w-16 h-16 relative rounded-md overflow-hidden">
+                  <OptimizedImage
+                    src={item.image ? item.image.replace(/^\//, '') : "placeholder.svg"}
+                    alt={item.name}
+                    containerClassName="h-full w-full"
+                    className="object-cover"
+                  />
+                </div>
                 <div className="flex-1">
                   <h4 className="font-medium text-sm">{item.name}</h4>
                   <p className="text-sm text-muted-foreground">Qty: {item.quantity}</p>

@@ -16,6 +16,7 @@ import { Progress } from "@/components/ui/progress"
 import { ChevronLeft, ChevronRight, Upload, CalendarIcon, Clock, DollarSign, Sparkles } from "lucide-react"
 import { format } from "date-fns"
 import { cn } from "@/lib/utils"
+import { OptimizedImage } from "@/components/ui/optimized-image"
 
 interface CakeConfig {
   size: string
@@ -202,11 +203,14 @@ export function CakeConfigurator() {
                     onClick={() => setConfig((prev) => ({ ...prev, size: size.id }))}
                   >
                     <CardContent className="p-4">
-                      <img
-                        src={size.image || "/placeholder.svg"}
-                        alt={size.name}
-                        className="w-full h-32 object-cover rounded-md mb-3"
-                      />
+                      <div className="relative h-32 w-full mb-3 rounded-md overflow-hidden">
+                        <OptimizedImage
+                          src={(size.image || "placeholder.svg").replace(/^\//, '')}
+                          alt={size.name}
+                          containerClassName="h-full w-full"
+                          className="object-cover"
+                        />
+                      </div>
                       <h4 className="font-semibold">{size.name}</h4>
                       <p className="text-sm text-muted-foreground">{size.servings}</p>
                       <p className="text-lg font-bold text-primary mt-2">${size.price}</p>
@@ -299,11 +303,14 @@ export function CakeConfigurator() {
                     onClick={() => setConfig((prev) => ({ ...prev, decoration: decoration.id }))}
                   >
                     <CardContent className="p-4">
-                      <img
-                        src={decoration.image || "/placeholder.svg"}
-                        alt={decoration.name}
-                        className="w-full h-32 object-cover rounded-md mb-3"
-                      />
+                      <div className="relative h-32 w-full mb-3 rounded-md overflow-hidden">
+                        <OptimizedImage
+                          src={(decoration.image || "placeholder.svg").replace(/^\//, '')}
+                          alt={decoration.name}
+                          containerClassName="h-full w-full"
+                          className="object-cover"
+                        />
+                      </div>
                       <h4 className="font-semibold">{decoration.name}</h4>
                       <p className="text-sm text-muted-foreground mb-2">{decoration.description}</p>
                       <p className="text-sm font-medium text-primary">+${decoration.price}</p>

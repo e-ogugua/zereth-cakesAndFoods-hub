@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Search, Star, Heart, ShoppingCart, SlidersHorizontal } from "lucide-react"
+import { OptimizedImage } from "@/components/ui/optimized-image"
 
 const products = [
   {
@@ -220,25 +221,24 @@ export default function CategoriesPage() {
               key={product.id}
               className="group hover:shadow-lg transition-all duration-300 overflow-hidden border-0 bg-background"
             >
-              <div className="relative overflow-hidden">
-                <img
-                  src={product.image || "/placeholder.svg"}
+              <div className="relative h-48 overflow-hidden">
+                <OptimizedImage
+                  src={product.image ? product.image.replace(/^\//, '') : "placeholder.svg"}
                   alt={product.name}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  containerClassName="h-full w-full"
+                  className="group-hover:scale-105 transition-transform duration-300"
+                  overlayClassName="bg-gradient-to-t from-black/10 to-transparent"
                 />
-
-                <div className="absolute top-3 right-3">
-                  <Button size="sm" variant="ghost" className="h-8 w-8 p-0 bg-background/80 hover:bg-background">
+                <div className="absolute top-2 right-2 flex gap-2">
+                  <Button variant="secondary" size="icon" className="h-8 w-8 rounded-full bg-background/80 backdrop-blur-sm hover:bg-background/100">
                     <Heart className="h-4 w-4" />
+                    <span className="sr-only">Add to favorites</span>
                   </Button>
                 </div>
-
                 {product.isCustomizable && (
-                  <div className="absolute bottom-3 left-3">
-                    <Badge variant="secondary" className="text-xs">
-                      Customizable
-                    </Badge>
-                  </div>
+                  <Badge variant="secondary" className="absolute bottom-2 left-2 text-xs">
+                    Customizable
+                  </Badge>
                 )}
               </div>
 

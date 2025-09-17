@@ -6,6 +6,7 @@ import "./globals.css"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { ScrollToTop } from "@/components/scroll-to-top"
+import ClientOnly from "@/components/ClientOnly"
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -27,20 +28,22 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={inter.variable}>
       <body className="min-h-screen bg-background font-sans antialiased">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Navigation />
-          <main className="flex-1">
-            {children}
-          </main>
-          <Footer />
-          <Toaster position="top-center" />
-          <ScrollToTop />
-        </ThemeProvider>
+        <ClientOnly>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Navigation />
+            <main className="flex-1">
+              {children}
+            </main>
+            <Footer />
+            <Toaster position="top-center" />
+            <ScrollToTop />
+          </ThemeProvider>
+        </ClientOnly>
       </body>
     </html>
   )

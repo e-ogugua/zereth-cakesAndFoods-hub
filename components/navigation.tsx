@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { Menu, X, ShoppingCart, Phone, User } from 'lucide-react';
+import { Menu, X, ShoppingCart, Phone, User, Cake, Mail } from 'lucide-react';
+import { OrderButton } from './order-button';
 import { useState, useEffect } from 'react';
 import { Logo } from './logo';
 
@@ -56,19 +57,27 @@ export function Navigation() {
             <div key={item.href} className="relative group">
               {item.dropdown ? (
                 <>
-                  <button className="flex items-center px-4 py-2 text-sm font-medium rounded-md transition-colors text-foreground/60 hover:text-foreground hover:bg-accent/50">
+                  <button 
+                    className={cn(
+                      'flex items-center px-4 py-2 text-sm font-medium rounded-lg transition-colors',
+                      pathname.startsWith('/baker') 
+                        ? 'text-foreground bg-primary/10' 
+                        : 'text-foreground/90 hover:text-foreground hover:bg-accent/80'
+                    )}
+                    aria-expanded="false"
+                  >
                     {item.name}
                     <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
-                  <div className="absolute left-0 mt-1 w-56 rounded-md shadow-lg bg-background ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <div className="absolute left-0 mt-1 w-56 rounded-lg shadow-lg bg-background border border-border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                     <div className="py-1">
                       {item.dropdown.map((subItem) => (
                         <Link
                           key={subItem.href}
                           href={subItem.href}
-                          className="block px-4 py-2 text-sm text-foreground/80 hover:bg-accent/50"
+                          className="block px-4 py-2.5 text-sm font-medium text-foreground/90 hover:bg-accent/80 hover:text-foreground transition-colors"
                         >
                           {subItem.name}
                         </Link>
@@ -80,10 +89,10 @@ export function Navigation() {
                 <Link
                   href={item.href}
                   className={cn(
-                    'px-4 py-2 text-sm font-medium rounded-md transition-colors',
+                    'px-4 py-2 text-sm font-medium rounded-lg transition-colors',
                     pathname === item.href
-                      ? 'text-foreground bg-primary/10'
-                      : 'text-foreground/60 hover:text-foreground hover:bg-accent/50',
+                      ? 'text-foreground bg-primary/10 font-semibold'
+                      : 'text-foreground/90 hover:text-foreground hover:bg-accent/80',
                   )}
                 >
                   {item.name}
@@ -93,21 +102,21 @@ export function Navigation() {
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center space-x-2">
-          <Button variant="ghost" size="icon" className="rounded-full">
+        <div className="flex items-center space-x-2">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="rounded-full text-foreground/90 hover:bg-accent/80 hover:text-foreground" 
+            aria-label="Cart"
+          >
             <ShoppingCart className="h-5 w-5" />
-            <span className="sr-only">Cart</span>
           </Button>
-          <Button variant="ghost" size="icon" className="rounded-full">
+          <Button variant="ghost" size="icon" className="rounded-full hover:bg-accent/50" aria-label="Account">
             <User className="h-5 w-5" />
-            <span className="sr-only">Account</span>
           </Button>
-          <a href="tel:08060147046" className="ml-2">
-            <Button className="rounded-full bg-primary hover:bg-primary/90">
-              <Phone className="mr-2 h-4 w-4" />
-              Order Now
-            </Button>
-          </a>
+          <div className="hidden lg:block">
+            <OrderButton />
+          </div>
         </div>
 
         <div className="flex items-center md:hidden space-x-2">
@@ -133,18 +142,34 @@ export function Navigation() {
       {/* Mobile Navigation */}
       <div
         className={cn(
-          'md:hidden fixed inset-0 bg-background/95 backdrop-blur-sm z-40 transition-all duration-300 ease-in-out',
+          'md:hidden fixed inset-0 bg-background/95 backdrop-blur-sm z-40 transition-all duration-300 ease-in-out overflow-y-auto',
           mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none',
-          'pt-24 px-4'
+          'pt-20 pb-8 px-4'
         )}
       >
-        <div className="bg-card rounded-xl p-6 shadow-xl border">
-          <nav className="space-y-2">
+        <div className="bg-card rounded-xl p-6 shadow-xl border max-h-[80vh] overflow-y-auto">
+          {/* Quick Actions */}
+          <div className="grid grid-cols-2 gap-3 mb-6">
+            <Button asChild size="sm" className="gap-2">
+              <a href="tel:+2348060147046">
+                <Phone className="h-4 w-4" />
+                Call Us
+              </a>
+            </Button>
+            <Button asChild size="sm" variant="outline" className="gap-2">
+              <a href="mailto:genjoshsnr@gmail.com?subject=Cake%20Inquiry">
+                <Mail className="h-4 w-4" />
+                Email Us
+              </a>
+            </Button>
+          </div>
+          
+          <nav className="space-y-1">
             {navigation.map((item) => (
               <div key={item.href}>
                 {item.dropdown ? (
                   <div className="space-y-1">
-                    <div className="px-4 py-3 text-base font-medium text-foreground/90">
+                    <div className="px-3 py-2.5 text-base font-medium text-foreground/90 rounded-lg">
                       {item.name}
                     </div>
                     <div className="pl-4 space-y-1">
@@ -184,18 +209,33 @@ export function Navigation() {
               </div>
             ))}
           </nav>
-          <div className="mt-6 pt-4 border-t border-border">
+          <div className="mt-6 pt-4 border-t border-border space-y-4">
             <div className="space-y-3">
-              <Button className="w-full" size="lg" variant="outline">
-                <User className="mr-2 h-4 w-4" />
-                My Account
+              <Button asChild className="w-full" size="lg" variant="outline">
+                <Link href="/account">
+                  <User className="mr-2 h-4 w-4" />
+                  My Account
+                </Link>
+              </Button>
+              <Button asChild className="w-full" size="lg">
+                <Link href="/custom-cake">
+                  <Cake className="mr-2 h-4 w-4" />
+                  Order Now
+                </Link>
               </Button>
               <a 
-                href="tel:08060147046" 
+                href="tel:+2348060147046" 
                 className="inline-flex items-center justify-center w-full rounded-md bg-primary px-4 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
               >
                 <Phone className="mr-2 h-4 w-4" />
-                Call Us: 08060147046
+                Call Us: +234 806 014 7046
+              </a>
+              <a 
+                href="mailto:genjoshsnr@gmail.com?subject=Cake%20Inquiry" 
+                className="inline-flex items-center justify-center w-full rounded-md border border-input bg-background px-4 py-3 text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+              >
+                <Mail className="mr-2 h-4 w-4" />
+                Email Us
               </a>
             </div>
             <div className="mt-4 text-sm text-muted-foreground text-center">

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Instagram, ChevronRight, Phone, Calendar } from 'lucide-react';
 import Link from 'next/link';
-import { getOptimizedImagePath } from '@/lib/image-utils';
+import { OptimizedImage } from '@/components/ui/optimized-image';
 
 export function MeetJoshua() {
   return (
@@ -27,10 +27,13 @@ export function MeetJoshua() {
           <div className="relative w-64 h-64 md:w-80 md:h-80">
             <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-lg animate-tilt"></div>
             <div className="relative h-full w-full rounded-full overflow-hidden border-4 border-white shadow-2xl">
-              <img
-                src={getOptimizedImagePath("/josh.jpg")}
+              <OptimizedImage
+                src="/baker-Joshua-potrait.png"
                 alt="Joshua Okwukwem Ogugua - Master Baker & Founder"
-                className="h-full w-full object-cover"
+                containerClassName="h-full w-full"
+                className="object-cover"
+                fill
+                priority
               />
             </div>
           </div>

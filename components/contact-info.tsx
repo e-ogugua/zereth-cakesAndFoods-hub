@@ -14,8 +14,8 @@ export function ContactInfo({
     {
       icon: <Phone className="h-5 w-5" />,
       label: 'Call Us',
-      value: '08060147046',
-      href: 'tel:08060147046',
+      value: '+234 806 014 7046',
+      href: 'tel:+2348060147046',
     },
     {
       icon: <Mail className="h-5 w-5" />,

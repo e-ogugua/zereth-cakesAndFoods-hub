@@ -5,7 +5,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import {
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Progress } from "@/components/ui/progress"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { 
   DollarSign,
   ShoppingBag,
   Star,
@@ -17,6 +21,7 @@ import {
   Eye,
   MessageSquare,
 } from "lucide-react"
+import { OptimizedImage } from "@/components/ui/optimized-image"
 
 // Sample data - in a real app, this would come from API
 const dashboardData = {
@@ -310,10 +315,11 @@ export default function BakerDashboard() {
                   {dashboardData.products.map((product) => (
                     <Card key={product.id}>
                       <div className="aspect-square overflow-hidden rounded-t-lg">
-                        <img
-                          src={product.image || "/placeholder.svg"}
+                        <OptimizedImage
+                          src={product.image ? product.image.replace(/^\//, '') : "placeholder.svg"}
                           alt={product.name}
-                          className="w-full h-full object-cover"
+                          containerClassName="h-full w-full"
+                          className="object-cover"
                         />
                       </div>
                       <CardContent className="p-4">
