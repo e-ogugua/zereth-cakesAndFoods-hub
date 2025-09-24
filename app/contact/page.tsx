@@ -79,7 +79,7 @@ export default function ContactPage() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/30 to-primary/90" />
           <Image 
-            src={getOptimizedImagePath("/baker-mike-workspace.jpg")} 
+            src={getOptimizedImagePath("/baker-mike-workspace.webp")} 
             alt="Contact Us - Zereth Cakes Hub" 
             fill 
             className="object-cover mix-blend-overlay" 

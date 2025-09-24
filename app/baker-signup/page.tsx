@@ -528,8 +528,6 @@ export default function BakerSignupPage() {
           </Button>
         </div>
       </main>
-
-      <Footer />
     </div>
   )
 }

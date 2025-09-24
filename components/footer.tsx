@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link"
+import Image from "next/image"
 import { Facebook, Instagram, MapPin, Phone, Mail } from "lucide-react"
 
 export function Footer() {
@@ -13,8 +14,14 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center">
-                <span className="text-primary font-bold text-xl">Z</span>
+              <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center overflow-hidden">
+                <Image
+                  src="/optimized/Zereth-logo2.webp"
+                  alt="Zereth Cakes Hub"
+                  width={48}
+                  height={48}
+                  className="object-contain w-full h-full"
+                />
               </div>
               <div>
                 <h3 className="font-bold text-xl text-white">Zereth</h3>

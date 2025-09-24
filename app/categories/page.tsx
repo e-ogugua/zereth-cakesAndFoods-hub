@@ -297,8 +297,6 @@ export default function CategoriesPage() {
           </div>
         )}
       </main>
-
-      <Footer />
     </div>
   )
 }

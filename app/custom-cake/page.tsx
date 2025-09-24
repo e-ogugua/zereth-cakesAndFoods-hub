@@ -26,7 +26,6 @@ export default function CustomCakePage() {
       <main className="max-w-7xl mx-auto px-4 py-8 -mt-16 relative z-10">
         <CakeConfigurator />
       </main>
-      <Footer />
     </div>
   )
 }

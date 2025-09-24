@@ -90,13 +90,11 @@ export default function CheckoutPage() {
                       <ArrowLeft className="h-4 w-4 mr-2" />
                       Continue Shopping
                     </Link>
-                  </Button>
                 </div>
               </div>
             </CardContent>
           </Card>
         </main>
-        <Footer />
       </div>
     )
   }
@@ -119,8 +117,6 @@ export default function CheckoutPage() {
 
         <CheckoutForm items={sampleItems} subtotal={subtotal} onPaymentComplete={handlePaymentComplete} />
       </main>
-
-      <Footer />
     </div>
   )
 }

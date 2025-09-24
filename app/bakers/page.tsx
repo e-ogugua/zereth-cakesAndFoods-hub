@@ -33,7 +33,7 @@ const bakers = [
     isVerified: true,
     deliveryZones: ["Eastside", "Westside", "Central"],
     avatar: "/optimized/baker-mike-portrait.webp",
-    coverImage: "/optimized/baker-mike-portrait.webp",
+    coverImage: "/optimized/baker-mike-workspace.webp",
     featured: false,
   },
   {
@@ -48,7 +48,7 @@ const bakers = [
     isVerified: true,
     deliveryZones: ["Northside", "Downtown", "Suburbs"],
     avatar: "/optimized/baker-emma-portrait.webp",
-    coverImage: "/optimized/baker-emma-portrait.webp",
+    coverImage: "/optimized/baker-emma-workspace.webp",
     featured: true,
   },
 ]
@@ -171,8 +171,6 @@ export default function BakersPage() {
           </div>
         </div>
       </main>
-
-      <Footer />
     </div>
   )
 }
