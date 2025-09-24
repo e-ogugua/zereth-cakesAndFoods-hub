@@ -1,0 +1,13 @@
+./app/bakers/page.tsx
+./app/contact/page.tsx
+./app/gallery/page.tsx
+./app/home-client.tsx
+./app/services/page.tsx
+./components/author-image.tsx
+./components/featured-categories.tsx
+./components/hero-section.tsx
+./components/hero.tsx
+./components/logo.tsx
+./components/testimonials.tsx
+./components/ui/Image.tsx
+./components/ui/optimized-image.tsx
