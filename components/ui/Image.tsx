@@ -20,7 +20,7 @@ export const CustomImage = forwardRef<HTMLDivElement, CustomImageProps>(
     width,
     height,
     static: isStatic = false,
-    unoptimized = true, // Always unoptimized since we're handling optimization manually
+    unoptimized = false, // Set to false by default for proper optimization
     ...props
   }, ref) => {
     // Handle static file paths

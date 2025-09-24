@@ -1,18 +1,19 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Sparkles, Clock, Shield, Phone, Mail } from "lucide-react"
-import { OptimizedImage } from "@/components/ui/optimized-image"
+import Image from "next/image"
 
 export function Hero() {
   return (
     <section className="relative bg-gradient-to-br from-background via-muted/30 to-background py-20 px-4 overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0">
-        <OptimizedImage 
-          src="subtle-cake-pattern.jpg"
+        <Image
+          src="/optimized/subtle-cake-pattern.webp"
           alt=""
           aria-hidden="true"
-          className="opacity-5"
+          fill
+          className="opacity-5 object-cover"
           priority
         />
       </div>
@@ -85,17 +86,19 @@ export function Hero() {
 
           {/* Hero image */}
           <div className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl">
-            <OptimizedImage
-              src="beautiful-custom-wedding-cake-elegant-design.jpg"
+            <Image
+              src="/optimized/beautiful-custom-wedding-cake-elegant-design.webp"
               alt="Beautiful custom wedding cake with elegant design"
-              containerClassName="h-full"
-              overlayClassName="bg-gradient-to-t from-background/90 via-background/50 to-transparent"
+              fill
+              className="object-cover"
               priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-transparent" />
             <p className="absolute bottom-4 left-4 text-sm text-muted-foreground bg-background/80 px-3 py-1 rounded-full">
               Made just for you
             </p>
-            
+
             <div className="absolute bottom-6 right-6 bg-background/95 backdrop-blur-sm rounded-lg p-4 shadow-lg">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center">

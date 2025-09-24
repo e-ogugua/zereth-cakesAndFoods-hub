@@ -190,9 +190,13 @@ export function OrderForm() {
           placeholder="Describe the design, colors, theme, and any specific details you have in mind..."
           rows={4}
           {...form.register('designDescription')}
-          error={form.formState.errors.designDescription?.message}
           className={form.formState.errors.designDescription?.message ? 'border-destructive' : ''}
         />
+        {form.formState.errors.designDescription && (
+          <p className="text-sm text-destructive">
+            {form.formState.errors.designDescription.message}
+          </p>
+        )}
       </div>
       
       <div className="space-y-2">

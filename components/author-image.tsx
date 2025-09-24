@@ -1,8 +1,7 @@
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { getOptimizedImagePath } from '@/lib/image-utils';
+import Image from 'next/image';
 
 type AuthorImageProps = {
   className?: string;
@@ -30,12 +29,12 @@ export function AuthorImage({
         className={`relative rounded-full overflow-hidden border-4 border-background shadow-lg ${sizeClasses[size]}`}
       >
         <Image
-          src={getOptimizedImagePath("/josh.jpg")}
+          src="/optimized/baker-Joshua-potrait.webp"
           alt="Joshua Okwukwem Ogugua - Founder of Zereth Cakes Hub"
           fill
-          sizes="(max-width: 768px) 100vw, 50vw"
           className="object-cover"
           priority
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
       </motion.div>
 

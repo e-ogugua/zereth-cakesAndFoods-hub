@@ -5,8 +5,9 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { Footer } from "@/components/footer";
 import { Textarea } from '@/components/ui/textarea';
+import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
 import { Clock, Instagram, Facebook } from 'lucide-react';
 import { getOptimizedImagePath } from '@/lib/image-utils';
@@ -99,13 +100,13 @@ export default function ContactPage() {
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-1.5 rounded-full mb-6">
               <span className="text-sm font-medium text-yellow-100">Get in Touch</span>
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 font-serif tracking-tight text-white drop-shadow-lg [text-shadow:_0_2px_10px_rgba(0,0,0,0.3)] leading-tight">
-              Let's Create Something <span className="text-yellow-300">Sweet Together</span>
+            <h1 className="hero-title">
+              Let's Create Something <span className="hero-accent">Sweet Together</span>
             </h1>
-            <p className="text-xl text-white/90 max-w-2xl mx-auto mb-8 [text-shadow:_0_1px_3px_rgba(0,0,0,0.3)]">
+            <p className="hero-subtitle">
               Have questions or special requests? Our team is here to help bring your vision to life.
             </p>
-            <p className="text-xl md:text-2xl text-white/90 font-medium [text-shadow:_0_1px_2px_rgb(0_0_0_/_60%)]">
+            <p className="hero-subtitle">
               Get in touch to discuss your custom cake order
             </p>
           </motion.div>

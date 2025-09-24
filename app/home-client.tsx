@@ -6,8 +6,15 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { OrderButton } from '@/components/order-button';
 import { Cake, Heart, Star, Calendar, Phone, Clock, Instagram, Facebook, Youtube, ChevronRight, Sparkles } from 'lucide-react';
-import { getOptimizedImagePath } from '@/lib/image-utils';
 import { Testimonials } from '@/components/testimonials';
+import { FeaturedCategories } from '@/components/featured-categories';
+import { MeetJoshua } from '@/components/meet-joshua';
+import { OurStory } from '@/components/our-story';
+import { TrustIndicators } from '@/components/trust-indicators';
+import { FinalCTA } from '@/components/final-cta';
+import { Newsletter } from '@/components/newsletter';
+import { TrendingProducts } from '@/components/trending-products';
+import { ProductShowcase } from '@/components/product-showcase';
 
 export function HomeClient() {
   return (
@@ -17,7 +24,7 @@ export function HomeClient() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40" />
           <Image
-            src={getOptimizedImagePath("/baker-joshua-workspace.jpg")}
+            src="/optimized/baker-sarah-portrait.webp"
             alt="Professional Baker Preparing Cakes"
             fill
             className="object-cover"
@@ -36,24 +43,20 @@ export function HomeClient() {
               <Sparkles className="h-4 w-4 text-yellow-300" />
               <span className="text-sm font-medium text-yellow-100">Crafting Sweet Memories Since 2015</span>
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 font-serif tracking-tight leading-tight">
-              <span className="text-overlay px-4 py-2">
-                Artisanal Cakes & Pastries <span className="text-yellow-300">Made with Love</span>
-              </span>
+            <h1 className="hero-title">
+              Artisanal Cakes & Pastries <span className="hero-accent">Made with Love</span>
             </h1>
-            <p className="text-xl md:text-2xl max-w-2xl mx-auto mb-8">
-              <span className="text-overlay px-4 py-2 inline-block">
-                Handcrafted with premium ingredients and baked to perfection for your special moments.
-              </span>
+            <p className="hero-subtitle">
+              Handcrafted with premium ingredients and baked to perfection for your special moments.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <OrderButton size="lg" className="text-lg px-8 py-6">
+              <OrderButton size="lg" className="hero-button">
                 Order Now
               </OrderButton>
               <Button
                 variant="outline"
                 size="lg"
-                className="text-lg px-8 py-6 bg-white/10 border-white/20 text-white hover:bg-white/20 hover:text-white backdrop-blur-sm"
+                className="hero-button-outline"
                 asChild
               >
                 <Link href="/custom-cake">
@@ -65,8 +68,29 @@ export function HomeClient() {
         </div>
       </div>
 
-      {/* Rest of the home page content */}
-      {/* ... */}
+      {/* Trust Indicators */}
+      <TrustIndicators />
+
+      {/* Trending Products */}
+      <TrendingProducts />
+
+      {/* Complete Product Catalog */}
+      <ProductShowcase />
+
+      {/* Our Story */}
+      <OurStory />
+
+      {/* Meet Joshua */}
+      <MeetJoshua />
+
+      {/* Testimonials */}
+      <Testimonials />
+
+      {/* Newsletter */}
+      <Newsletter />
+
+      {/* Final CTA */}
+      <FinalCTA />
     </div>
   );
 }

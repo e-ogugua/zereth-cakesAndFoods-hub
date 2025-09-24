@@ -53,21 +53,19 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[50vh] flex items-center justify-center bg-muted">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-black/50" />
-          <Image
-            src={getOptimizedImagePath("/artisanal-pastries-fresh-baked.jpg")}
-            alt="Our Services"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-        
-        <div className="container relative z-10 text-center text-white px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Services</h1>
-          <p className="text-xl">Delicious creations for every occasion</p>
+      <section className="hero-section relative h-[50vh] flex items-center justify-center bg-muted">
+        <div className="hero-overlay" />
+        <Image
+          src={getOptimizedImagePath("/artisanal-pastries-fresh-baked.jpg")}
+          alt="Our Services"
+          fill
+          className="object-cover"
+          priority
+        />
+
+        <div className="hero-content">
+          <h1 className="hero-title">Our Services</h1>
+          <p className="hero-subtitle">Delicious creations for every occasion</p>
         </div>
       </section>
 
@@ -126,7 +124,7 @@ export default function ServicesPage() {
             <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
               <Cake className="h-8 w-8 text-primary" />
             </div>
-            <h2 className="text-3xl font-bold mb-4">Custom Orders Welcome</h2>
+            <h2 className="text-3xl font-bold mb-4 hero-text">Custom Orders Welcome</h2>
             <p className="text-muted-foreground mb-8">
               Have something special in mind? We love creating custom orders tailored to your specific needs and preferences. 
               Contact us to discuss your ideas and we'll bring them to life!

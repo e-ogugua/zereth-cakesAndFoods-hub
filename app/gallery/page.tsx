@@ -10,18 +10,42 @@ import { getOptimizedImagePath } from '@/lib/image-utils';
 
 // Sample gallery items - replace with your actual images
 const galleryItems = [
-  { id: 1, category: 'wedding', src: getOptimizedImagePath('/beautiful-custom-wedding-cake-elegant-design.jpg'), alt: 'Elegant Wedding Cake' },
-  { id: 2, category: 'birthday', src: getOptimizedImagePath('/birthday.jpeg'), alt: 'Colorful Birthday Cake' },
-  { id: 3, category: 'bento', src: getOptimizedImagePath('/birthday2.jpeg'), alt: 'Cute Bento Cake' },
-  { id: 4, category: 'wedding', src: getOptimizedImagePath('/birthday-cake-2.jpeg'), alt: 'Floral Wedding Cake' },
-  { id: 5, category: 'custom', src: getOptimizedImagePath('/birthay-cake-1.jpeg'), alt: 'Custom Design Cake' },
-  { id: 6, category: 'birthday', src: getOptimizedImagePath('/cake-size-6-inch.jpg'), alt: 'Kids Birthday Cake' },
-  { id: 7, category: 'bento', src: getOptimizedImagePath('/cake-size-10-inch.jpg'), alt: 'Minimalist Bento Cake' },
-  { id: 8, category: 'custom', src: getOptimizedImagePath('/cake-size-12-inch.jpg'), alt: 'Themed Custom Cake' },
-  { id: 9, category: 'wedding', src: getOptimizedImagePath('/artisanal-croissants-selection.jpg'), alt: 'Rustic Wedding Cake' },
-  { id: 10, category: 'bento', src: getOptimizedImagePath('/artisanal-pastries-fresh-baked.jpg'), alt: 'Elegant Bento Cake' },
-  { id: 11, category: 'birthday', src: getOptimizedImagePath('/baker-emma-workspace.jpg'), alt: 'Adult Birthday Cake' },
-  { id: 12, category: 'custom', src: getOptimizedImagePath('/baker-joshua-workspace.jpg'), alt: 'Special Design Cake' },
+  { id: 1, category: 'wedding', src: '/optimized/beautiful-custom-wedding-cake-elegant-design.webp', alt: 'Elegant Wedding Cake' },
+  { id: 2, category: 'birthday', src: '/optimized/birthday.webp', alt: 'Colorful Birthday Cake' },
+  { id: 3, category: 'bento', src: '/optimized/birthday2.webp', alt: 'Cute Bento Cake' },
+  { id: 4, category: 'wedding', src: '/optimized/wedding-cake-elegant-multi-tier.webp', alt: 'Floral Wedding Cake' },
+  { id: 5, category: 'custom', src: '/optimized/birthay-cake-1.webp', alt: 'Custom Design Cake' },
+  { id: 6, category: 'birthday', src: '/optimized/cake-size-6-inch.webp', alt: 'Kids Birthday Cake' },
+  { id: 7, category: 'bento', src: '/optimized/cake-size-10-inch.webp', alt: 'Minimalist Bento Cake' },
+  { id: 8, category: 'custom', src: '/optimized/cake-size-12-inch.webp', alt: 'Themed Custom Cake' },
+  { id: 9, category: 'wedding', src: '/optimized/wedding.webp', alt: 'Rustic Wedding Cake' },
+  { id: 10, category: 'bento', src: '/optimized/artisanal-pastries-fresh-baked.webp', alt: 'Elegant Bento Cake' },
+  { id: 11, category: 'birthday', src: '/optimized/baker-emma-workspace.webp', alt: 'Adult Birthday Cake' },
+  { id: 12, category: 'custom', src: '/optimized/baker-Joshua-potrait.webp', alt: 'Special Design Cake' },
+  { id: 13, category: 'wedding', src: '/optimized/weddingcake.webp', alt: 'Elegant Wedding Cake' },
+  { id: 14, category: 'birthday', src: '/optimized/rainbow-unicorn-birthday-cake.webp', alt: 'Unicorn Birthday Cake' },
+  { id: 15, category: 'custom', src: '/optimized/chocolate-ganache-celebration-cake.webp', alt: 'Chocolate Celebration Cake' },
+  { id: 16, category: 'wedding', src: '/optimized/elegant-wedding-cake-three-tier.webp', alt: 'Three Tier Wedding Cake' },
+  { id: 17, category: 'bento', src: '/optimized/gourmet-cupcakes-assorted-flavors.webp', alt: 'Assorted Cupcakes' },
+  { id: 18, category: 'custom', src: '/optimized/gourmet-cupcakes-dozen-assorted.webp', alt: 'Dozen Cupcakes' },
+  { id: 19, category: 'birthday', src: '/optimized/mothers-cake.webp', alt: 'Mother\'s Day Cake' },
+  { id: 20, category: 'wedding', src: '/optimized/wedding-cake1.webp', alt: 'Wedding Cake Design' },
+  { id: 21, category: 'custom', src: '/optimized/other-designs.webp', alt: 'Custom Design' },
+  { id: 22, category: 'bento', src: '/optimized/other2.webp', alt: 'Specialty Cake' },
+  { id: 23, category: 'wedding', src: '/optimized/corporate-cake-professional-design.webp', alt: 'Corporate Cake' },
+  { id: 24, category: 'birthday', src: '/optimized/corporate-logo-cake-professional.webp', alt: 'Logo Cake' },
+  { id: 25, category: 'custom', src: '/optimized/decoration-elegant.webp', alt: 'Elegant Decoration' },
+  { id: 26, category: 'wedding', src: '/optimized/decoration-floral.webp', alt: 'Floral Decoration' },
+  { id: 27, category: 'bento', src: '/optimized/decoration-modern.webp', alt: 'Modern Decoration' },
+  { id: 28, category: 'custom', src: '/optimized/decoration-themed.webp', alt: 'Themed Decoration' },
+  { id: 29, category: 'birthday', src: '/optimized/decoration-vintage.webp', alt: 'Vintage Decoration' },
+  { id: 30, category: 'wedding', src: '/optimized/decoration-whimsical.webp', alt: 'Whimsical Decoration' },
+  { id: 31, category: 'custom', src: '/optimized/savory-baked-goods-selection.webp', alt: 'Savory Selection' },
+  { id: 32, category: 'bento', src: '/optimized/artisanal-croissants-selection.webp', alt: 'Croissant Selection' },
+  { id: 33, category: 'wedding', src: '/optimized/cake-size-two-tier.webp', alt: 'Two Tier Cake' },
+  { id: 34, category: 'birthday', src: '/optimized/cake-size-three-tier.webp', alt: 'Three Tier Cake' },
+  { id: 35, category: 'custom', src: '/optimized/cake-size-8-inch.webp', alt: '8 Inch Cake' },
+  { id: 36, category: 'wedding', src: '/optimized/subtle-cake-pattern.webp', alt: 'Subtle Pattern Cake' },
 ];
 
 const categories = [
@@ -43,21 +67,19 @@ export default function GalleryPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[50vh] flex items-center justify-center bg-muted">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-black/50" />
-          <Image
-            src={getOptimizedImagePath("/beautiful-custom-wedding-cake-elegant-design.jpg")}
-            alt="Our Gallery"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-        
-        <div className="container relative z-10 text-center text-white px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Gallery</h1>
-          <p className="text-xl">A showcase of our delicious creations</p>
+      <section className="hero-section relative h-[50vh] flex items-center justify-center bg-muted">
+        <div className="hero-overlay" />
+        <Image
+          src="/optimized/beautiful-custom-wedding-cake-elegant-design.webp"
+          alt="Our Gallery"
+          fill
+          className="object-cover"
+          priority
+        />
+
+        <div className="hero-content">
+          <h1 className="hero-title">Our Gallery</h1>
+          <p className="hero-subtitle">A showcase of our delicious creations</p>
         </div>
       </section>
 
@@ -121,8 +143,8 @@ export default function GalleryPage() {
             <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
               <Cake className="h-8 w-8" />
             </div>
-            <h2 className="text-3xl font-bold mb-6">Inspired by Our Creations?</h2>
-            <p className="text-xl mb-8">
+            <h2 className="text-3xl font-bold mb-6 hero-text">Inspired by Our Creations?</h2>
+            <p className="text-xl mb-8 hero-text">
               Let's create something amazing together for your next special occasion!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

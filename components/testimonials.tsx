@@ -12,7 +12,7 @@ const testimonials = [
     role: 'Wedding Planner',
     content: 'The wedding cake Zereth Cakes created was absolutely stunning and tasted even better than it looked! Our clients were thrilled with both the design and flavor.',
     rating: 5,
-    image: '/baker-sarah-portrait.jpg'
+    image: '/optimized/baker-sarah-portrait.webp'
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const testimonials = [
     role: 'Corporate Event Coordinator',
     content: 'We order cakes for all our corporate events from Zereth Cakes. The quality is consistently excellent, and they always deliver on time with beautiful presentation.',
     rating: 5,
-    image: '/baker-mike-workspace.jpg'
+    image: '/optimized/baker-mike-portrait.webp'
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const testimonials = [
     role: 'Satisfied Customer',
     content: 'I\'ve ordered multiple birthday cakes from Zereth Cakes, and they never disappoint. The attention to detail and the taste are always exceptional.',
     rating: 4,
-    image: '/baker-emma-workspace.jpg'
+    image: '/optimized/baker-emma-portrait.webp'
   },
   {
     id: 4,
@@ -36,7 +36,7 @@ const testimonials = [
     role: 'Food Critic',
     content: 'As someone who has tasted cakes from all over the world, I can confidently say Zereth Cakes stands out for their perfect balance of flavors and textures.',
     rating: 5,
-    image: '/baker-sarah-workspace.jpg'
+    image: '/optimized/beautiful-custom-wedding-cake-elegant-design.webp'
   }
 ];
 
@@ -86,7 +86,7 @@ export function Testimonials() {
               <div className="flex items-center gap-4 mb-6">
                 <div className="relative h-14 w-14 rounded-full overflow-hidden border-2 border-white shadow-md">
                   <Image
-                    src={getOptimizedImagePath(testimonial.image)}
+                    src={testimonial.image}
                     alt={testimonial.name}
                     fill
                     className="object-cover"
@@ -95,7 +95,7 @@ export function Testimonials() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">{testimonial.name}</h4>
-                  <p className="text-sm text-muted-foreground/90">{testimonial.role}</p>
+                  <p className="text-sm muted-text/90">{testimonial.role}</p>
                 </div>
               </div>
 

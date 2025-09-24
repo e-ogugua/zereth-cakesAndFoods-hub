@@ -6,7 +6,7 @@ import { getOptimizedImagePath } from '@/lib/image-utils';
 
 interface LogoProps {
   className?: string;
-  variant?: 'light' | 'dark' | 'default';
+  variant?: 'light' | 'dark' | 'default' | 'header' | 'footer' | 'nav';
   size?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
@@ -24,6 +24,12 @@ export function Logo({
 
   const logoVariant = variant === 'default' 
     ? (typeof window !== 'undefined' && document.documentElement.classList.contains('dark') ? 'dark' : 'light')
+    : variant === 'header' 
+    ? 'light'  // Header always uses light logo
+    : variant === 'footer' 
+    ? 'dark'   // Footer always uses dark logo
+    : variant === 'nav'
+    ? 'light'  // Navigation uses light logo (Zereth-logo1)
     : variant;
 
   const logoSource = logoVariant === 'dark' 

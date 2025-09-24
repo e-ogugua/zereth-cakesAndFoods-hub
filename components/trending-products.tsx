@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Star, Heart, ShoppingCart } from "lucide-react"
-import { OptimizedImage } from "@/components/ui/optimized-image"
+import Image from "next/image"
 
 const trendingProducts = [
   {
@@ -11,11 +11,11 @@ const trendingProducts = [
     name: "Elegant Three-Tier Wedding Cake",
     baker: "Sarah's Sweet Creations",
     bakerId: "sarah-baker",
-    price: 450,
+    price: { USD: 450, GBP: 350, NGN: 650000 },
     currency: "USD",
     rating: 4.9,
     reviewCount: 127,
-    image: "/elegant-wedding-cake-three-tier.jpg",
+    image: "/optimized/elegant-wedding-cake-three-tier.webp",
     category: "Wedding Cakes",
     preparationTime: "72 hours",
     isCustomizable: true,
@@ -25,11 +25,11 @@ const trendingProducts = [
     name: "Rainbow Unicorn Birthday Cake",
     baker: "Mike's Sweet Cakes",
     bakerId: "mike-sweetcakes",
-    price: 85,
+    price: { USD: 85, GBP: 65, NGN: 120000 },
     currency: "USD",
     rating: 4.7,
     reviewCount: 89,
-    image: "/rainbow-unicorn-birthday-cake.jpg",
+    image: "/optimized/rainbow-unicorn-birthday-cake.webp",
     category: "Birthday Cakes",
     preparationTime: "24 hours",
     isCustomizable: true,
@@ -39,11 +39,11 @@ const trendingProducts = [
     name: "Gourmet Cupcake Dozen",
     baker: "Emma's Delightful Treats",
     bakerId: "emma-delights",
-    price: 36,
+    price: { USD: 36, GBP: 28, NGN: 52000 },
     currency: "USD",
     rating: 4.8,
     reviewCount: 156,
-    image: "/gourmet-cupcakes-dozen-assorted.jpg",
+    image: "/optimized/gourmet-cupcakes-dozen-assorted.webp",
     category: "Cupcakes",
     preparationTime: "4 hours",
     isCustomizable: false,
@@ -53,15 +53,99 @@ const trendingProducts = [
     name: "Chocolate Ganache Celebration Cake",
     baker: "Sarah's Sweet Creations",
     bakerId: "sarah-baker",
-    price: 125,
+    price: { USD: 125, GBP: 95, NGN: 180000 },
     currency: "USD",
     rating: 4.9,
     reviewCount: 203,
-    image: "/chocolate-ganache-celebration-cake.jpg",
+    image: "/optimized/chocolate-ganache-celebration-cake.webp",
     category: "Birthday Cakes",
     preparationTime: "48 hours",
     isCustomizable: true,
   },
+  {
+    id: "5",
+    name: "Beautiful Custom Wedding Cake",
+    baker: "Joshua's Masterpiece",
+    bakerId: "joshua-masterpiece",
+    price: { USD: 380, GBP: 290, NGN: 550000 },
+    currency: "USD",
+    rating: 4.8,
+    reviewCount: 94,
+    image: "/optimized/beautiful-custom-wedding-cake-elegant-design.webp",
+    category: "Wedding Cakes",
+    preparationTime: "72 hours",
+    isCustomizable: true,
+  },
+  {
+    id: "6",
+    name: "Mother's Day Special Cake",
+    baker: "Emma's Delightful Treats",
+    bakerId: "emma-delights",
+    price: { USD: 95, GBP: 75, NGN: 135000 },
+    currency: "USD",
+    rating: 4.9,
+    reviewCount: 167,
+    image: "/optimized/mothers-cake.webp",
+    category: "Birthday Cakes",
+    preparationTime: "48 hours",
+    isCustomizable: true,
+  },
+  {
+    id: "7",
+    name: "Corporate Logo Cake",
+    baker: "Mike's Sweet Cakes",
+    bakerId: "mike-sweetcakes",
+    price: { USD: 150, GBP: 115, NGN: 215000 },
+    currency: "USD",
+    rating: 4.7,
+    reviewCount: 78,
+    image: "/optimized/corporate-logo-cake-professional.webp",
+    category: "Corporate Events",
+    preparationTime: "48 hours",
+    isCustomizable: true,
+  },
+  {
+    id: "8",
+    name: "Artisanal Pastries Selection",
+    baker: "Sarah's Sweet Creations",
+    bakerId: "sarah-baker",
+    price: { USD: 45, GBP: 35, NGN: 65000 },
+    currency: "USD",
+    rating: 4.6,
+    reviewCount: 112,
+    image: "/optimized/artisanal-pastries-fresh-baked.webp",
+    category: "Pastries",
+    preparationTime: "6 hours",
+    isCustomizable: false,
+  },
+  {
+    id: "9",
+    name: "Bento Cake Collection",
+    baker: "Emma's Delightful Treats",
+    bakerId: "emma-delights",
+    price: { USD: 25, GBP: 20, NGN: 36000 },
+    currency: "USD",
+    rating: 4.8,
+    reviewCount: 89,
+    image: "/optimized/birthday2.webp",
+    category: "Bento Cakes",
+    preparationTime: "12 hours",
+    isCustomizable: true,
+  },
+  {
+    id: "10",
+    name: "Savory Baked Goods Selection",
+    baker: "Joshua's Masterpiece",
+    bakerId: "joshua-masterpiece",
+    price: { USD: 55, GBP: 42, NGN: 78000 },
+    currency: "USD",
+    rating: 4.7,
+    reviewCount: 134,
+    image: "/optimized/savory-baked-goods-selection.webp",
+    category: "Savory Items",
+    preparationTime: "8 hours",
+    isCustomizable: false,
+  }
 ]
 
 export function TrendingProducts() {
@@ -88,12 +172,11 @@ export function TrendingProducts() {
               className="group hover:shadow-lg transition-all duration-300 overflow-hidden border-0 bg-background"
             >
               <div className="relative h-48 overflow-hidden">
-                <OptimizedImage
-                  src={product.image.replace(/^\//, '') || "placeholder.svg"}
+                <Image
+                  src={product.image}
                   alt={product.name}
-                  containerClassName="h-full w-full"
-                  className="group-hover:scale-105 transition-transform duration-300"
-                  overlayClassName="bg-gradient-to-t from-black/10 to-transparent"
+                  fill
+                  className="group-hover:scale-105 transition-transform duration-300 object-cover"
                 />
                 <div className="absolute top-2 right-2 flex flex-col gap-2">
                   <Button variant="secondary" size="icon" className="h-8 w-8 rounded-full bg-background/80 backdrop-blur-sm hover:bg-background/100">
@@ -118,7 +201,7 @@ export function TrendingProducts() {
 
                   <Link
                     href={`/bakers/${product.bakerId}`}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    className="text-sm muted-text hover:text-primary transition-colors"
                   >
                     by {product.baker}
                   </Link>
@@ -127,12 +210,17 @@ export function TrendingProducts() {
                 <div className="flex items-center gap-1 mb-2">
                   <Star className="h-4 w-4 fill-secondary text-secondary" />
                   <span className="text-sm font-medium">{product.rating}</span>
-                  <span className="text-sm text-muted-foreground">({product.reviewCount})</span>
+                  <span className="text-sm muted-text">({product.reviewCount})</span>
                 </div>
 
                 <div className="flex items-center justify-between mb-3">
-                  <div className="text-lg font-bold text-foreground">${product.price}</div>
-                  <div className="text-xs text-muted-foreground">{product.preparationTime}</div>
+                  <div className="text-lg font-bold text-foreground">
+                    ${product.price.USD}
+                    <span className="text-sm muted-text ml-1">
+                      (${product.price.GBP} GBP | ₦{product.price.NGN.toLocaleString()} NGN)
+                    </span>
+                  </div>
+                  <div className="text-xs muted-text">{product.preparationTime}</div>
                 </div>
 
                 <Button className="w-full" size="sm">

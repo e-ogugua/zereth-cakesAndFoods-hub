@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Header } from "@/components/header"
+import Image from "next/image"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -140,16 +140,24 @@ export default function CategoriesPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      {/* Hero Section */}
+      <section className="hero-section relative h-[40vh] flex items-center justify-center bg-muted">
+        <div className="hero-overlay" />
+        <Image
+          src="/optimized/cake-size-12-inch.webp"
+          alt="Browse Our Marketplace"
+          fill
+          className="object-cover"
+          priority
+        />
 
-      <main className="max-w-7xl mx-auto px-4 py-8">
-        {/* Page Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Browse Our Marketplace</h1>
-          <p className="text-lg text-muted-foreground text-pretty">
-            Discover amazing cakes and treats from talented local bakers
-          </p>
+        <div className="hero-content">
+          <h1 className="hero-title">Browse Our Marketplace</h1>
+          <p className="hero-subtitle">Discover amazing cakes and treats from talented local bakers</p>
         </div>
+      </section>
+
+      <main className="max-w-7xl mx-auto px-4 py-8 -mt-16 relative z-10">
 
         {/* Search and Filters */}
         <div className="bg-muted/30 rounded-lg p-6 mb-8">

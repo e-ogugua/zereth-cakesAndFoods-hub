@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { CheckoutForm } from "@/components/checkout/checkout-form"
 import { Card, CardContent } from "@/components/ui/card"
@@ -41,7 +40,6 @@ export default function CheckoutPage() {
   if (orderComplete) {
     return (
       <div className="min-h-screen bg-background">
-        <Header />
         <main className="max-w-4xl mx-auto px-4 py-16">
           <Card className="text-center p-8">
             <CardContent className="space-y-6">
@@ -105,8 +103,6 @@ export default function CheckoutPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
-
       <main className="max-w-7xl mx-auto px-4 py-8">
         <div className="mb-8">
           <Link

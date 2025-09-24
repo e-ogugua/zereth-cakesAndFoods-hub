@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 20 14.3% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 14.3% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14.3% 4.1%;
+    --primary: 24.6 95% 53.1%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 60 4.8% 95.9%;
+    --secondary-foreground: 24.6 95% 53.1%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 25 5.3% 44.7%;
+    --accent: 24.6 95% 53.1% / 0.1;
+    --accent-foreground: 24.6 95% 53.1%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89%;
+    --input: 0 0% 96%;
+    --ring: 24.6 95% 53.1%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 20 14.3% 4.1%;
+    --foreground: 0 0% 98%;
+    --card: 20 14.3% 4.1%;
+    --card-foreground: 0 0% 98%;
+    --popover: 20 14.3% 4.1%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 20.5 90.2% 48.2%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 12 6.5% 15.1%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 12 6.5% 15.1%;
+    --muted-foreground: 24 5.4% 63.9%;
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 72.2% 50.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 12 6.5% 15.1%;
+    --input: 12 6.5% 15.1%;
+    --ring: 24.6 95% 53.1%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  /* Enhanced text readability */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+    line-height: 1.2;
+    font-weight: 600;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+    font-weight: 700;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+    font-weight: 600;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+    font-weight: 600;
+  }
+
+  p {
+    @apply leading-relaxed;
+    font-weight: 400;
+  }
+
+  /* Better contrast for text overlays */
+  .text-overlay {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Enhanced text readability for hero sections */
+  .hero-text {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7), 0 1px 2px rgba(0, 0, 0, 0.9);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+
+  /* Better contrast for buttons on images */
+  .btn-overlay {
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Improved readability for cards */
+  .card-text {
+    @apply text-foreground/90;
+    line-height: 1.5;
+  }
+
+  /* Better contrast for muted text */
+  .muted-text {
+    @apply text-muted-foreground/80;
+  }
+
+  /* Enhanced button text */
+  .btn-text {
+    font-weight: 500;
+    letter-spacing: 0.025em;
+  }
+
+  /* Better readability for product descriptions */
+  .product-description {
+    @apply text-foreground/85;
+    line-height: 1.4;
+  }
+}
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Simple component styles */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Button styles */
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border: 1px solid var(--primary);
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+  border: 1px solid var(--secondary);
+}
+
+/* Form elements */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+/* Enhanced text visibility for dark mode */
+.hero-text {
+  @apply text-foreground drop-shadow-sm;
+}
+
+.dark .hero-text {
+  @apply text-foreground drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)];
+}
+
+/* Ensure all text is readable in dark mode */
+.dark .text-muted-foreground {
+  @apply text-foreground/80;
+}
+
+.dark .text-foreground\/60,
+.dark .text-foreground\/70,
+.dark .text-foreground\/80,
+.dark .text-foreground\/90 {
+  @apply text-foreground;
+}
+
+/* Better contrast for navigation text */
+.dark .text-foreground\/90 {
+  @apply text-foreground;
+}
+
+/* Ensure buttons are always visible */
+.dark .text-primary-foreground {
+  @apply text-white drop-shadow-sm;
+}

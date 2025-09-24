@@ -1,66 +1,74 @@
 import { cn } from "@/lib/utils"
-import Image, { ImageProps } from "next/image"
-import { forwardRef } from "react"
+import { getOptimizedImagePath } from "@/lib/image-utils"
 
-interface OptimizedImageProps extends Omit<ImageProps, 'src' | 'alt'> {
+interface OptimizedImageProps {
   src: string
   alt: string
+  className?: string
   containerClassName?: string
   overlayClassName?: string
   priority?: boolean
+  fill?: boolean
+  sizes?: string
   unoptimized?: boolean
 }
 
-export const OptimizedImage = forwardRef<HTMLDivElement, OptimizedImageProps>(
-  ({
-    src,
-    alt,
-    className,
-    containerClassName,
-    overlayClassName,
-    priority = false,
-    fill = true,
-    sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
-    unoptimized = process.env.NODE_ENV === 'development',
-    ...props
-  }, ref) => {
-    // Ensure src is properly formatted
-    const cleanSrc = src.startsWith('/') ? src : `/${src}`
-    
+export function OptimizedImage({
+  src,
+  alt,
+  className,
+  containerClassName,
+  overlayClassName,
+  priority = false,
+  fill = true,
+  sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
+  unoptimized = true,
+  ...props
+}: OptimizedImageProps) {
+  // Get the optimized image path
+  const optimizedSrc = getOptimizedImagePath(src)
+
+  // Use regular img tag for maximum compatibility
+  if (fill) {
     return (
-      <div 
-        ref={ref}
+      <div
         className={cn(
           'relative overflow-hidden',
           containerClassName
         )}
       >
-        <Image
-          src={cleanSrc}
+        <img
+          src={optimizedSrc}
           alt={alt}
-          fill={fill}
-          sizes={sizes}
           className={cn(
-            'object-cover',
+            'object-cover w-full h-full',
             className
           )}
-          priority={priority}
-          unoptimized={unoptimized}
+          loading={priority ? 'eager' : 'lazy'}
           {...props}
         />
         {/* Optional overlay for better text readability */}
         {overlayClassName && (
-          <div 
+          <div
             className={cn(
               'absolute inset-0',
               overlayClassName
-            )} 
+            )}
             aria-hidden="true"
           />
         )}
       </div>
     )
   }
-)
 
-OptimizedImage.displayName = 'OptimizedImage'
+  // For non-fill images, return regular img
+  return (
+    <img
+      src={optimizedSrc}
+      alt={alt}
+      className={cn(className)}
+      loading={priority ? 'eager' : 'lazy'}
+      {...props}
+    />
+  )
+}

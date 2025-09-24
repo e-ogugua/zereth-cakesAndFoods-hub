@@ -1,4 +1,3 @@
-import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -33,8 +32,8 @@ const bakers = [
     totalReviews: 89,
     isVerified: true,
     deliveryZones: ["Eastside", "Westside", "Central"],
-    avatar: "/baker-mike-workspace.jpg",
-    coverImage: "/baker-mike-workspace.jpg",
+    avatar: "/optimized/baker-mike-portrait.webp",
+    coverImage: "/optimized/baker-mike-portrait.webp",
     featured: false,
   },
   {
@@ -48,8 +47,8 @@ const bakers = [
     totalReviews: 156,
     isVerified: true,
     deliveryZones: ["Northside", "Downtown", "Suburbs"],
-    avatar: "/baker-emma-portrait.jpg",
-    coverImage: "/baker-emma-workspace.jpg",
+    avatar: "/optimized/baker-emma-portrait.webp",
+    coverImage: "/optimized/baker-emma-portrait.webp",
     featured: true,
   },
 ]
@@ -57,8 +56,6 @@ const bakers = [
 export default function BakersPage() {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
-
       <main className="max-w-7xl mx-auto px-4 py-8">
         <div className="text-center mb-12">
           <h1 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Meet Our Talented Bakers</h1>
