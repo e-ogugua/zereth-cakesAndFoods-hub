@@ -14,7 +14,7 @@ export function MeetJoshua() {
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
     >
-      <h3 className="text-3xl font-bold font-serif mb-8 text-center hero-text">
+      <h3 className="text-4xl font-bold font-serif mb-8 text-center text-foreground drop-shadow-md bg-background/50 px-6 py-2 rounded-lg backdrop-blur-sm">
         Meet Joshua
       </h3>
       <div className="flex flex-col lg:flex-row items-center gap-12">
@@ -46,12 +46,12 @@ export function MeetJoshua() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <div className="prose prose-lg hero-text">
-            <p className="mb-6">
-              As the founder and head baker, I personally oversee every cake that leaves our bakery. My passion for baking started at a young age, inspired by my mother's traditional recipes that have been passed down through generations.
+          <div className="prose prose-lg">
+            <p className="mb-6 text-lg leading-relaxed text-foreground font-semibold drop-shadow-sm">
+              As the founder and head baker of Zereth Cakes Hub, I personally oversee every cake that leaves our bakery. My passion for baking began at a young age, inspired by my mother's traditional recipes that have been passed down through generations in our family.
             </p>
-            <p className="mb-8">
-              When I'm not in the kitchen creating new cake designs, you can find me teaching baking classes or exploring new flavor combinations. My mission is to make every celebration special with cakes that are as unique as the people they're made for.
+            <p className="mb-8 text-lg leading-relaxed text-foreground font-semibold drop-shadow-sm">
+              When I'm not in the kitchen creating new cake designs and flavor combinations, you can find me teaching baking classes to aspiring bakers or experimenting with innovative techniques. My mission is to make every celebration truly special with cakes that are as unique and memorable as the people they're made for.
             </p>
           </div>
 
