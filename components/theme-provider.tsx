@@ -7,5 +7,16 @@ import {
 } from 'next-themes'
 
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
+  const [mounted, setMounted] = React.useState(false)
+
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    // Prevent hydration mismatch by not rendering until mounted
+    return <div style={{ visibility: 'hidden' }}>{children}</div>
+  }
+
   return <NextThemesProvider {...props}>{children}</NextThemesProvider>
 }

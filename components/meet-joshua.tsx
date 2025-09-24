@@ -13,6 +13,7 @@ export function MeetJoshua() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
+      className="py-16"
     >
       <h3 className="text-4xl font-bold font-serif mb-8 text-center text-foreground drop-shadow-md bg-background/50 px-6 py-2 rounded-lg backdrop-blur-sm">
         Meet Joshua

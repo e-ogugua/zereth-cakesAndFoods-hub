@@ -1,10 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  trailingSlash: true,
+  // Removed output: 'export' for development - use only for production static export
+  // output: 'export',
+  // trailingSlash: true,
   images: {
-    unoptimized: true
-  }
+    // Enable image optimization for better performance
+    // unoptimized: true  // Only use this for static export
+  },
+  // Disable experimental CSS optimization for now to fix the module error
+  // experimental: {
+  //   optimizeCss: true,
+  // },
 }
 
 export default nextConfig

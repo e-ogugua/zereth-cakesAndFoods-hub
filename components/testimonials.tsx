@@ -20,7 +20,7 @@ const testimonials = [
     role: 'Corporate Event Coordinator',
     content: 'We order cakes for all our corporate events from Zereth Cakes. The quality is consistently excellent, and they always deliver on time with beautiful presentation.',
     rating: 5,
-    image: '/optimized/baker-mike-portrait.webp'
+    image: '/optimized/baker-mike-workspace.webp'
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const testimonials = [
     role: 'Satisfied Customer',
     content: 'I\'ve ordered multiple birthday cakes from Zereth Cakes, and they never disappoint. The attention to detail and the taste are always exceptional.',
     rating: 4,
-    image: '/optimized/baker-emma-portrait.webp'
+    image: '/optimized/baker-emma-workspace.webp'
   },
   {
     id: 4,

@@ -4,27 +4,21 @@ export function getOptimizedImagePath(originalPath: string): string {
   if (originalPath.includes('/optimized/') || originalPath.endsWith('.webp')) {
     return originalPath;
   }
-
   const imageMap: Record<string, string> = {
     // Hero images
     'beautiful-custom-wedding-cake-elegant-design.jpg': '/optimized/beautiful-custom-wedding-cake-elegant-design.webp',
     'subtle-cake-pattern.jpg': '/optimized/subtle-cake-pattern.webp',
 
-    // Baker portraits
+    // Baker portraits (using workspace images instead)
     'baker-Joshua-potrait.png': '/optimized/baker-Joshua-potrait.webp',
     'baker-sarah-portrait.jpg': '/optimized/baker-sarah-portrait.webp',
-    'baker-emma-portrait.png': '/optimized/baker-emma-portrait.webp',
-    'baker-mike-portrait.png': '/optimized/baker-mike-portrait.webp',
+    'baker-emma-portrait.webp': '/optimized/baker-emma-workspace.webp',
+    'baker-mike-portrait.webp': '/optimized/baker-mike-workspace.webp',
     'josh.jpg': '/optimized/josh.webp',
 
     // Cake showcase
     'wedding-cake-elegant-multi-tier.jpg': '/optimized/wedding-cake-elegant-multi-tier.webp',
     'birthday-cake-colorful-celebration.jpg': '/optimized/birthday-cake-colorful-celebration.webp',
-
-    // Workspace images
-    'baker-sarah-workspace.jpg': '/optimized/baker-sarah-workspace.webp',
-    'baker-emma-workspace.jpg': '/optimized/baker-emma-workspace.webp',
-    'baker-mike-workspace.jpg': '/optimized/baker-mike-workspace.webp',
 
     // Cake sizes
     'cake-size-6-inch.jpg': '/optimized/cake-size-6-inch.webp',

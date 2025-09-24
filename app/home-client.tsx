@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button';
 import { OrderButton } from '@/components/order-button';
 import { Cake, Heart, Star, Calendar, Phone, Clock, Instagram, Facebook, Youtube, ChevronRight, Sparkles } from 'lucide-react';
 import { Testimonials } from '@/components/testimonials';
-import { FeaturedCategories } from '@/components/featured-categories';
 import { MeetJoshua } from '@/components/meet-joshua';
 import { OurStory } from '@/components/our-story';
 import { TrustIndicators } from '@/components/trust-indicators';
@@ -20,7 +19,7 @@ export function HomeClient() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative h-[80vh] flex items-center justify-center bg-muted overflow-hidden">
+      <div className="relative h-[80vh] flex items-center justify-center bg-gray-900 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40" />
           <Image
@@ -39,28 +38,26 @@ export function HomeClient() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto"
           >
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-1.5 rounded-full mb-6">
-              <Sparkles className="h-4 w-4 text-yellow-300" />
-              <span className="text-sm font-medium text-yellow-100">Crafting Sweet Memories Since 2015</span>
+            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-white/30">
+              <Sparkles className="h-4 w-4 text-red-300" />
+              <span className="text-sm font-medium text-white">Crafting Sweet Memories Since 2015</span>
             </div>
-            <h1 className="hero-title">
-              Artisanal Cakes & Pastries <span className="hero-accent">Made with Love</span>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-2xl">
+              Artisanal Cakes & Pastries <span className="bg-gradient-to-r from-red-300 to-red-400 bg-clip-text text-transparent">Made with Love</span>
             </h1>
-            <p className="hero-subtitle">
+            <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-lg">
               Handcrafted with premium ingredients and baked to perfection for your special moments.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <OrderButton size="lg" className="hero-button">
-                Order Now
-              </OrderButton>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <OrderButton className="bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-4 rounded-full shadow-2xl hover:shadow-red-500/25 transition-all duration-300 transform hover:scale-105 text-lg" />
               <Button
+                asChild
                 variant="outline"
                 size="lg"
-                className="hero-button-outline"
-                asChild
+                className="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white hover:bg-white/20 hover:border-white/50 px-8 py-4 rounded-full font-semibold transition-all duration-300 text-lg"
               >
                 <Link href="/custom-cake">
-                  Custom Order <ChevronRight className="ml-2 h-4 w-4" />
+                  Design Your Cake
                 </Link>
               </Button>
             </div>
@@ -79,8 +76,6 @@ export function HomeClient() {
 
       {/* Our Story */}
       <OurStory />
-
-      {/* Meet Joshua */}
       <MeetJoshua />
 
       {/* Testimonials */}
