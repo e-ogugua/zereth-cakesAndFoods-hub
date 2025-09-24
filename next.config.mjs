@@ -1,16 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Removed output: 'export' for development - use only for production static export
-  // output: 'export',
-  // trailingSlash: true,
+  // Optimized for Vercel deployment
   images: {
-    // Enable image optimization for better performance
-    // unoptimized: true  // Only use this for static export
+    domains: ['zereth-cakes-hub.vercel.app'],
+    formats: ['image/webp', 'image/avif'],
   },
-  // Disable experimental CSS optimization for now to fix the module error
-  // experimental: {
-  //   optimizeCss: true,
-  // },
+  // Enable experimental features for better performance
+  experimental: {
+    optimizeCss: false, // Disabled to avoid build issues
+  },
+  // Production optimizations
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
 }
 
 export default nextConfig
