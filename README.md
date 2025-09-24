@@ -196,31 +196,20 @@ npm run type-check   # TypeScript type checking
 - **Caching**: Optimized asset caching
 - **Bundle Analysis**: Built-in bundle analyzer
 
-## 🌟 Recent Improvements (v2.0)
+## 🌟 Recent Improvements (v2.1)
 
-### Navigation Enhancements
-- ✅ **Unified Navigation**: Single navigation system across all pages
-- ✅ **Brand Integration**: Logo + "Zereth Cakes and Foods Hub" text
-- ✅ **Mobile Optimization**: Responsive mobile menu
-- ✅ **Accessibility**: ARIA labels and keyboard navigation
+### Enhanced Text Contrast & Readability
+- ✅ **Meet Joshua Section**: Maximum contrast with drop shadows and backdrop blur
+- ✅ **Title Enhancement**: Upgraded to text-4xl with enhanced drop shadows
+- ✅ **Typography Optimization**: Font-semibold for better readability
+- ✅ **Accessibility**: WCAG AA compliant contrast ratios
+- ✅ **Visual Polish**: Semi-transparent backgrounds and modern glass effects
 
-### Hero Section Improvements
-- ✅ **Enhanced Text Contrast**: White text with strong drop shadows
-- ✅ **Consistent Styling**: Unified hero classes across all pages
-- ✅ **Better Readability**: Improved typography and spacing
-- ✅ **Professional Design**: Gradient text effects and animations
-
-### Footer Optimization
-- ✅ **Succinct Design**: Streamlined from 285 to 110 lines
-- ✅ **Essential Information**: Contact info, links, and social media
-- ✅ **Clean Layout**: 3-column responsive design
-- ✅ **Brand Consistency**: Matching navigation styling
-
-### Technical Improvements
-- ✅ **TypeScript**: Full type safety implementation
-- ✅ **Component Architecture**: Modular, reusable components
-- ✅ **Performance**: Optimized images and lazy loading
-- ✅ **SEO**: Meta tags and structured data
+### Technical Enhancements
+- ✅ **Simplified Configuration**: Optimized next.config.mjs for better deployment
+- ✅ **Build Optimization**: Faster build times and smaller bundle sizes
+- ✅ **Dependency Management**: Cleaned up and optimized package dependencies
+- ✅ **Performance**: Improved loading times and user experience
 
 ## 📊 Performance Metrics
 
@@ -239,6 +228,9 @@ npm run type-check   # TypeScript type checking
 
 ## 🚀 Deployment
 
+### Live Application
+**🌐 Production URL**: https://zereth-cakes-hub.vercel.app
+
 ### Vercel (Recommended)
 ```bash
 npm run build
@@ -249,6 +241,13 @@ vercel --prod
 - **Netlify**: Configure build settings
 - **Railway**: Deploy with PostgreSQL
 - **AWS**: S3 + CloudFront + Lambda
+
+### Environment Variables
+```bash
+NEXTAUTH_URL=https://zereth-cakes-hub.vercel.app
+NEXTAUTH_SECRET=your-production-secret
+NODE_ENV=production
+```
 
 ## 🤝 Contributing
 
