@@ -60,13 +60,76 @@ zereth-cakes-hub/
 └── styles/               # Global styles
 ```
 
+# Zereth Cakes & Foods Hub 🍰
+
+A modern, full-featured cake marketplace and custom cake design platform built with Next.js 14, React 18, and TypeScript.
+
+## 🚀 Features
+
+### Core Functionality
+- **Custom Cake Designer** - Interactive cake customization tool
+- **Marketplace** - Browse cakes from local bakers
+- **Baker Dashboard** - Management system for bakers
+- **Multi-currency Support** - NGN, USD, EUR, GBP
+- **Responsive Design** - Works perfectly on all devices
+- **Dark Mode Support** - Complete theme system
+- **Image Optimization** - Automatic WebP conversion and optimization
+
+### User Experience
+- **Professional Navigation** - Clean, intuitive navigation with branding
+- **Hero Sections** - Stunning hero images with optimized text contrast
+- **Search & Filtering** - Advanced product discovery
+- **Real-time Forms** - Instant feedback and validation
+- **Mobile-First Design** - Optimized for mobile users
+
+## 🛠️ Technology Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS with CSS Variables
+- **UI Components**: Radix UI + Custom Components
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Database**: PostgreSQL (SQL scripts included)
+- **Deployment**: Vercel-ready
+
+## 📁 Project Structure
+
+```
+zereth-cakes-hub/
+├── app/                    # Next.js App Router pages
+│   ├── (auth)/            # Authentication pages
+│   ├── api/               # API routes
+│   ├── about/             # About page
+│   ├── baker-dashboard/   # Baker management
+│   ├── baker-signup/      # Baker registration
+│   ├── categories/        # Product marketplace
+│   ├── checkout/          # Checkout process
+│   ├── contact/           # Contact form
+│   ├── custom-cake/       # Cake designer
+│   ├── gallery/           # Image gallery
+│   ├── order/             # Order management
+│   └── services/          # Services overview
+├── components/            # Reusable components
+│   ├── ui/               # Base UI components
+│   ├── navigation.tsx    # Main navigation
+│   ├── footer.tsx        # Site footer
+│   ├── hero-section.tsx  # Hero components
+│   └── cake-configurator.tsx # Cake designer
+├── lib/                  # Utility functions
+├── public/               # Static assets
+├── scripts/              # Database scripts
+└── styles/               # Global styles
+```
+
 ## 🎨 Design System
 
-### Colors
-- **Primary**: #F97316 (Orange)
+### Colors (Updated v2.2)
+- **Primary**: #EF4444 (Vibrant Red) - Professional brand color
 - **Background**: #FFFFFF (Light) / #0A0A0A (Dark)
 - **Text**: High contrast for accessibility
-- **Accent**: Yellow (#EAB308) for highlights
+- **Accent**: Green (#22C55E) for highlights
+- **Secondary**: Soft backgrounds with red tinting
 
 ### Typography
 - **Headings**: Serif fonts for elegance
@@ -196,20 +259,28 @@ npm run type-check   # TypeScript type checking
 - **Caching**: Optimized asset caching
 - **Bundle Analysis**: Built-in bundle analyzer
 
-## 🌟 Recent Improvements (v2.1)
+## 🌟 Recent Improvements (v2.2 - Latest)
 
-### Enhanced Text Contrast & Readability
-- ✅ **Meet Joshua Section**: Maximum contrast with drop shadows and backdrop blur
-- ✅ **Title Enhancement**: Upgraded to text-4xl with enhanced drop shadows
-- ✅ **Typography Optimization**: Font-semibold for better readability
-- ✅ **Accessibility**: WCAG AA compliant contrast ratios
-- ✅ **Visual Polish**: Semi-transparent backgrounds and modern glass effects
+### Critical Bug Fixes
+- ✅ **CSS Processing**: Fixed CSS compilation errors causing blank pages
+- ✅ **Image Loading**: Resolved all 404 errors for missing images
+- ✅ **Theme System**: Fixed CSS variables not being generated
+- ✅ **Hydration Issues**: Eliminated React hydration mismatches
+- ✅ **Module Errors**: Fixed MODULE_NOT_FOUND errors in development
 
-### Technical Enhancements
-- ✅ **Simplified Configuration**: Optimized next.config.mjs for better deployment
-- ✅ **Build Optimization**: Faster build times and smaller bundle sizes
-- ✅ **Dependency Management**: Cleaned up and optimized package dependencies
-- ✅ **Performance**: Improved loading times and user experience
+### UI/UX Enhancements
+- ✅ **Brand Colors**: Updated to vibrant red (#EF4444) theme throughout
+- ✅ **CSS Variables**: Complete theme system with proper CSS custom properties
+- ✅ **Component Styling**: All components now use theme-aware colors
+- ✅ **Professional Appearance**: Clean, modern design with proper contrast
+- ✅ **Error Handling**: No more console warnings or errors
+
+### Technical Improvements
+- ✅ **Build Process**: Optimized Next.js configuration for development
+- ✅ **CSS Optimization**: Proper Tailwind CSS compilation and processing
+- ✅ **Image References**: Fixed all broken image paths and mappings
+- ✅ **Component Architecture**: Clean separation of client/server components
+- ✅ **Development Experience**: Smooth development server with no errors
 
 ## 📊 Performance Metrics
 
