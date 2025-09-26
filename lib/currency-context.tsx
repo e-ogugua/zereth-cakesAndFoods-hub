@@ -36,8 +36,10 @@ export function CurrencyProvider({ children }: CurrencyProviderProps) {
   }, [])
 
   const handleSetCurrency = (newCurrency: Currency) => {
+    console.log('CurrencyContext: Setting currency from', currency, 'to', newCurrency)
     setCurrency(newCurrency)
     localStorage.setItem('selectedCurrency', newCurrency)
+    console.log('CurrencyContext: Currency set to', newCurrency)
   }
 
   const formatPrice = (price: number): string => {
@@ -49,6 +51,7 @@ export function CurrencyProvider({ children }: CurrencyProviderProps) {
       NGN: '₦',
     }
 
+    console.log('formatPrice: Price', price, 'Currency', currency, 'Converted', convertedPrice, 'Symbol', currencySymbols[currency])
     return `${currencySymbols[currency]}${convertedPrice.toFixed(2)}`
   }
 

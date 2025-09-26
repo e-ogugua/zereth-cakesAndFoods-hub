@@ -20,6 +20,13 @@ const currencyLabels: Record<Currency, string> = {
 export function CurrencySwitcher() {
   const { currency, setCurrency } = useCurrency()
 
+  console.log('Current currency:', currency) // Debug log
+
+  const handleCurrencyChange = (newCurrency: Currency) => {
+    console.log('Switching to currency:', newCurrency) // Debug log
+    setCurrency(newCurrency)
+  }
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -32,7 +39,7 @@ export function CurrencySwitcher() {
         {(Object.keys(currencyLabels) as Currency[]).map((curr) => (
           <DropdownMenuItem
             key={curr}
-            onClick={() => setCurrency(curr)}
+            onClick={() => handleCurrencyChange(curr)}
             className={currency === curr ? 'bg-accent' : ''}
           >
             {currencyLabels[curr]}
