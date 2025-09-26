@@ -43,12 +43,12 @@ const steps = [
 ]
 
 const sizeOptions = [
-  { id: "6-inch", name: "6 inch", servings: "6-8 people", price: 45, image: "/cake-size-6-inch.webp" },
-  { id: "8-inch", name: "8 inch", servings: "12-15 people", price: 65, image: "/cake-size-8-inch.webp" },
-  { id: "10-inch", name: "10 inch", servings: "20-25 people", price: 85, image: "/cake-size-10-inch.webp" },
-  { id: "12-inch", name: "12 inch", servings: "30-35 people", price: 120, image: "/cake-size-12-inch.webp" },
-  { id: "two-tier", name: "Two Tier", servings: "40-50 people", price: 180, image: "/cake-size-two-tier.webp" },
-  { id: "three-tier", name: "Three Tier", servings: "75-100 people", price: 280, image: "/cake-size-three-tier.webp" },
+  { id: "6-inch", name: "6 inch", servings: "6-8 people", price: 45, image: "/cake-size-6-inch.jpg" },
+  { id: "8-inch", name: "8 inch", servings: "12-15 people", price: 65, image: "/cake-size-8-inch.jpg" },
+  { id: "10-inch", name: "10 inch", servings: "20-25 people", price: 85, image: "/cake-size-10-inch.jpg" },
+  { id: "12-inch", name: "12 inch", servings: "30-35 people", price: 120, image: "/cake-size-12-inch.jpg" },
+  { id: "two-tier", name: "Two Tier", servings: "40-50 people", price: 180, image: "/cake-size-two-tier.jpg" },
+  { id: "three-tier", name: "Three Tier", servings: "75-100 people", price: 280, image: "/cake-size-three-tier.jpg" },
 ]
 
 const flavorOptions = [
@@ -81,42 +81,42 @@ const decorationOptions = [
     name: "Elegant & Minimal",
     description: "Clean lines, sophisticated design",
     price: 20,
-    image: "/decoration-elegant.webp",
+    image: "/decoration-elegant.jpg",
   },
   {
     id: "floral",
     name: "Floral Garden",
     description: "Beautiful sugar flowers and leaves",
     price: 45,
-    image: "/decoration-floral.webp",
+    image: "/decoration-floral.jpg",
   },
   {
     id: "themed",
     name: "Custom Theme",
     description: "Personalized theme design",
     price: 60,
-    image: "/decoration-themed.webp",
+    image: "/decoration-themed.jpg",
   },
   {
     id: "vintage",
     name: "Vintage Romance",
     description: "Classic vintage styling",
     price: 35,
-    image: "/decoration-vintage.webp",
+    image: "/decoration-vintage.jpg",
   },
   {
     id: "modern",
     name: "Modern Geometric",
     description: "Contemporary geometric patterns",
     price: 40,
-    image: "/decoration-modern.webp",
+    image: "/decoration-modern.jpg",
   },
   {
     id: "whimsical",
     name: "Whimsical Fun",
     description: "Playful and colorful design",
     price: 50,
-    image: "/decoration-whimsical.webp",
+    image: "/decoration-whimsical.jpg",
   },
 ]
 
