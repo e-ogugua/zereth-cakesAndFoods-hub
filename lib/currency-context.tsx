@@ -19,27 +19,24 @@ const conversionRates: Record<Currency, number> = {
   GBP: 0.73,
   NGN: 1600, // Nigerian Naira
 }
-
 interface CurrencyProviderProps {
   children: ReactNode
 }
 
 export function CurrencyProvider({ children }: CurrencyProviderProps) {
-  const [currency, setCurrencyState] = useState<Currency>('USD')
-  const [isLoaded, setIsLoaded] = useState(false)
+  const [currency, setCurrency] = useState<Currency>('USD')
 
   useEffect(() => {
     // Load saved currency from localStorage
     const savedCurrency = localStorage.getItem('selectedCurrency') as Currency
     if (savedCurrency && Object.keys(conversionRates).includes(savedCurrency)) {
-      setCurrencyState(savedCurrency)
+      setCurrency(savedCurrency)
     }
-    setIsLoaded(true)
   }, [])
 
   const handleSetCurrency = (newCurrency: Currency) => {
     console.log('CurrencyContext: Setting currency from', currency, 'to', newCurrency)
-    setCurrencyState(newCurrency)
+    setCurrency(newCurrency)
     localStorage.setItem('selectedCurrency', newCurrency)
     console.log('CurrencyContext: Currency set to', newCurrency)
   }
@@ -53,9 +50,9 @@ export function CurrencyProvider({ children }: CurrencyProviderProps) {
       NGN: '₦',
     }
 
+    console.log('formatPrice: Price', price, 'Currency', currency, 'Converted', convertedPrice, 'Symbol', currencySymbols[currency])
     return `${currencySymbols[currency]}${convertedPrice.toFixed(2)}`
   }
-
   const getConversionRate = (targetCurrency: Currency): number => {
     return conversionRates[targetCurrency]
   }
@@ -67,22 +64,12 @@ export function CurrencyProvider({ children }: CurrencyProviderProps) {
     getConversionRate,
   }
 
-  // Only render children after initial load to prevent hydration issues
-  if (!isLoaded) {
-    return (
-      <CurrencyContext.Provider value={value}>
-        <div>Loading...</div>
-      </CurrencyContext.Provider>
-    )
-  }
-
   return (
     <CurrencyContext.Provider value={value}>
       {children}
     </CurrencyContext.Provider>
   )
 }
-
 export function useCurrency() {
   const context = useContext(CurrencyContext)
   if (context === undefined) {
