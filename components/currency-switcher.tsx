@@ -27,14 +27,6 @@ export function CurrencySwitcher() {
     console.log('Currency change clicked:', newCurrency)
     setCurrency(newCurrency)
     console.log('Currency should be updated to:', newCurrency)
-
-    // Close dropdown after selection
-    const dropdown = document.getElementById('currency-dropdown')
-    if (dropdown) {
-      dropdown.style.display = 'none'
-      dropdown.style.opacity = '0'
-      dropdown.style.transform = 'translateY(-10px)'
-    }
   }
 
   const toggleDropdown = () => {
@@ -42,16 +34,17 @@ export function CurrencySwitcher() {
     const dropdown = document.getElementById('currency-dropdown')
     if (dropdown) {
       const isVisible = dropdown.style.display === 'block'
-      dropdown.style.display = isVisible ? 'none' : 'block'
-      dropdown.style.opacity = isVisible ? '0' : '1'
-      dropdown.style.transform = isVisible ? 'translateY(-10px)' : 'translateY(0)'
-
-      // Add smooth transition
-      setTimeout(() => {
-        if (!isVisible) {
-          dropdown.style.transform = 'translateY(0)'
-        }
-      }, 10)
+      if (isVisible) {
+        // Close dropdown
+        dropdown.style.display = 'none'
+        dropdown.style.opacity = '0'
+        dropdown.style.transform = 'translateY(-10px)'
+      } else {
+        // Open dropdown
+        dropdown.style.display = 'block'
+        dropdown.style.opacity = '1'
+        dropdown.style.transform = 'translateY(0)'
+      }
     }
   }
 
@@ -60,11 +53,20 @@ export function CurrencySwitcher() {
     const handleClickOutside = (event: MouseEvent) => {
       const dropdown = document.getElementById('currency-dropdown')
       const button = document.querySelector('[data-currency-button]')
+      const currencyOptions = document.querySelectorAll('[data-currency-option]')
 
-      if (dropdown && button && !dropdown.contains(event.target as Node) && !button.contains(event.target as Node)) {
-        dropdown.style.display = 'none'
-        dropdown.style.opacity = '0'
-        dropdown.style.transform = 'translateY(-10px)'
+      if (dropdown && button) {
+        const target = event.target as Element
+        const isInsideDropdown = dropdown.contains(target)
+        const isButton = button.contains(target)
+        const isCurrencyOption = Array.from(currencyOptions).some(option => option.contains(target))
+
+        // Don't close if clicking on button or inside dropdown
+        if (!isButton && !isInsideDropdown && !isCurrencyOption) {
+          dropdown.style.display = 'none'
+          dropdown.style.opacity = '0'
+          dropdown.style.transform = 'translateY(-10px)'
+        }
       }
     }
 
@@ -105,8 +107,21 @@ export function CurrencySwitcher() {
             <button
               key={curr}
               className={`w-full px-4 py-3 text-left text-sm hover:bg-red-50 hover:text-red-600 transition-colors duration-150 flex items-center gap-3 ${currency === curr ? 'bg-red-50 text-red-600 font-medium' : 'text-gray-700'}`}
-              onClick={() => handleCurrencyChange(curr)}
+              onClick={(e) => {
+                e.stopPropagation()
+                handleCurrencyChange(curr)
+                // Close dropdown after a small delay to allow state update
+                setTimeout(() => {
+                  const dropdown = document.getElementById('currency-dropdown')
+                  if (dropdown) {
+                    dropdown.style.display = 'none'
+                    dropdown.style.opacity = '0'
+                    dropdown.style.transform = 'translateY(-10px)'
+                  }
+                }, 100)
+              }}
               type="button"
+              data-currency-option
             >
               <div className={`w-8 h-8 rounded-full flex items-center justify-center ${currency === curr ? 'bg-red-100' : 'bg-gray-100'}`}>
                 <span className="text-xs font-bold">
