@@ -5,15 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { OrderButton } from '@/components/order-button';
-import { Cake, Heart, Star, Calendar, Phone, Clock, Instagram, Facebook, Youtube, ChevronRight, Sparkles } from 'lucide-react';
-import { Testimonials } from '@/components/testimonials';
-import { MeetJoshua } from '@/components/meet-joshua';
-import { OurStory } from '@/components/our-story';
-import { TrustIndicators } from '@/components/trust-indicators';
-import { FinalCTA } from '@/components/final-cta';
-import { Newsletter } from '@/components/newsletter';
-import { TrendingProducts } from '@/components/trending-products';
-import { ProductShowcase } from '@/components/product-showcase';
+import { Sparkles } from 'lucide-react';
 
 export function HomeClient() {
   return (
@@ -65,27 +57,15 @@ export function HomeClient() {
         </div>
       </div>
 
-      {/* Trust Indicators */}
-      <TrustIndicators />
-
-      {/* Trending Products */}
-      <TrendingProducts />
-
-      {/* Complete Product Catalog */}
-      <ProductShowcase />
-
-      {/* Our Story */}
-      <OurStory />
-      <MeetJoshua />
-
-      {/* Testimonials */}
-      <Testimonials />
-
-      {/* Newsletter */}
-      <Newsletter />
-
-      {/* Final CTA */}
-      <FinalCTA />
+      {/* Simple Content */}
+      <div className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-8">Welcome to Zereth Cakes Hub</h2>
+          <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto">
+            We specialize in creating beautiful, delicious custom cakes and artisanal foods for all your special occasions.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
