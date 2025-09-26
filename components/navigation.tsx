@@ -60,15 +60,7 @@ export function Navigation() {
     )}>
       <div className="container flex h-20 items-center justify-between px-4 md:px-6">
         <div className="flex items-center">
-          <Logo variant="nav" size="lg" className="mr-4" />
-          <div className="flex flex-col leading-tight">
-            <h1 className="font-bold text-2xl md:text-3xl bg-gradient-to-r from-red-600 to-red-500 bg-clip-text text-transparent">
-              Zereth
-            </h1>
-            <p className="text-xs md:text-sm text-muted-foreground font-medium -mt-1">
-              Cakes & Foods Hub
-            </p>
-          </div>
+          <Logo variant="nav" size="xl" className="mr-4" />
         </div>
 
         {/* Desktop Navigation */}
@@ -180,15 +172,7 @@ export function Navigation() {
         <div className="bg-background rounded-xl p-6 shadow-xl border border-red-200 max-h-[80vh] overflow-y-auto">
           {/* Brand Section */}
           <div className="flex items-center justify-center mb-6 pb-6 border-b border-red-200">
-            <Logo variant="nav" size="lg" className="mr-3" />
-            <div className="flex flex-col leading-tight">
-              <h1 className="font-bold text-xl bg-gradient-to-r from-red-600 to-red-500 bg-clip-text text-transparent">
-                Zereth
-              </h1>
-              <p className="text-xs text-muted-foreground font-medium -mt-1">
-                Cakes & Foods Hub
-              </p>
-            </div>
+            <Logo variant="nav" size="xl" className="mr-3" />
           </div>
 
           {/* Quick Actions */}

@@ -14,12 +14,12 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center overflow-hidden">
+              <div className="w-40 h-40 rounded-full flex items-center justify-center overflow-hidden">
                 <Image
                   src="/optimized/Zereth-logo2.webp"
                   alt="Zereth Cakes Hub"
-                  width={48}
-                  height={48}
+                  width={400}
+                  height={120}
                   className="object-contain w-full h-full"
                 />
               </div>
