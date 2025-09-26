@@ -9,6 +9,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { Globe } from 'lucide-react'
+import { useEffect } from 'react'
 
 const currencyLabels: Record<Currency, string> = {
   USD: 'USD ($)',
@@ -26,23 +27,60 @@ export function CurrencySwitcher() {
     console.log('Currency change clicked:', newCurrency)
     setCurrency(newCurrency)
     console.log('Currency should be updated to:', newCurrency)
+
+    // Close dropdown after selection
+    const dropdown = document.getElementById('currency-dropdown')
+    if (dropdown) {
+      dropdown.style.display = 'none'
+      dropdown.style.opacity = '0'
+      dropdown.style.transform = 'translateY(-10px)'
+    }
   }
+
+  const toggleDropdown = () => {
+    console.log('Currency button clicked')
+    const dropdown = document.getElementById('currency-dropdown')
+    if (dropdown) {
+      const isVisible = dropdown.style.display === 'block'
+      dropdown.style.display = isVisible ? 'none' : 'block'
+      dropdown.style.opacity = isVisible ? '0' : '1'
+      dropdown.style.transform = isVisible ? 'translateY(-10px)' : 'translateY(0)'
+
+      // Add smooth transition
+      setTimeout(() => {
+        if (!isVisible) {
+          dropdown.style.transform = 'translateY(0)'
+        }
+      }, 10)
+    }
+  }
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const dropdown = document.getElementById('currency-dropdown')
+      const button = document.querySelector('[data-currency-button]')
+
+      if (dropdown && button && !dropdown.contains(event.target as Node) && !button.contains(event.target as Node)) {
+        dropdown.style.display = 'none'
+        dropdown.style.opacity = '0'
+        dropdown.style.transform = 'translateY(-10px)'
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
 
   return (
     <div className="relative inline-block">
       <button
         className="flex items-center gap-2 px-4 py-2 text-sm font-medium bg-white border-2 border-gray-200 rounded-lg shadow-sm hover:border-red-300 hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-        onClick={() => {
-          console.log('Currency button clicked')
-          // Toggle dropdown visibility
-          const dropdown = document.getElementById('currency-dropdown')
-          if (dropdown) {
-            const isVisible = dropdown.style.display === 'block'
-            dropdown.style.display = isVisible ? 'none' : 'block'
-            dropdown.style.opacity = isVisible ? '0' : '1'
-            dropdown.style.transform = isVisible ? 'translateY(-10px)' : 'translateY(0)'
-          }
-        }}
+        onClick={toggleDropdown}
+        type="button"
+        data-currency-button
       >
         <div className="w-5 h-5 rounded-full bg-gradient-to-r from-red-400 to-red-600 flex items-center justify-center">
           <Globe className="h-3 w-3 text-white" />
@@ -68,6 +106,7 @@ export function CurrencySwitcher() {
               key={curr}
               className={`w-full px-4 py-3 text-left text-sm hover:bg-red-50 hover:text-red-600 transition-colors duration-150 flex items-center gap-3 ${currency === curr ? 'bg-red-50 text-red-600 font-medium' : 'text-gray-700'}`}
               onClick={() => handleCurrencyChange(curr)}
+              type="button"
             >
               <div className={`w-8 h-8 rounded-full flex items-center justify-center ${currency === curr ? 'bg-red-100' : 'bg-gray-100'}`}>
                 <span className="text-xs font-bold">

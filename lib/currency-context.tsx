@@ -25,19 +25,23 @@ interface CurrencyProviderProps {
 }
 
 export function CurrencyProvider({ children }: CurrencyProviderProps) {
-  const [currency, setCurrency] = useState<Currency>('USD')
+  const [currency, setCurrencyState] = useState<Currency>('USD')
+  const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
     // Load saved currency from localStorage
     const savedCurrency = localStorage.getItem('selectedCurrency') as Currency
     if (savedCurrency && Object.keys(conversionRates).includes(savedCurrency)) {
-      setCurrency(savedCurrency)
+      setCurrencyState(savedCurrency)
     }
+    setIsLoaded(true)
   }, [])
 
   const handleSetCurrency = (newCurrency: Currency) => {
-    setCurrency(newCurrency)
+    console.log('CurrencyContext: Setting currency from', currency, 'to', newCurrency)
+    setCurrencyState(newCurrency)
     localStorage.setItem('selectedCurrency', newCurrency)
+    console.log('CurrencyContext: Currency set to', newCurrency)
   }
 
   const formatPrice = (price: number): string => {
@@ -61,6 +65,15 @@ export function CurrencyProvider({ children }: CurrencyProviderProps) {
     setCurrency: handleSetCurrency,
     formatPrice,
     getConversionRate,
+  }
+
+  // Only render children after initial load to prevent hydration issues
+  if (!isLoaded) {
+    return (
+      <CurrencyContext.Provider value={value}>
+        <div>Loading...</div>
+      </CurrencyContext.Provider>
+    )
   }
 
   return (
