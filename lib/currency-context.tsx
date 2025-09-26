@@ -25,23 +25,19 @@ interface CurrencyProviderProps {
 }
 
 export function CurrencyProvider({ children }: CurrencyProviderProps) {
-  const [currency, setCurrencyState] = useState<Currency>('USD')
-  const [forceUpdate, setForceUpdate] = useState(0)
+  const [currency, setCurrency] = useState<Currency>('USD')
 
   useEffect(() => {
     // Load saved currency from localStorage
     const savedCurrency = localStorage.getItem('selectedCurrency') as Currency
     if (savedCurrency && Object.keys(conversionRates).includes(savedCurrency)) {
-      setCurrencyState(savedCurrency)
+      setCurrency(savedCurrency)
     }
   }, [])
 
   const handleSetCurrency = (newCurrency: Currency) => {
-    console.log('CurrencyContext: Setting currency from', currency, 'to', newCurrency)
-    setCurrencyState(newCurrency)
+    setCurrency(newCurrency)
     localStorage.setItem('selectedCurrency', newCurrency)
-    setForceUpdate(prev => prev + 1) // Force re-render
-    console.log('CurrencyContext: Currency set to', newCurrency)
   }
 
   const formatPrice = (price: number): string => {
@@ -53,7 +49,6 @@ export function CurrencyProvider({ children }: CurrencyProviderProps) {
       NGN: '₦',
     }
 
-    console.log('formatPrice: Price', price, 'Currency', currency, 'Converted', convertedPrice, 'Symbol', currencySymbols[currency])
     return `${currencySymbols[currency]}${convertedPrice.toFixed(2)}`
   }
 
