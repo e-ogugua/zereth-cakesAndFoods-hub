@@ -25,20 +25,22 @@ interface CurrencyProviderProps {
 }
 
 export function CurrencyProvider({ children }: CurrencyProviderProps) {
-  const [currency, setCurrency] = useState<Currency>('USD')
+  const [currency, setCurrencyState] = useState<Currency>('USD')
+  const [forceUpdate, setForceUpdate] = useState(0)
 
   useEffect(() => {
     // Load saved currency from localStorage
     const savedCurrency = localStorage.getItem('selectedCurrency') as Currency
     if (savedCurrency && Object.keys(conversionRates).includes(savedCurrency)) {
-      setCurrency(savedCurrency)
+      setCurrencyState(savedCurrency)
     }
   }, [])
 
   const handleSetCurrency = (newCurrency: Currency) => {
     console.log('CurrencyContext: Setting currency from', currency, 'to', newCurrency)
-    setCurrency(newCurrency)
+    setCurrencyState(newCurrency)
     localStorage.setItem('selectedCurrency', newCurrency)
+    setForceUpdate(prev => prev + 1) // Force re-render
     console.log('CurrencyContext: Currency set to', newCurrency)
   }
 
