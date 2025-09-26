@@ -9,13 +9,12 @@ import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Calendar } from "@/components/ui/calendar"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { Progress } from "@/components/ui/progress"
 import { ChevronLeft, ChevronRight, Upload, CalendarIcon, Clock, DollarSign, Sparkles } from "lucide-react"
 import { format } from "date-fns"
-import { cn } from "@/lib/utils"
+import { useCurrency } from '@/lib/currency-context'
 import { OptimizedImage } from "@/components/ui/optimized-image"
 
 interface CakeConfig {
@@ -129,8 +128,7 @@ const timeSlots = [
 ]
 
 export function CakeConfigurator() {
-  const [currentStep, setCurrentStep] = useState(1)
-  const [config, setConfig] = useState<CakeConfig>({
+  const { formatPrice } = useCurrency()
     size: "",
     flavor: "",
     filling: "",
@@ -213,7 +211,7 @@ export function CakeConfigurator() {
                       </div>
                       <h4 className="font-semibold">{size.name}</h4>
                       <p className="text-sm text-muted-foreground">{size.servings}</p>
-                      <p className="text-lg font-bold text-primary mt-2">${size.price}</p>
+                      <p className="text-lg font-bold text-primary mt-2">formatPrice(size.price)</p>
                     </CardContent>
                   </Card>
                 ))}
@@ -248,7 +246,7 @@ export function CakeConfigurator() {
                       </div>
                       <p className="text-sm text-muted-foreground mb-2">{flavor.description}</p>
                       <p className="text-sm font-medium text-primary">
-                        {flavor.price === 0 ? "Included" : `+$${flavor.price}`}
+                        {flavor.price === 0 ? "Included" : `formatPrice(flavor.price)`}
                       </p>
                     </CardContent>
                   </Card>
@@ -277,7 +275,7 @@ export function CakeConfigurator() {
                       <h4 className="font-semibold">{filling.name}</h4>
                       <p className="text-sm text-muted-foreground mb-2">{filling.description}</p>
                       <p className="text-sm font-medium text-primary">
-                        {filling.price === 0 ? "Included" : `+$${filling.price}`}
+                        {filling.price === 0 ? "Included" : `formatPrice(filling.price)`}
                       </p>
                     </CardContent>
                   </Card>
@@ -313,7 +311,7 @@ export function CakeConfigurator() {
                       </div>
                       <h4 className="font-semibold">{decoration.name}</h4>
                       <p className="text-sm text-muted-foreground mb-2">{decoration.description}</p>
-                      <p className="text-sm font-medium text-primary">+${decoration.price}</p>
+                      <p className="text-sm font-medium text-primary">formatPrice(decoration.price)</p>
                     </CardContent>
                   </Card>
                 ))}
@@ -524,23 +522,23 @@ export function CakeConfigurator() {
                     <CardContent className="space-y-2">
                       <div className="flex justify-between">
                         <span>Base cake ({sizeOptions.find((s) => s.id === config.size)?.name}):</span>
-                        <span>${sizeOptions.find((s) => s.id === config.size)?.price || 0}</span>
+                        <span>formatPrice(sizeOptions.find((s) => s.id === config.size)?.price || 0)</span>
                       </div>
                       {flavorOptions.find((f) => f.id === config.flavor)?.price! > 0 && (
                         <div className="flex justify-between">
                           <span>Flavor upgrade:</span>
-                          <span>+${flavorOptions.find((f) => f.id === config.flavor)?.price}</span>
+                          <span>formatPrice(flavorOptions.find((f) => f.id === config.flavor)?.price)</span>
                         </div>
                       )}
                       {fillingOptions.find((f) => f.id === config.filling)?.price! > 0 && (
                         <div className="flex justify-between">
                           <span>Filling upgrade:</span>
-                          <span>+${fillingOptions.find((f) => f.id === config.filling)?.price}</span>
+                          <span>formatPrice(fillingOptions.find((f) => f.id === config.filling)?.price)</span>
                         </div>
                       )}
                       <div className="flex justify-between">
                         <span>Decoration:</span>
-                        <span>+${decorationOptions.find((d) => d.id === config.decoration)?.price || 0}</span>
+                        <span>formatPrice(decorationOptions.find((d) => d.id === config.decoration)?.price || 0)</span>
                       </div>
                       <div className="border-t pt-2 flex justify-between font-bold text-lg">
                         <span>Total:</span>

@@ -7,6 +7,7 @@ import { useTheme } from 'next-themes';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Menu, X, ShoppingCart, Phone, User, Cake, Mail, Sun, Moon } from 'lucide-react';
+import { CurrencySwitcher } from '@/components/currency-switcher';
 import { OrderButton } from './order-button';
 import { Logo } from './logo';
 
@@ -115,15 +116,7 @@ export function Navigation() {
         </nav>
 
         <div className="flex items-center space-x-2">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={toggleDarkMode}
-            className="rounded-full text-foreground hover:bg-red-50 hover:text-red-600"
-            aria-label="Toggle dark mode"
-          >
-            {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-          </Button>
+          <CurrencySwitcher />
           <Button
             variant="ghost"
             size="icon"
@@ -141,10 +134,7 @@ export function Navigation() {
         </div>
 
         <div className="flex items-center md:hidden space-x-2">
-          <Button variant="ghost" size="icon" className="text-foreground hover:bg-red-50 hover:text-red-600">
-            <ShoppingCart className="h-5 w-5" />
-            <span className="sr-only">Cart</span>
-          </Button>
+          <CurrencySwitcher />
           <Button
             variant="ghost"
             size="icon"
