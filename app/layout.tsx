@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { CurrencyProvider } from "@/lib/currency-context"
 import { Toaster } from "sonner"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
@@ -32,24 +33,26 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="relative min-h-screen flex flex-col">
-            <Navigation />
-            <main className="flex-1 bg-gradient-to-br from-background via-red-50/30 to-green-50/20">
-              {children}
-            </main>
-            <Footer />
-            <Toaster
-              position="top-center"
-              toastOptions={{
-                style: {
-                  background: 'hsl(0 0% 100%)',
-                  border: '1px solid hsl(0 84% 60%)',
-                  color: 'hsl(0 0% 3.9%)',
-                },
-              }}
-            />
-            <ScrollToTop />
-          </div>
+          <CurrencyProvider>
+            <div className="relative min-h-screen flex flex-col">
+              <Navigation />
+              <main className="flex-1 bg-gradient-to-br from-background via-red-50/30 to-green-50/20">
+                {children}
+              </main>
+              <Footer />
+              <Toaster
+                position="top-center"
+                toastOptions={{
+                  style: {
+                    background: 'hsl(0 0% 100%)',
+                    border: '1px solid hsl(0 84% 60%)',
+                    color: 'hsl(0 0% 3.9%)',
+                  },
+                }}
+              />
+              <ScrollToTop />
+            </div>
+          </CurrencyProvider>
         </ThemeProvider>
       </body>
     </html>

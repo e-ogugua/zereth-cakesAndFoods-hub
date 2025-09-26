@@ -2,17 +2,19 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Menu, X, ShoppingCart, Phone, User, Cake, Mail, Sun, Moon } from 'lucide-react';
 import { OrderButton } from './order-button';
+import { CurrencySwitcher } from './currency-switcher';
+import { useState, useEffect } from 'react';
 import { Logo } from './logo';
 
 export function Navigation() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [currency, setCurrency] = useState('NGN');
   const [scrolled, setScrolled] = useState(false);
   const { theme, setTheme } = useTheme();
 
@@ -113,6 +115,10 @@ export function Navigation() {
             </div>
           ))}
         </nav>
+
+        <div className="hidden lg:block">
+          <CurrencySwitcher />
+        </div>
 
         <div className="flex items-center space-x-2">
           <Button
