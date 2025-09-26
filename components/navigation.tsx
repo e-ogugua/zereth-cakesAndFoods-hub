@@ -146,7 +146,9 @@ export function Navigation() {
           </div>
         </div>
 
-        <div className="flex items-center md:hidden space-x-2">
+        {/* Mobile Actions - shows on mobile only */}
+        <div className="flex items-center md:hidden space-x-1">
+          <CurrencySwitcher />
           <Button variant="ghost" size="icon" className="text-foreground hover:bg-red-50 hover:text-red-600">
             <ShoppingCart className="h-5 w-5" />
             <span className="sr-only">Cart</span>
