@@ -29,21 +29,21 @@ const services = [
   {
     title: 'Small Chops',
     description: 'A selection of bite-sized savory treats perfect for your events and gatherings.',
-    image: getOptimizedImagePath('/cake-size-6-inch.jpg'),
+    image: getOptimizedImagePath('/optimized/smallchops.webp'),
     price: 'Contact for pricing',
     features: ['Variety of options', 'Perfect for parties', 'Custom orders', 'Bulk discounts']
   },
   {
     title: 'Meat Pies',
     description: 'Flaky, buttery pastry filled with savory meat and vegetable fillings.',
-    image: getOptimizedImagePath('/cake-size-10-inch.jpg'),
+    image: getOptimizedImagePath('/optimized/meatpie.webp'),
     price: 'Starting at ₦1,200',
     features: ['Freshly baked', 'Perfect for snacks', 'Bulk orders available', 'Special fillings']
   },
   {
     title: 'Dessert Tables',
     description: 'Complete dessert setups for weddings, birthdays, and special events.',
-    image: getOptimizedImagePath('/cake-size-12-inch.jpg'),
+    image: getOptimizedImagePath('/optimized/dessertTable.webp'),
     price: 'Custom quotes',
     features: ['Full setup', 'Variety of desserts', 'Themed designs', 'Professional service']
   }
