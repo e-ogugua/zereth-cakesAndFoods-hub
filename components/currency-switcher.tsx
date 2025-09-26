@@ -25,8 +25,14 @@ export function CurrencySwitcher() {
 
   const handleCurrencyChange = (newCurrency: Currency) => {
     console.log('Currency change clicked:', newCurrency)
+    console.log('Current currency before change:', currency)
     setCurrency(newCurrency)
     console.log('Currency should be updated to:', newCurrency)
+
+    // Force a re-render to ensure the UI updates
+    setTimeout(() => {
+      console.log('Checking currency after change:', document.querySelector('[data-currency-button] span')?.textContent)
+    }, 100)
   }
 
   const toggleDropdown = () => {
@@ -109,8 +115,10 @@ export function CurrencySwitcher() {
               className={`w-full px-4 py-3 text-left text-sm hover:bg-red-50 hover:text-red-600 transition-colors duration-150 flex items-center gap-3 ${currency === curr ? 'bg-red-50 text-red-600 font-medium' : 'text-gray-700'}`}
               onClick={(e) => {
                 e.stopPropagation()
+                e.preventDefault()
+                console.log('Currency option clicked:', curr)
                 handleCurrencyChange(curr)
-                // Close dropdown after a small delay to allow state update
+                // Close dropdown after selection
                 setTimeout(() => {
                   const dropdown = document.getElementById('currency-dropdown')
                   if (dropdown) {
@@ -118,7 +126,7 @@ export function CurrencySwitcher() {
                     dropdown.style.opacity = '0'
                     dropdown.style.transform = 'translateY(-10px)'
                   }
-                }, 100)
+                }, 50)
               }}
               type="button"
               data-currency-option

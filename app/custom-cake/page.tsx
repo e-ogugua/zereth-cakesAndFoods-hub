@@ -1,8 +1,11 @@
 "use client"
 import Image from "next/image"
 import { CakeConfigurator } from "@/components/cake-configurator"
+import { useCurrency } from '@/lib/currency-context'
 
 export default function CustomCakePage() {
+  const { currency, formatPrice } = useCurrency()
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-red-50">
       {/* Hero Section */}
@@ -37,6 +40,16 @@ export default function CustomCakePage() {
             Use our step-by-step configurator to design your perfect cake. Choose from various sizes,
             flavors, fillings, and decorations to create a truly unique masterpiece.
           </p>
+
+          {/* Currency Test Display */}
+          <div className="mt-8 text-center">
+            <p className="text-lg font-semibold text-gray-700">
+              Current Currency: <span className="text-red-600">{currency}</span>
+            </p>
+            <p className="text-sm text-gray-600 mt-2">
+              Test Price: {formatPrice(100)}
+            </p>
+          </div>
         </div>
         <CakeConfigurator />
       </main>
