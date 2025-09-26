@@ -1,6 +1,5 @@
 "use client"
 import Image from "next/image"
-import { Footer } from "@/components/footer"
 import { CakeConfigurator } from "@/components/cake-configurator"
 
 export default function CustomCakePage() {
@@ -24,6 +23,12 @@ export default function CustomCakePage() {
       </section>
 
       <main className="max-w-7xl mx-auto px-4 py-8 -mt-16 relative z-10">
+        <div className="mb-8">
+          <h2 className="text-3xl font-bold text-center mb-4">Custom Cake Designer</h2>
+          <p className="text-muted-foreground text-center mb-8">
+            Use our step-by-step configurator to design your perfect cake
+          </p>
+        </div>
         <CakeConfigurator />
       </main>
     </div>
