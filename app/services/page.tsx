@@ -127,7 +127,7 @@ export default function ServicesPage() {
             <h2 className="text-3xl font-bold mb-4 hero-text">Custom Orders Welcome</h2>
             <p className="text-muted-foreground mb-8">
               Have something special in mind? We love creating custom orders tailored to your specific needs and preferences. 
-              Contact us to discuss your ideas and we'll bring them to life!
+              Contact us to discuss your ideas and we&apos;ll bring them to life!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="gap-2">

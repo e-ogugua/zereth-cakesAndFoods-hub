@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Instagram, ChevronRight, Phone, Calendar } from 'lucide-react';
+import { Instagram, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -49,10 +49,10 @@ export function MeetJoshua() {
         >
           <div className="prose prose-lg">
             <p className="mb-6 text-lg leading-relaxed text-foreground font-semibold drop-shadow-sm">
-              As the founder and head baker of Zereth Cakes Hub, I personally oversee every cake that leaves our bakery. My passion for baking began at a young age, inspired by my mother's traditional recipes that have been passed down through generations in our family.
+              As the founder and head baker of Zereth Cakes Hub, I personally oversee every cake that leaves our bakery. My passion for baking began at a young age, inspired by my mother&apos;s traditional recipes that have been passed down through generations in our family.
             </p>
             <p className="mb-8 text-lg leading-relaxed text-foreground font-semibold drop-shadow-sm">
-              When I'm not in the kitchen creating new cake designs and flavor combinations, you can find me teaching baking classes to aspiring bakers or experimenting with innovative techniques. My mission is to make every celebration truly special with cakes that are as unique and memorable as the people they're made for.
+              When I&apos;m not in the kitchen creating new cake designs and flavor combinations, you can find me teaching baking classes to aspiring bakers or experimenting with innovative techniques. My mission is to make every celebration truly special with cakes that are as unique and memorable as the people they&apos;re made for.
             </p>
           </div>
 

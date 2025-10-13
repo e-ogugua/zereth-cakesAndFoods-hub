@@ -1,7 +1,6 @@
 'use client';
 
 import { Phone, Mail, MapPin } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 export function ContactInfo({
   variant = 'default',

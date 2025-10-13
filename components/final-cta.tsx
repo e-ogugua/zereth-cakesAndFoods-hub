@@ -16,7 +16,7 @@ export function FinalCTA() {
     >
       <h3 className="text-3xl font-bold font-serif mb-6">Ready to Create Something Special?</h3>
       <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-        Whether you have a specific design in mind or need help bringing your vision to life, we'd love to be part of your celebration.
+        Whether you have a specific design in mind or need help bringing your vision to life, we&apos;d love to be part of your celebration.
       </p>
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
         <Button 

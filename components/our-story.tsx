@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Cake, Heart, Star, Sparkles } from 'lucide-react';
+import { Cake, Heart, Sparkles } from 'lucide-react';
 import { AuthorImage } from '@/components/author-image';
 
 const fadeInUp = {

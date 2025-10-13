@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { getOptimizedImagePath } from '@/lib/image-utils';
 
 export function HeroSection() {
   return (

@@ -30,7 +30,7 @@ interface CheckoutItem {
 interface CheckoutFormProps {
   items: CheckoutItem[]
   subtotal: number
-  onPaymentComplete?: (paymentData: any) => void
+  onPaymentComplete?: (paymentData: Record<string, unknown>) => void
 }
 
 export function CheckoutForm({ items, subtotal, onPaymentComplete }: CheckoutFormProps) {
@@ -210,7 +210,7 @@ export function CheckoutForm({ items, subtotal, onPaymentComplete }: CheckoutFor
                     <MapPin className="h-5 w-5 text-primary" />
                     <div>
                       <div className="font-medium">Pickup</div>
-                      <div className="text-sm text-muted-foreground">Collect from baker's location (Free)</div>
+                      <div className="text-sm text-muted-foreground">Collect from baker&apos;s location (Free)</div>
                     </div>
                   </div>
                 </Label>
