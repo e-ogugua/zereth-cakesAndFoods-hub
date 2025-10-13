@@ -1,2 +1,0 @@
-./app/bakers/page.tsx:      return <img {...props} alt={props.alt || 'Image failed to load'} />;
-./components/ui/optimized-image.tsx:interface OptimizedImageProps extends Omit<ImageProps, 'src' | 'alt'> {

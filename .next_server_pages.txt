@@ -1,8 +1,0 @@
-_app.js
-_app.js.nft.json
-_document.js
-_document.js.nft.json
-_error.js
-_error.js.nft.json
-404.html
-500.html
