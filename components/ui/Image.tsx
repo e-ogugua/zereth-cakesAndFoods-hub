@@ -44,8 +44,8 @@ export const CustomImage = forwardRef<HTMLDivElement, CustomImageProps>(
         )}
       >
         {isStatic ? (
-          // Use regular img tag for static files
-          <img
+          // Use Next.js Image for static files as well
+          <Image
             src={imagePath}
             alt={alt}
             width={width}

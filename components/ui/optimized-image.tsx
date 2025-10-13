@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils"
 import { getOptimizedImagePath } from "@/lib/image-utils"
+import Image from "next/image"
 
 interface OptimizedImageProps {
   src: string
@@ -35,14 +36,15 @@ export function OptimizedImage({
           containerClassName
         )}
       >
-        <img
+        <Image
           src={optimizedSrc}
           alt={alt}
+          fill
           className={cn(
-            'object-cover w-full h-full',
+            'object-cover',
             className
           )}
-          loading={priority ? 'eager' : 'lazy'}
+          priority={priority}
           {...props}
         />
         {/* Optional overlay for better text readability */}
@@ -59,13 +61,15 @@ export function OptimizedImage({
     )
   }
 
-  // For non-fill images, return regular img
+  // For non-fill images, return Next.js Image
   return (
-    <img
+    <Image
       src={optimizedSrc}
       alt={alt}
+      width={800}
+      height={600}
       className={cn(className)}
-      loading={priority ? 'eager' : 'lazy'}
+      priority={priority}
       {...props}
     />
   )
