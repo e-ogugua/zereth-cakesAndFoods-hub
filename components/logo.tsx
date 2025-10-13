@@ -17,7 +17,7 @@ export function Logo({
   variant = 'default',
   size = 'md' 
 }: LogoProps) {
-  const { theme, resolvedTheme } = useTheme();
+  const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -57,7 +57,7 @@ export function Logo({
         alt="Zereth Cakes Hub - Where Edible Art Meets Extraordinary Taste"
         width={sizeMap[size].width}
         height={sizeMap[size].height}
-        className={`${sizeMap[size].className} object-contain transition-all duration-300 hover:opacity-90`}
+        className={`${sizeMap[size].className} object-contain transition-all duration-300 hover:opacity-90 hover:scale-105`}
         priority
       />
     </Link>

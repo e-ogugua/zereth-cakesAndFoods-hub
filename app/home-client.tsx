@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { OrderButton } from '@/components/order-button';
-import { Cake, Heart, Star, Calendar, Phone, Clock, Instagram, Facebook, Youtube, ChevronRight, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import { Testimonials } from '@/components/testimonials';
 import { MeetJoshua } from '@/components/meet-joshua';
 import { OurStory } from '@/components/our-story';
@@ -38,16 +38,10 @@ export function HomeClient() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto"
           >
-            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-white/30">
+            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-white/30 animate-pulse">
               <Sparkles className="h-4 w-4 text-red-300" />
               <span className="text-sm font-medium text-white">Crafting Sweet Memories Since 2015</span>
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-2xl">
-              Artisanal Cakes & Pastries <span className="bg-gradient-to-r from-red-300 to-red-400 bg-clip-text text-transparent">Made with Love</span>
-            </h1>
-            <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-lg">
-              Handcrafted with premium ingredients and baked to perfection for your special moments.
-            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <OrderButton className="bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-4 rounded-full shadow-2xl hover:shadow-red-500/25 transition-all duration-300 transform hover:scale-105 text-lg" />
               <Button
@@ -61,6 +55,26 @@ export function HomeClient() {
                 </Link>
               </Button>
             </div>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Hero Text Section */}
+      <div className="bg-gradient-to-r from-red-50 via-pink-50 to-red-50 py-16 border-b border-red-200">
+        <div className="container mx-auto px-4 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="max-w-5xl mx-auto"
+          >
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 leading-tight tracking-tight">
+              Artisanal Cakes & Pastries <span className="bg-gradient-to-r from-red-600 to-red-800 bg-clip-text text-transparent">Made with Love</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-light">
+              Handcrafted with premium ingredients and baked to perfection for your special moments. Every creation tells a story of passion, tradition, and unforgettable taste.
+            </p>
           </motion.div>
         </div>
       </div>

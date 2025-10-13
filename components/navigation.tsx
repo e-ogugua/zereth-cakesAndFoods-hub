@@ -14,7 +14,6 @@ import { Logo } from './logo';
 export function Navigation() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [currency, setCurrency] = useState('NGN');
   const [scrolled, setScrolled] = useState(false);
   const { theme, setTheme } = useTheme();
 
@@ -81,7 +80,7 @@ export function Navigation() {
                     aria-expanded="false"
                   >
                     {item.name}
-                    <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
@@ -105,7 +104,7 @@ export function Navigation() {
                   className={cn(
                     'px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200',
                     pathname === item.href
-                      ? 'text-white bg-red-600 shadow-md'
+                      ? 'text-white bg-red-600 shadow-md shadow-red-200'
                       : 'text-foreground hover:text-red-600 hover:bg-red-50'
                   )}
                 >
@@ -173,14 +172,23 @@ export function Navigation() {
       <div
         className={cn(
           'md:hidden fixed inset-0 bg-background/95 backdrop-blur-sm z-[60] transition-all duration-300 ease-in-out overflow-y-auto',
-          mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none',
+          mobileMenuOpen ? 'opacity-100 visible translate-x-0' : 'opacity-0 invisible translate-x-full pointer-events-none',
           'pt-20 pb-8 px-4'
         )}
       >
         <div className="bg-background rounded-xl p-6 shadow-xl border border-red-200 max-h-[80vh] overflow-y-auto">
           {/* Brand Section */}
-          <div className="flex items-center justify-center mb-6 pb-6 border-b border-red-200">
+          <div className="flex items-center justify-between mb-6 pb-6 border-b border-red-200">
             <Logo variant="nav" size="xl" className="mr-3" />
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-foreground hover:bg-red-50 hover:text-red-600"
+              aria-label="Close menu"
+            >
+              <X className="h-6 w-6" />
+            </Button>
           </div>
 
           {/* Quick Actions */}
@@ -199,6 +207,9 @@ export function Navigation() {
             </Button>
           </div>
 
+          {/* Divider */}
+          <div className="border-t border-red-200 mb-6"></div>
+
           {/* Dark Mode Toggle */}
           <div className="flex justify-center mb-6">
             <Button
@@ -210,6 +221,9 @@ export function Navigation() {
               {isDarkMode ? 'Light Mode' : 'Dark Mode'}
             </Button>
           </div>
+
+          {/* Divider */}
+          <div className="border-t border-red-200 mb-6"></div>
 
           {/* Mobile Navigation */}
           <nav className="space-y-1">
