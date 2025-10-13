@@ -14,6 +14,8 @@ import { FinalCTA } from '@/components/final-cta';
 import { Newsletter } from '@/components/newsletter';
 import { TrendingProducts } from '@/components/trending-products';
 import { ProductShowcase } from '@/components/product-showcase';
+
+export function HomeClient() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}

@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { Footer } from "@/components/footer"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -367,7 +366,7 @@ export default function BakerSignupPage() {
                   <div className="mt-2 border-2 border-dashed border-border rounded-lg p-6 text-center">
                     <Upload className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
                     <p className="text-sm text-muted-foreground mb-2">
-                      Upload your business license or food handler's permit
+                      Upload your business license or food handler&apos;s permit
                     </p>
                     <input
                       type="file"
@@ -392,11 +391,11 @@ export default function BakerSignupPage() {
                   <div className="space-y-3 text-sm">
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-5 w-5 text-primary" />
-                      <span>We'll review your application within 24-48 hours</span>
+                      <span>We&apos;ll review your application within 24-48 hours</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-5 w-5 text-primary" />
-                      <span>You'll receive an email with your dashboard access</span>
+                      <span>You&apos;ll receive an email with your dashboard access</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <CheckCircle className="h-5 w-5 text-primary" />
@@ -432,7 +431,7 @@ export default function BakerSignupPage() {
         <div className="text-center mb-8">
           <h1 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Join Our Baker Community</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Share your passion for baking with customers who appreciate artisanal quality. Let's grow your business
+            Share your passion for baking with customers who appreciate artisanal quality. Let&apos;s grow your business
             together.
           </p>
         </div>
