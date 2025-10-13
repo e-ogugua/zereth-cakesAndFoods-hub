@@ -48,7 +48,7 @@ export function OrderForm() {
     },
   });
 
-  const onSubmit = async (data: FormValues) => {
+  const onSubmit = async () => {
     setIsSubmitting(true);
     try {
       // Simulate form submission
@@ -220,7 +220,7 @@ export function OrderForm() {
         </Button>
         
         <p className="text-sm text-muted-foreground mt-3">
-          * Required fields. We'll contact you within 24 hours to confirm your order details and provide a quote.
+          * Required fields. We&apos;ll contact you within 24 hours to confirm your order details and provide a quote.
         </p>
       </div>
     </form>

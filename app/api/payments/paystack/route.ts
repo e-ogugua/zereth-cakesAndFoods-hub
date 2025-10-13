@@ -2,7 +2,8 @@ import { type NextRequest, NextResponse } from "next/server"
 
 export async function POST(request: NextRequest) {
   try {
-    const { amount, currency, email } = await request.json()
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { amount: _amount, currency: _currency, email: _email } = await request.json()
 
     // In a real implementation, you would:
     // 1. Initialize Paystack with your secret key

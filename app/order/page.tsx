@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
-import { Button } from '@/components/ui/button';
-import { ArrowLeft, Cake, Phone, Mail } from 'lucide-react';
+import { ArrowLeft, Phone, Mail } from 'lucide-react';
 import Link from 'next/link';
 import { OrderForm } from './order-form';
 
@@ -23,7 +22,7 @@ export default function OrderPage() {
             <div className="text-center mb-10">
               <h1 className="text-3xl md:text-4xl font-bold mb-4">Order Your Custom Cake</h1>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Fill out the form below to place your order. We'll get back to you within 24 hours to confirm the details.
+                Fill out the form below to place your order. We&apos;ll get back to you within 24 hours to confirm the details.
               </p>
             </div>
             
