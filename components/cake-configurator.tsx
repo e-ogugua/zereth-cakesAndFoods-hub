@@ -458,7 +458,7 @@ export function CakeConfigurator() {
                   <li>• Minimum 48 hours notice required for custom cakes</li>
                   <li>• Same-day delivery available for select items (additional fee applies)</li>
                   <li>• Free delivery within 10 miles of baker location</li>
-                  <li>• We'll confirm availability with your chosen baker</li>
+                  <li>• We&apos;ll confirm availability with your chosen baker</li>
                 </ul>
               </div>
             </div>
@@ -503,7 +503,7 @@ export function CakeConfigurator() {
                       {config.message && (
                         <div className="flex justify-between">
                           <span>Message:</span>
-                          <span className="font-medium">"{config.message}"</span>
+                          <span className="font-medium">&ldquo;{config.message}&rdquo;</span>
                         </div>
                       )}
                       <div className="flex justify-between">
@@ -529,13 +529,13 @@ export function CakeConfigurator() {
                         <span>Base cake ({sizeOptions.find((s) => s.id === config.size)?.name}):</span>
                         <span>{formatPrice(sizeOptions.find((s) => s.id === config.size)?.price || 0)}</span>
                       </div>
-                      {flavorOptions.find((f) => f.id === config.flavor)?.price! > 0 && (
+                      {flavorOptions.find((f) => f.id === config.flavor)?.price && (flavorOptions.find((f) => f.id === config.flavor)?.price || 0) > 0 && (
                         <div className="flex justify-between">
                           <span>Flavor upgrade:</span>
                           <span>{formatPrice(flavorOptions.find((f) => f.id === config.flavor)?.price || 0)}</span>
                         </div>
                       )}
-                      {fillingOptions.find((f) => f.id === config.filling)?.price! > 0 && (
+                      {fillingOptions.find((f) => f.id === config.filling)?.price && (fillingOptions.find((f) => f.id === config.filling)?.price || 0) > 0 && (
                         <div className="flex justify-between">
                           <span>Filling upgrade:</span>
                           <span>{formatPrice(fillingOptions.find((f) => f.id === config.filling)?.price || 0)}</span>
