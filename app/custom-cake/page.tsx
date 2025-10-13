@@ -1,6 +1,5 @@
 "use client"
 import Image from "next/image"
-import { Footer } from "@/components/footer"
 import { CakeConfigurator } from "@/components/cake-configurator"
 
 export default function CustomCakePage() {

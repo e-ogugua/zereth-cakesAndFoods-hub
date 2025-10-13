@@ -2,11 +2,9 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { OrderButton } from '@/components/order-button';
-import { Cake, Instagram, Facebook, Twitter, ArrowRight, Search, X, Phone, ChevronRight } from 'lucide-react';
-import { getOptimizedImagePath } from '@/lib/image-utils';
+import { Cake, Instagram, ChevronRight, Phone } from 'lucide-react';
 
 // Sample gallery items - replace with your actual images
 const galleryItems = [
@@ -145,7 +143,7 @@ export default function GalleryPage() {
             </div>
             <h2 className="text-3xl font-bold mb-6 hero-text">Inspired by Our Creations?</h2>
             <p className="text-xl mb-8 hero-text">
-              Let's create something amazing together for your next special occasion!
+              Let&apos;s create something amazing together for your next special occasion!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <OrderButton 

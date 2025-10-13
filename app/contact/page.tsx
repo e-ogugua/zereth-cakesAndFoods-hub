@@ -5,7 +5,6 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { Button } from '@/components/ui/button';
-import { Footer } from "@/components/footer";
 import { Textarea } from '@/components/ui/textarea';
 import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
@@ -58,7 +57,7 @@ export default function ContactPage() {
     { id: 'other', label: 'Other' },
   ];
 
-  const onSubmit = async (data: FormData) => {
+  const onSubmit = async () => {
     try {
       setIsSubmitting(true);
       await new Promise(resolve => setTimeout(resolve, 1500));
@@ -101,7 +100,7 @@ export default function ContactPage() {
               <span className="text-sm font-medium text-yellow-100">Get in Touch</span>
             </div>
             <h1 className="hero-title">
-              Let's Create Something <span className="hero-accent">Sweet Together</span>
+              Let&apos;s Create Something <span className="hero-accent">Sweet Together</span>
             </h1>
             <p className="hero-subtitle">
               Have questions or special requests? Our team is here to help bring your vision to life.
