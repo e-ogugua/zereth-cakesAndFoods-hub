@@ -75,7 +75,7 @@ export function TrustIndicators() {
               ))}
             </div>
             <p className="text-muted-foreground mb-4 text-pretty">
-              "The custom wedding cake exceeded our expectations. Sarah's attention to detail was incredible!"
+              &ldquo;The custom wedding cake exceeded our expectations. Sarah&apos;s attention to detail was incredible!&rdquo;
             </p>
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-muted rounded-full"></div>
@@ -93,7 +93,7 @@ export function TrustIndicators() {
               ))}
             </div>
             <p className="text-muted-foreground mb-4 text-pretty">
-              "Fast delivery and amazing taste! My daughter's unicorn cake was perfect for her birthday."
+              &ldquo;Fast delivery and amazing taste! My daughter&apos;s unicorn cake was perfect for her birthday.&rdquo;
             </p>
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-muted rounded-full"></div>
@@ -111,7 +111,7 @@ export function TrustIndicators() {
               ))}
             </div>
             <p className="text-muted-foreground mb-4 text-pretty">
-              "Professional service for our corporate event. The presentation was flawless and delicious."
+              &ldquo;Professional service for our corporate event. The presentation was flawless and delicious.&rdquo;
             </p>
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-muted rounded-full"></div>

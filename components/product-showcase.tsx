@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Star, Heart, ShoppingCart, Filter, Grid, List, ChevronDown, ChevronUp } from 'lucide-react';
+import { Star, Heart, ShoppingCart, Grid, List, ChevronDown, ChevronUp } from 'lucide-react';
 
 const allProducts = [
   // Wedding Cakes

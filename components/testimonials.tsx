@@ -2,7 +2,6 @@
 
 import { Star } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { getOptimizedImagePath } from '../lib/image-utils';
 import Image from 'next/image';
 
 const testimonials = [
@@ -69,7 +68,7 @@ export function Testimonials() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">What Our Clients Say</h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
           <p className="text-muted-foreground/90 max-w-2xl mx-auto text-lg">
-            Don't just take our word for it. Here's what our customers have to say about their experience with Zereth Cakes.
+            Don&apos;t just take our word for it. Here&apos;s what our customers have to say about their experience with Zereth Cakes.
           </p>
         </motion.div>
 
@@ -104,7 +103,7 @@ export function Testimonials() {
               </div>
 
               <blockquote className="relative">
-                <div className="absolute -top-3 -left-3 text-5xl text-primary/10 font-serif leading-none">"</div>
+                <div className="absolute -top-3 -left-3 text-5xl text-primary/10 font-serif leading-none">&ldquo;</div>
                 <p className="text-foreground/90 relative z-10 leading-relaxed">
                   {testimonial.content}
                 </p>

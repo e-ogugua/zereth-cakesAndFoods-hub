@@ -61,7 +61,7 @@ export class PaymentProcessor {
     }
   }
 
-  async processFlutterwavePayment(amount: number, currency: string, customerData: any) {
+  async processFlutterwavePayment(amount: number, currency: string, customerData: unknown) {
     // Flutterwave payment processing logic
     try {
       const response = await fetch("/api/payments/flutterwave", {
@@ -80,14 +80,14 @@ export class PaymentProcessor {
     }
   }
 
-  async processPayOnDelivery(orderData: any) {
+  async processPayOnDelivery(orderData: unknown) {
     // Pay on delivery processing (just creates order without payment)
     try {
       const response = await fetch("/api/orders/create", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          ...orderData,
+          ...(orderData as Record<string, unknown>),
           paymentStatus: "pending",
           paymentMethod: "pay-on-delivery",
         }),
@@ -101,8 +101,9 @@ export class PaymentProcessor {
 }
 
 // Webhook handlers for payment confirmations
-export async function handleStripeWebhook(event: any) {
-  switch (event.type) {
+export async function handleStripeWebhook(event: unknown) {
+  const stripeEvent = event as { type: string };
+  switch (stripeEvent.type) {
     case "payment_intent.succeeded":
       // Update order status to paid
       break
@@ -110,12 +111,13 @@ export async function handleStripeWebhook(event: any) {
       // Handle failed payment
       break
     default:
-      console.log(`Unhandled Stripe event type: ${event.type}`)
+      console.log(`Unhandled Stripe event type: ${stripeEvent.type}`)
   }
 }
 
-export async function handlePaystackWebhook(event: any) {
-  switch (event.event) {
+export async function handlePaystackWebhook(event: unknown) {
+  const paystackEvent = event as { event: string };
+  switch (paystackEvent.event) {
     case "charge.success":
       // Update order status to paid
       break
@@ -123,16 +125,17 @@ export async function handlePaystackWebhook(event: any) {
       // Handle failed payment
       break
     default:
-      console.log(`Unhandled Paystack event type: ${event.event}`)
+      console.log(`Unhandled Paystack event type: ${paystackEvent.event}`)
   }
 }
 
-export async function handleFlutterwaveWebhook(event: any) {
-  switch (event.event) {
+export async function handleFlutterwaveWebhook(event: unknown) {
+  const flutterwaveEvent = event as { event: string };
+  switch (flutterwaveEvent.event) {
     case "charge.completed":
       // Verify payment and update order status
       break
     default:
-      console.log(`Unhandled Flutterwave event type: ${event.event}`)
+      console.log(`Unhandled Flutterwave event type: ${flutterwaveEvent.event}`)
   }
 }

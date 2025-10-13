@@ -1,11 +1,6 @@
 "use client"
 
 import type * as React from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-
-type IconProps = {
-  className?: string
-}
 import { DayPicker } from "react-day-picker"
 
 import { cn } from "@/lib/utils"

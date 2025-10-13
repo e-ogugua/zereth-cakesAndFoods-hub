@@ -39,7 +39,7 @@ interface ChartTooltipProps {
     name: string
     dataKey: string
     color: string
-    payload: any
+    payload: unknown
   }>
   label?: string
   className?: string
@@ -87,7 +87,7 @@ interface ChartLegendProps {
     type?: string
     id: string
     color?: string
-    [key: string]: any
+    [key: string]: unknown
   }>
   className?: string
 }
