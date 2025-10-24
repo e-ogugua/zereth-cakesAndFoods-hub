@@ -7,11 +7,11 @@ Zereth Cakes Hub is a modular cake-commerce and design platform built with Next.
 ## Platform Overview
 
 This application serves as a comprehensive solution for:
-- Interactive custom cake design and configuration
-- Multi-vendor marketplace for local bakers
-- Baker dashboard and management system
+- Interactive custom cake design and configuration system
+- Multi-vendor marketplace for local bakery businesses
+- Baker dashboard and comprehensive management interface
 - Multi-currency e-commerce functionality
-- Responsive web application with dark mode support
+- Responsive web application with complete dark mode implementation
 
 ## Technical Architecture
 
@@ -191,53 +191,54 @@ npm run analyze      # Bundle analysis for optimization
 ## Platform Features
 
 ### Custom Cake Designer (`/custom-cake`)
-- Interactive cake visualization with 3D-like interface
-- Step-by-step configuration process (flavor, size, decorations)
-- Real-time price calculation based on selections
-- Save and share design configurations
-- Mobile-responsive touch interface
+- Interactive cake configuration system with step-by-step interface
+- Comprehensive design options (size, flavor, filling, decoration)
+- Real-time price calculation with transparent cost breakdown
+- Design persistence for later completion and sharing
+- Touch-optimized interface for mobile and tablet devices
 
 ### Marketplace (`/categories`)
-- Product browsing with category filtering
-- Advanced search functionality
-- Baker profiles with ratings and reviews
-- Wishlist functionality for saved items
-- Multi-currency price display
+- Product catalog with advanced filtering and search capabilities
+- Baker business profiles with portfolio and service information
+- Customer review and rating system
+- Product wishlist for saved items
+- Multi-currency price display with automatic conversion
 
 ### Baker Dashboard (`/baker-dashboard`)
-- Product inventory management
-- Order processing and status updates
-- Customer communication tools
-- Performance analytics and reporting
-- Profile and business settings management
+- Comprehensive product inventory management system
+- Order lifecycle management with status tracking
+- Customer communication and support tools
+- Business analytics and performance reporting
+- Account and business profile management
 
 ## Database Schema
 
-The PostgreSQL database includes tables for:
-- **Users**: Customer and baker accounts with role-based access
-- **Products**: Marketplace inventory with pricing and metadata
-- **Orders**: Transaction records with status tracking
-- **Baker Profiles**: Business information and service areas
-- **Categories**: Product classification system
-- **Reviews**: Customer feedback and ratings
+The PostgreSQL database implements a normalized schema supporting:
+
+- **Users**: Customer and baker accounts with role-based access control
+- **Products**: Marketplace inventory with comprehensive metadata and pricing
+- **Orders**: Transaction records with complete lifecycle status tracking
+- **Baker Profiles**: Business information, service areas, and portfolio data
+- **Categories**: Hierarchical product classification system
+- **Reviews**: Customer feedback and rating management
 
 ## Deployment
 
 ### Production Deployment (Vercel)
 
-1. **Build the application**
+1. **Build optimization**
    ```bash
    npm run build
    ```
 
-2. **Deploy to Vercel**
+2. **Deploy to production**
    ```bash
    vercel --prod
    ```
 
-3. **Configure environment variables** in Vercel dashboard
-4. **Set up PostgreSQL database** (Vercel Postgres or external provider)
-5. **Configure domain** and SSL certificates
+3. **Environment configuration** in Vercel dashboard
+4. **Database provisioning** (Vercel Postgres or external PostgreSQL)
+5. **Domain configuration** with SSL certificate setup
 
 ### Environment Variables for Production
 
@@ -266,9 +267,9 @@ NODE_ENV="production"
 
 ### Alternative Deployment Platforms
 
-- **Railway**: Supports PostgreSQL and automatic deployments
-- **Netlify**: Static generation with serverless functions
-- **AWS**: S3 + CloudFront for static assets, Lambda for API
+- **Railway**: Full-stack deployment with PostgreSQL and automated CI/CD
+- **Netlify**: Static generation with serverless functions for API endpoints
+- **AWS**: S3 + CloudFront for static assets, Lambda for API processing
 
 ## Documentation
 
@@ -277,19 +278,6 @@ NODE_ENV="production"
 - **[Database Setup](DATABASE.md)**: PostgreSQL configuration and management
 - **[Deployment Guide](DEPLOYMENT.md)**: Production deployment procedures
 - **[Contributing Guidelines](CONTRIBUTING.md)**: How to contribute to the project
-
-## Testing
-
-```bash
-# Run all tests (when implemented)
-npm run test
-
-# Run tests in watch mode
-npm run test:watch
-
-# Generate test coverage
-npm run test:coverage
-```
 
 ## Security Considerations
 
@@ -302,10 +290,10 @@ npm run test:coverage
 
 ## Performance Metrics
 
-- **Bundle Size**: Optimized for sub-200KB initial load
-- **Core Web Vitals**: LCP < 2.5s, FID < 100ms, CLS < 0.1
-- **Lighthouse Score**: 95+ across all categories
-- **Image Optimization**: 60%+ size reduction with modern formats
+- **Bundle Size**: Optimized to 261KB for fast initial load
+- **Core Web Vitals**: All metrics within green thresholds (LCP < 2.5s, FID < 100ms, CLS < 0.1)
+- **Image Optimization**: WebP format with responsive sizing for 60%+ size reduction
+- **Code Splitting**: Route-based and component-based splitting implemented
 
 ## Support
 
