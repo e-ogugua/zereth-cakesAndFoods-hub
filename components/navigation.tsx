@@ -200,7 +200,7 @@ export function Navigation() {
               </a>
             </Button>
             <Button asChild size="sm" variant="outline" className="gap-2 border-red-200 text-red-600 hover:bg-red-50">
-              <a href="mailto:genjoshsnr@gmail.com?subject=Cake%20Inquiry">
+              <a href="mailto:support@zereth-cakes-hub.com?subject=Cake%20Inquiry">
                 <Mail className="h-4 w-4" />
                 Email Us
               </a>
@@ -293,7 +293,7 @@ export function Navigation() {
                 Call Us: +234 806 014 7046
               </a>
               <a
-                href="mailto:genjoshsnr@gmail.com?subject=Cake%20Inquiry"
+                href="mailto:support@zereth-cakes-hub.com?subject=Cake%20Inquiry"
                 className="inline-flex items-center justify-center w-full rounded-md border border-red-200 bg-white px-4 py-3 text-sm font-medium text-red-600 hover:bg-red-50 transition-colors"
               >
                 <Mail className="mr-2 h-4 w-4" />
@@ -302,8 +302,8 @@ export function Navigation() {
             </div>
             <div className="mt-4 text-sm text-muted-foreground text-center">
               <p>Enugu, Nigeria</p>
-              <a href="mailto:genjoshsnr@gmail.com" className="hover:underline hover:text-red-600">
-                genjoshsnr@gmail.com
+              <a href="mailto:support@zereth-cakes-hub.com" className="hover:underline hover:text-red-600">
+                support@zereth-cakes-hub.com
               </a>
             </div>
           </div>

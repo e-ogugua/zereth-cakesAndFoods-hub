@@ -40,7 +40,7 @@ export function HomeClient() {
           >
             <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-white/30 animate-pulse">
               <Sparkles className="h-4 w-4 text-red-300" />
-              <span className="text-sm font-medium text-white">Crafting Sweet Memories Since 2015</span>
+              <span className="text-sm font-medium text-white">Professional Cake Design Since 2015</span>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <OrderButton className="bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-4 rounded-full shadow-2xl hover:shadow-red-500/25 transition-all duration-300 transform hover:scale-105 text-lg" />
@@ -70,10 +70,10 @@ export function HomeClient() {
             className="max-w-5xl mx-auto"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 leading-tight tracking-tight">
-              Artisanal Cakes & Pastries <span className="bg-gradient-to-r from-red-600 to-red-800 bg-clip-text text-transparent">Made with Love</span>
+              Custom Cakes and Pastries <span className="bg-gradient-to-r from-red-600 to-red-800 bg-clip-text text-transparent">Professionally Crafted</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-light">
-              Handcrafted with premium ingredients and baked to perfection for your special moments. Every creation tells a story of passion, tradition, and unforgettable taste.
+              Quality baked goods made with premium ingredients. Custom designs available for all occasions and celebrations.
             </p>
           </motion.div>
         </div>

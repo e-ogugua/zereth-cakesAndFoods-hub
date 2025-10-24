@@ -19,8 +19,8 @@ export function ContactInfo({
     {
       icon: <Mail className="h-5 w-5" />,
       label: 'Email Us',
-      value: 'genjoshsnr@gmail.com',
-      href: 'mailto:genjoshsnr@gmail.com',
+      value: 'support@zereth-cakes-hub.com',
+      href: 'mailto:support@zereth-cakes-hub.com',
     },
     {
       icon: <MapPin className="h-5 w-5" />,

@@ -35,7 +35,7 @@ export default function OrderPage() {
               <div className="bg-muted/50 rounded-xl p-6 h-fit sticky top-6">
                 <h3 className="text-xl font-semibold mb-4">Need Help?</h3>
                 <p className="text-muted-foreground mb-6">
-                  Our team is here to help you create the perfect cake for your special occasion.
+                  Contact us if you need assistance with your order or have questions about our services.
                 </p>
                 
                 <div className="space-y-4">
@@ -50,13 +50,13 @@ export default function OrderPage() {
                   </a>
                   
                   <a 
-                    href="mailto:genjoshsnr@gmail.com" 
+                    href="mailto:support@zereth-cakes-hub.com" 
                     className="flex items-center gap-3 text-foreground hover:text-primary transition-colors"
                   >
                     <div className="bg-primary/10 p-2 rounded-lg">
                       <Mail className="h-5 w-5 text-primary" />
                     </div>
-                    <span>genjoshsnr@gmail.com</span>
+                    <span>support@zereth-cakes-hub.com</span>
                   </a>
                 </div>
                 

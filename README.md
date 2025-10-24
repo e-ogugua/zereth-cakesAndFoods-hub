@@ -1,88 +1,26 @@
-# Zereth Cakes & Foods Hub 🍰
+# Zereth Cakes Hub
 
-A modern, full-featured cake marketplace and custom cake design platform built with Next.js 14, React 18, and TypeScript.
+Modern cake marketplace and custom cake design platform built with Next.js 14, React 18, and TypeScript.
 
-## 🚀 Features
-
-### Core Functionality
-- **Custom Cake Designer** - Interactive cake customization tool
-- **Marketplace** - Browse cakes from local bakers
-- **Baker Dashboard** - Management system for bakers
-- **Multi-currency Support** - NGN, USD, EUR, GBP
-- **Responsive Design** - Works perfectly on all devices
-- **Dark Mode Support** - Complete theme system
-- **Image Optimization** - Automatic WebP conversion and optimization
-
-### User Experience
-- **Professional Navigation** - Clean, intuitive navigation with branding
-- **Hero Sections** - Stunning hero images with optimized text contrast
-- **Search & Filtering** - Advanced product discovery
-- **Real-time Forms** - Instant feedback and validation
-- **Mobile-First Design** - Optimized for mobile users
-
-## 🛠️ Technology Stack
-
-- **Framework**: Next.js 14 (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **UI Components**: Radix UI + Custom Components
-- **Animations**: Framer Motion
-- **Icons**: Lucide React
-- **Database**: PostgreSQL (SQL scripts included)
-- **Deployment**: Vercel-ready
-
-## 📁 Project Structure
-
-```
-zereth-cakes-hub/
-├── app/                    # Next.js App Router pages
-│   ├── (auth)/            # Authentication pages
-│   ├── api/               # API routes
-│   ├── about/             # About page
-│   ├── baker-dashboard/   # Baker management
-│   ├── baker-signup/      # Baker registration
-│   ├── categories/        # Product marketplace
-│   ├── checkout/          # Checkout process
-│   ├── contact/           # Contact form
-│   ├── custom-cake/       # Cake designer
-│   ├── gallery/           # Image gallery
-│   ├── order/             # Order management
-│   └── services/          # Services overview
-├── components/            # Reusable components
-│   ├── ui/               # Base UI components
-│   ├── navigation.tsx    # Main navigation
-│   ├── footer.tsx        # Site footer
-│   ├── hero-section.tsx  # Hero components
-│   └── cake-configurator.tsx # Cake designer
-├── lib/                  # Utility functions
-├── public/               # Static assets
-├── scripts/              # Database scripts
-└── styles/               # Global styles
-```
-
-# Zereth Cakes & Foods Hub 🍰
-
-A modern, full-featured cake marketplace and custom cake design platform built with Next.js 14, React 18, and TypeScript.
-
-## 🚀 Features
+## Features
 
 ### Core Functionality
 - **Custom Cake Designer** - Interactive cake customization tool
 - **Marketplace** - Browse cakes from local bakers
 - **Baker Dashboard** - Management system for bakers
 - **Multi-currency Support** - NGN, USD, EUR, GBP
-- **Responsive Design** - Works perfectly on all devices
+- **Responsive Design** - Cross-device compatibility
 - **Dark Mode Support** - Complete theme system
 - **Image Optimization** - Automatic WebP conversion and optimization
 
 ### User Experience
-- **Professional Navigation** - Clean, intuitive navigation with branding
-- **Hero Sections** - Stunning hero images with optimized text contrast
-- **Search & Filtering** - Advanced product discovery
+- **Navigation** - Clean, intuitive navigation with branding
+- **Hero Sections** - Optimized images with text contrast
+- **Search and Filtering** - Product discovery
 - **Real-time Forms** - Instant feedback and validation
 - **Mobile-First Design** - Optimized for mobile users
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - **Framework**: Next.js 14 (App Router)
 - **Language**: TypeScript
@@ -93,7 +31,7 @@ A modern, full-featured cake marketplace and custom cake design platform built w
 - **Database**: PostgreSQL (SQL scripts included)
 - **Deployment**: Vercel-ready
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 zereth-cakes-hub/
@@ -122,10 +60,10 @@ zereth-cakes-hub/
 └── styles/               # Global styles
 ```
 
-## 🎨 Design System
+## Design System
 
-### Colors (Updated v2.2)
-- **Primary**: #EF4444 (Vibrant Red) - Professional brand color
+### Colors
+- **Primary**: #EF4444 (Brand Red) - Consistent brand color
 - **Background**: #FFFFFF (Light) / #0A0A0A (Dark)
 - **Text**: High contrast for accessibility
 - **Accent**: Green (#22C55E) for highlights
@@ -143,7 +81,7 @@ zereth-cakes-hub/
 - **Cards**: Rounded corners with shadows
 - **Forms**: Consistent styling with validation
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Node.js 18+
@@ -190,11 +128,11 @@ zereth-cakes-hub/
    http://localhost:3000
    ```
 
-## 📱 Pages Overview
+## Pages Overview
 
 ### Public Pages
 - **Home** (`/`) - Landing page with hero section
-- **About** (`/about`) - Company story and team
+- **About** (`/about`) - Company information and team
 - **Services** (`/services`) - Available services
 - **Gallery** (`/gallery`) - Portfolio showcase
 - **Contact** (`/contact`) - Contact form and information
@@ -202,7 +140,7 @@ zereth-cakes-hub/
 ### Marketplace
 - **Categories** (`/categories`) - Browse products with filtering
 - **Custom Cake** (`/custom-cake`) - Interactive cake designer
-- **Bakers** (`/bakers`) - Meet local bakers
+- **Bakers** (`/bakers`) - Local baker profiles
 
 ### User Features
 - **Authentication** - Login/signup system
@@ -216,10 +154,10 @@ zereth-cakes-hub/
 - **Product Management** - Add/edit products
 - **Order Management** - Handle customer orders
 
-## 🎯 Key Features
+## Key Features
 
 ### Custom Cake Designer
-- Interactive 3D cake visualization
+- Interactive cake visualization
 - Multiple flavors, sizes, and decorations
 - Real-time price calculation
 - Save and share designs
@@ -236,7 +174,7 @@ zereth-cakes-hub/
 - Analytics and reporting
 - Content management
 
-## 🔧 Development
+## Development
 
 ### Available Scripts
 ```bash
@@ -259,37 +197,37 @@ npm run type-check   # TypeScript type checking
 - **Caching**: Optimized asset caching
 - **Bundle Analysis**: Built-in bundle analyzer
 
-## 🌟 Recent Improvements (v2.2 - Latest)
+## Recent Improvements
 
 ### Critical Bug Fixes
-- ✅ **CSS Processing**: Fixed CSS compilation errors causing blank pages
-- ✅ **Image Loading**: Resolved all 404 errors for missing images
-- ✅ **Theme System**: Fixed CSS variables not being generated
-- ✅ **Hydration Issues**: Eliminated React hydration mismatches
-- ✅ **Module Errors**: Fixed MODULE_NOT_FOUND errors in development
+- **CSS Processing**: Fixed CSS compilation errors causing blank pages
+- **Image Loading**: Resolved all 404 errors for missing images
+- **Theme System**: Fixed CSS variables not being generated
+- **Hydration Issues**: Eliminated React hydration mismatches
+- **Module Errors**: Fixed MODULE_NOT_FOUND errors in development
 
 ### UI/UX Enhancements
-- ✅ **Brand Colors**: Updated to vibrant red (#EF4444) theme throughout
-- ✅ **CSS Variables**: Complete theme system with proper CSS custom properties
-- ✅ **Component Styling**: All components now use theme-aware colors
-- ✅ **Professional Appearance**: Clean, modern design with proper contrast
-- ✅ **Error Handling**: No more console warnings or errors
+- **Brand Colors**: Updated to red (#EF4444) theme throughout
+- **CSS Variables**: Complete theme system with proper CSS custom properties
+- **Component Styling**: All components now use theme-aware colors
+- **Professional Appearance**: Clean, modern design with proper contrast
+- **Error Handling**: No console warnings or errors
 
 ### Technical Improvements
-- ✅ **Build Process**: Optimized Next.js configuration for development
-- ✅ **CSS Optimization**: Proper Tailwind CSS compilation and processing
-- ✅ **Image References**: Fixed all broken image paths and mappings
-- ✅ **Component Architecture**: Clean separation of client/server components
-- ✅ **Development Experience**: Smooth development server with no errors
+- **Build Process**: Optimized Next.js configuration for development
+- **CSS Optimization**: Proper Tailwind CSS compilation and processing
+- **Image References**: Fixed all broken image paths and mappings
+- **Component Architecture**: Clean separation of client/server components
+- **Development Experience**: Smooth development server with no errors
 
-## 📊 Performance Metrics
+## Performance Metrics
 
 - **Lighthouse Score**: 95+ (Performance, Accessibility, Best Practices, SEO)
 - **Core Web Vitals**: All metrics in green
 - **Bundle Size**: Optimized for fast loading
 - **Image Optimization**: 60%+ size reduction with WebP
 
-## 🔒 Security
+## Security
 
 - **Input Validation**: Server-side validation for all forms
 - **CSRF Protection**: Built-in Next.js protection
@@ -297,10 +235,10 @@ npm run type-check   # TypeScript type checking
 - **HTTPS**: SSL/TLS encryption
 - **Headers**: Security headers configured
 
-## 🚀 Deployment
+## Deployment
 
 ### Live Application
-**🌐 Production URL**: https://zereth-cakes-hub.vercel.app
+**Production URL**: https://zereth-cakes-hub.vercel.app
 
 ### Vercel (Recommended)
 ```bash
@@ -320,7 +258,7 @@ NEXTAUTH_SECRET=your-production-secret
 NODE_ENV=production
 ```
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch
@@ -328,24 +266,24 @@ NODE_ENV=production
 4. Add tests if applicable
 5. Submit a pull request
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 📞 Support
+## Support
 
-- **Email**: genjoshsnr@gmail.com
+- **Email**: support@zereth-cakes-hub.com
 - **Phone**: +234 806 014 7046
 - **Location**: Enugu, Nigeria
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
-- **Next.js Team** - For the amazing framework
-- **Tailwind CSS** - For utility-first styling
-- **Radix UI** - For accessible components
-- **Framer Motion** - For smooth animations
-- **Vercel** - For hosting and deployment
+- **Next.js Team** - Framework development
+- **Tailwind CSS** - Utility-first styling
+- **Radix UI** - Accessible components
+- **Framer Motion** - Animation library
+- **Vercel** - Hosting and deployment platform
 
 ---
 
-**Zereth Cakes & Foods Hub** - Where edible art meets extraordinary taste! 🎂✨
+**Zereth Cakes Hub – by CEO (Chukwuka Emmanuel Ogugua)**

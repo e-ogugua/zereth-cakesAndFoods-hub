@@ -30,7 +30,7 @@ export function Footer() {
             </Link>
 
             <p className="text-primary-foreground/90 text-sm">
-              Creating beautiful, delicious cakes that make your moments special.
+              Professional cake design and baking services for all occasions.
             </p>
 
             <div className="flex gap-3">
@@ -42,7 +42,7 @@ export function Footer() {
                 <Phone className="h-5 w-5" />
               </a>
               <a
-                href="mailto:genjoshsnr@gmail.com"
+                href="mailto:support@zereth-cakes-hub.com"
                 className="text-primary-foreground/80 hover:text-white transition-colors"
                 aria-label="Email"
               >

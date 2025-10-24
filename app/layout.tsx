@@ -14,9 +14,9 @@ const inter = Inter({
   display: 'swap',
 })
 export const metadata: Metadata = {
-  title: "Zereth Cakes Hub - Where Edible Art Meets Extraordinary Taste",
-  description: "Custom cakes and artisanal foods by Joshua Okwukwem Ogugua. Specializing in custom cakes, bento cakes, muffins, and more.",
-  keywords: "custom cakes, bento cakes, muffins, small chops, meat pies, artisanal food, Abuja baker, wedding cakes, birthday cakes",
+  title: "Zereth Cakes Hub - Cake Marketplace and Custom Design Platform",
+  description: "Modern cake marketplace and custom cake design platform. Create and order custom cakes from local bakers.",
+  keywords: "custom cakes, cake marketplace, cake designer, local bakers, custom cake orders, bakery platform",
 }
 
 export default function RootLayout({

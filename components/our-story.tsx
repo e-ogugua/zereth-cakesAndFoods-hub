@@ -37,14 +37,12 @@ export function OurStory() {
               <h2 className="text-3xl font-bold mb-6 text-foreground">Our Story</h2>
               <div className="prose prose-lg text-foreground/90">
                 <p className="mb-6 leading-relaxed">
-                  Zereth Cakes Hub was born out of a passion for creating beautiful, delicious cakes that make every occasion special. 
-                  What started as a small home-based bakery has grown into a beloved local institution, known for our commitment to 
-                  quality, creativity, and exceptional customer service.
+                  Zereth Cakes Hub provides professional cake design and baking services. Our team specializes in creating
+                  custom cakes and baked goods for all types of events and celebrations.
                 </p>
                 <p className="leading-relaxed">
-                  Every cake we create is made with the finest ingredients, from locally-sourced dairy and eggs to premium chocolate 
-                  and vanilla. Our team of talented bakers and decorators pour their hearts into every creation, ensuring that each 
-                  cake is as beautiful as it is delicious.
+                  We use quality ingredients and maintain high standards in our baking process. Our experienced team
+                  delivers consistent results for both individual customers and businesses.
                 </p>
               </div>
             </motion.div>
@@ -70,7 +68,7 @@ export function OurStory() {
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Heart className="h-8 w-8 text-primary" />
                 </div>
-                <h4 className="font-bold mb-3 text-foreground">Made with Love</h4>
+                <h4 className="font-bold mb-3 text-foreground">Attention to Detail</h4>
                 <p className="text-foreground/80">Every cake is crafted with care and attention to detail.</p>
               </div>
               <div className="text-center p-6 bg-background rounded-lg shadow-sm border">
@@ -78,7 +76,7 @@ export function OurStory() {
                   <Sparkles className="h-8 w-8 text-primary" />
                 </div>
                 <h4 className="font-bold mb-3 text-foreground">Creative Designs</h4>
-                <p className="text-foreground/80">Custom creations to make your celebration truly special.</p>
+                <p className="text-foreground/80">Custom designs tailored to your specific requirements.</p>
               </div>
             </div>
           </motion.div>

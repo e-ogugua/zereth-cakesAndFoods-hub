@@ -9,7 +9,7 @@ const testimonials = [
     id: 1,
     name: 'Sarah Johnson',
     role: 'Wedding Planner',
-    content: 'The wedding cake Zereth Cakes created was absolutely stunning and tasted even better than it looked! Our clients were thrilled with both the design and flavor.',
+    content: 'The wedding cake from Zereth Cakes met all our expectations. The design was well-executed and the flavor was excellent. Our clients were very satisfied.',
     rating: 5,
     image: '/optimized/baker-sarah-portrait.webp'
   },
@@ -17,7 +17,7 @@ const testimonials = [
     id: 2,
     name: 'Michael Chen',
     role: 'Corporate Event Coordinator',
-    content: 'We order cakes for all our corporate events from Zereth Cakes. The quality is consistently excellent, and they always deliver on time with beautiful presentation.',
+    content: 'We regularly order cakes for corporate events from Zereth Cakes. The quality is consistent and they deliver on time with professional presentation.',
     rating: 5,
     image: '/optimized/baker-mike-workspace.webp'
   },
@@ -25,7 +25,7 @@ const testimonials = [
     id: 3,
     name: 'Amina Okafor',
     role: 'Satisfied Customer',
-    content: 'I\'ve ordered multiple birthday cakes from Zereth Cakes, and they never disappoint. The attention to detail and the taste are always exceptional.',
+    content: 'I have ordered several birthday cakes from Zereth Cakes. The quality and service have been consistently good.',
     rating: 4,
     image: '/optimized/baker-emma-workspace.webp'
   },
@@ -33,7 +33,7 @@ const testimonials = [
     id: 4,
     name: 'David Williams',
     role: 'Food Critic',
-    content: 'As someone who has tasted cakes from all over the world, I can confidently say Zereth Cakes stands out for their perfect balance of flavors and textures.',
+    content: 'Zereth Cakes produces high-quality baked goods with good flavor balance and texture. Their work meets professional standards.',
     rating: 5,
     image: '/optimized/beautiful-custom-wedding-cake-elegant-design.webp'
   }

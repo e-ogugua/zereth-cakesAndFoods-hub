@@ -14,9 +14,9 @@ export function FinalCTA() {
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
     >
-      <h3 className="text-3xl font-bold font-serif mb-6">Ready to Create Something Special?</h3>
+      <h3 className="text-3xl font-bold font-serif mb-6">Ready to Place Your Order?</h3>
       <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-        Whether you have a specific design in mind or need help bringing your vision to life, we&apos;d love to be part of your celebration.
+        Contact us to discuss your requirements or place an order. We provide custom cake design and baking services.
       </p>
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
         <Button 

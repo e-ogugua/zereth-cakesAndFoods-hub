@@ -1,7 +1,7 @@
 {
   "name": "zereth-cakes-hub",
   "version": "2.0.0",
-  "description": "A modern cake marketplace and custom cake design platform built with Next.js 14",
+  "description": "Modern cake marketplace and custom cake design platform built with Next.js 14",
   "private": true,
   "keywords": [
     "nextjs",
@@ -13,7 +13,7 @@
     "ecommerce",
     "custom-cake-designer"
   ],
-  "author": "Zereth Cakes & Foods Hub <genjoshsnr@gmail.com>",
+  "author": "Zereth Cakes Hub – by CEO (Chukwuka Emmanuel Ogugua) <support@zereth-cakes-hub.com>",
   "license": "MIT",
   "repository": {
     "type": "git",

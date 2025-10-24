@@ -30,7 +30,7 @@ export function MeetJoshua() {
             <div className="relative h-full w-full rounded-full overflow-hidden border-4 border-white shadow-2xl">
               <Image
                 src="/optimized/josh.webp"
-                alt="Joshua Okwukwem Ogugua - Master Baker & Founder"
+                alt="CEO Chukwuka Emmanuel Ogugua - Founder and Head Baker"
                 fill
                 className="object-cover"
                 priority
@@ -49,10 +49,12 @@ export function MeetJoshua() {
         >
           <div className="prose prose-lg">
             <p className="mb-6 text-lg leading-relaxed text-foreground font-semibold drop-shadow-sm">
-              As the founder and head baker of Zereth Cakes Hub, I personally oversee every cake that leaves our bakery. My passion for baking began at a young age, inspired by my mother&apos;s traditional recipes that have been passed down through generations in our family.
+              As the founder and CEO of Zereth Cakes Hub, I oversee all bakery operations and maintain our quality standards.
+              My background in professional baking and business management ensures consistent delivery of high-quality products.
             </p>
             <p className="mb-8 text-lg leading-relaxed text-foreground font-semibold drop-shadow-sm">
-              When I&apos;m not in the kitchen creating new cake designs and flavor combinations, you can find me teaching baking classes to aspiring bakers or experimenting with innovative techniques. My mission is to make every celebration truly special with cakes that are as unique and memorable as the people they&apos;re made for.
+              Beyond daily operations, I focus on developing new products and maintaining industry best practices. Our goal
+              is to provide reliable cake design and baking services that meet professional standards for all occasions.
             </p>
           </div>
 

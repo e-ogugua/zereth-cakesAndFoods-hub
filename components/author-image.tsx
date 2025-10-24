@@ -30,7 +30,7 @@ export function AuthorImage({
       >
         <Image
           src="/optimized/baker-Joshua-potrait.webp"
-          alt="Joshua Okwukwem Ogugua - Founder of Zereth Cakes Hub"
+          alt="CEO Chukwuka Emmanuel Ogugua - Founder of Zereth Cakes Hub"
           fill
           className="object-cover"
           priority

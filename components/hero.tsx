@@ -25,19 +25,18 @@ export function Hero() {
             <div className="space-y-4">
               <div className="flex items-center gap-2 text-primary">
                 <Sparkles className="h-5 w-5" />
-                <span className="text-sm font-medium">Premium Artisanal Marketplace</span>
+                <span className="text-sm font-medium">Professional Cake Services</span>
               </div>
 
               <h1 className="text-4xl lg:text-6xl font-bold text-foreground leading-tight text-balance">
-                Create Sweet
-                <span className="text-primary"> Memories</span>
+                Custom Cakes
+                <span className="text-primary"> and Design</span>
                 <br />
-                One Cake at a Time
+                Professional Service
               </h1>
 
               <p className="text-lg text-muted-foreground leading-relaxed text-pretty max-w-lg">
-                Discover beautiful custom cakes, connect with talented local bakers, and make every celebration
-                unforgettable with our premium marketplace.
+                Order custom cakes and connect with local bakers. Professional cake design services for all occasions.
               </p>
             </div>
 
@@ -56,7 +55,7 @@ export function Hero() {
                 </a>
               </Button>
               <Button asChild variant="secondary" size="lg" className="text-lg px-8">
-                <a href="mailto:genjoshsnr@gmail.com?subject=Cake%20Consultation%20Request" className="flex items-center">
+                <a href="mailto:support@zereth-cakes-hub.com?subject=Cake%20Consultation%20Request" className="flex items-center">
                   <Mail className="h-5 w-5 mr-2" />
                   Book Consultation
                 </a>
@@ -96,7 +95,7 @@ export function Hero() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-transparent" />
             <p className="absolute bottom-4 left-4 text-sm text-muted-foreground bg-background/80 px-3 py-1 rounded-full">
-              Made just for you
+              Custom design
             </p>
 
             <div className="absolute bottom-6 right-6 bg-background/95 backdrop-blur-sm rounded-lg p-4 shadow-lg">
