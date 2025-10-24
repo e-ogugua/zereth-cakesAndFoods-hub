@@ -59,7 +59,7 @@ export function Navigation() {
         ? 'bg-white/95 backdrop-blur-md border-b border-red-200 shadow-lg'
         : 'bg-white/80 backdrop-blur-sm border-b border-red-100'
     )}>
-      <div className="container flex h-20 items-center justify-between px-4 md:px-6">
+      <div className="container flex h-16 sm:h-20 items-center justify-between container-spacing">
         <div className="flex items-center">
           <Logo variant="nav" size="xl" className="mr-4" />
         </div>
@@ -72,7 +72,7 @@ export function Navigation() {
                 <>
                   <button
                     className={cn(
-                      'flex items-center px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200',
+                      'flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 focus-ring',
                       pathname.startsWith('/baker')
                         ? 'text-white bg-red-600 shadow-md'
                         : 'text-foreground hover:text-red-600 hover:bg-red-50'
@@ -80,7 +80,7 @@ export function Navigation() {
                     aria-expanded="false"
                   >
                     {item.name}
-                    <svg className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
@@ -90,7 +90,7 @@ export function Navigation() {
                         <Link
                           key={subItem.href}
                           href={subItem.href}
-                          className="block px-4 py-2.5 text-sm font-medium text-foreground hover:bg-red-50 hover:text-red-600 transition-colors"
+                          className="block px-4 py-2.5 text-sm font-medium text-foreground hover:bg-red-50 hover:text-red-600 transition-colors focus-ring"
                         >
                           {subItem.name}
                         </Link>
@@ -102,9 +102,9 @@ export function Navigation() {
                 <Link
                   href={item.href}
                   className={cn(
-                    'px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200',
+                    'px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 focus-ring',
                     pathname === item.href
-                      ? 'text-white bg-red-600 shadow-md shadow-red-200'
+                      ? 'text-white bg-red-600 shadow-md'
                       : 'text-foreground hover:text-red-600 hover:bg-red-50'
                   )}
                 >
@@ -124,7 +124,7 @@ export function Navigation() {
             variant="ghost"
             size="icon"
             onClick={toggleDarkMode}
-            className="rounded-full text-foreground hover:bg-red-50 hover:text-red-600"
+            className="rounded-full text-foreground hover:bg-red-50 hover:text-red-600 touch-target focus-ring"
             aria-label="Toggle dark mode"
           >
             {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
@@ -132,23 +132,23 @@ export function Navigation() {
           <Button
             variant="ghost"
             size="icon"
-            className="rounded-full text-foreground hover:bg-red-50 hover:text-red-600"
+            className="rounded-full text-foreground hover:bg-red-50 hover:text-red-600 touch-target focus-ring"
             aria-label="Cart"
           >
             <ShoppingCart className="h-5 w-5" />
           </Button>
-          <Button variant="ghost" size="icon" className="rounded-full hover:bg-red-50" aria-label="Account">
+          <Button variant="ghost" size="icon" className="rounded-full hover:bg-red-50 touch-target focus-ring" aria-label="Account">
             <User className="h-5 w-5" />
           </Button>
           <div className="hidden lg:block">
-            <OrderButton className="bg-red-600 hover:bg-red-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-200" />
+            <OrderButton className="bg-red-600 hover:bg-red-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-200 touch-target focus-ring" />
           </div>
         </div>
 
-        {/* Mobile Actions - shows on mobile only */}
+        {/* Mobile Actions - Touch-friendly layout */}
         <div className="flex items-center md:hidden space-x-1">
           <CurrencySwitcher />
-          <Button variant="ghost" size="icon" className="text-foreground hover:bg-red-50 hover:text-red-600">
+          <Button variant="ghost" size="icon" className="text-foreground hover:bg-red-50 hover:text-red-600 touch-target focus-ring">
             <ShoppingCart className="h-5 w-5" />
             <span className="sr-only">Cart</span>
           </Button>
@@ -156,7 +156,7 @@ export function Navigation() {
             variant="ghost"
             size="icon"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="text-foreground hover:bg-red-50 hover:text-red-600"
+            className="text-foreground hover:bg-red-50 hover:text-red-600 touch-target focus-ring"
           >
             {mobileMenuOpen ? (
               <X className="h-6 w-6" />
@@ -172,11 +172,11 @@ export function Navigation() {
       <div
         className={cn(
           'md:hidden fixed inset-0 bg-background/95 backdrop-blur-sm z-[60] transition-all duration-300 ease-in-out overflow-y-auto',
-          mobileMenuOpen ? 'opacity-100 visible translate-x-0' : 'opacity-0 invisible translate-x-full pointer-events-none',
-          'pt-20 pb-8 px-4'
+          mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none',
+          'pt-16 pb-8 container-spacing'
         )}
       >
-        <div className="bg-background rounded-xl p-6 shadow-xl border border-red-200 max-h-[80vh] overflow-y-auto">
+        <div className="bg-background rounded-xl p-4 sm:p-6 shadow-xl border border-red-200 max-h-[85vh] overflow-y-auto">
           {/* Brand Section */}
           <div className="flex items-center justify-between mb-6 pb-6 border-b border-red-200">
             <Logo variant="nav" size="xl" className="mr-3" />
@@ -184,7 +184,7 @@ export function Navigation() {
               variant="ghost"
               size="icon"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-foreground hover:bg-red-50 hover:text-red-600"
+              className="text-foreground hover:bg-red-50 hover:text-red-600 touch-target focus-ring"
               aria-label="Close menu"
             >
               <X className="h-6 w-6" />
@@ -193,13 +193,13 @@ export function Navigation() {
 
           {/* Quick Actions */}
           <div className="grid grid-cols-2 gap-3 mb-6">
-            <Button asChild size="sm" className="gap-2 bg-red-600 hover:bg-red-700">
+            <Button asChild size="sm" className="gap-2 bg-red-600 hover:bg-red-700 touch-target focus-ring">
               <a href="tel:+2348060147046">
                 <Phone className="h-4 w-4" />
                 Call Us
               </a>
             </Button>
-            <Button asChild size="sm" variant="outline" className="gap-2 border-red-200 text-red-600 hover:bg-red-50">
+            <Button asChild size="sm" variant="outline" className="gap-2 border-red-200 text-red-600 hover:bg-red-50 touch-target focus-ring">
               <a href="mailto:support@zereth-cakes-hub.com?subject=Cake%20Inquiry">
                 <Mail className="h-4 w-4" />
                 Email Us
@@ -215,7 +215,7 @@ export function Navigation() {
             <Button
               variant="outline"
               onClick={toggleDarkMode}
-              className="gap-2 border-red-200 text-red-600 hover:bg-red-50"
+              className="gap-2 border-red-200 text-red-600 hover:bg-red-50 touch-target focus-ring"
             >
               {isDarkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
               {isDarkMode ? 'Light Mode' : 'Dark Mode'}
@@ -240,11 +240,10 @@ export function Navigation() {
                           key={subItem.href}
                           href={subItem.href}
                           className={cn(
-                            'block px-4 py-2 text-sm rounded-lg transition-all',
-                            'hover:bg-red-50 hover:text-red-600',
+                            'block px-4 py-3 text-sm rounded-lg transition-all touch-target focus-ring',
                             pathname === subItem.href
                               ? 'bg-red-600 text-white font-medium'
-                              : 'text-foreground hover:text-red-600',
+                              : 'text-foreground hover:bg-red-50 hover:text-red-600',
                           )}
                           onClick={() => setMobileMenuOpen(false)}
                         >
@@ -257,11 +256,10 @@ export function Navigation() {
                   <Link
                     href={item.href}
                     className={cn(
-                      'block px-4 py-3 text-base font-medium rounded-lg transition-all',
-                      'hover:bg-red-50 hover:text-red-600',
+                      'block px-4 py-3 text-base font-medium rounded-lg transition-all touch-target focus-ring',
                       pathname === item.href
                         ? 'bg-red-600 text-white font-semibold'
-                        : 'text-foreground hover:text-red-600',
+                        : 'text-foreground hover:bg-red-50 hover:text-red-600',
                     )}
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -271,15 +269,16 @@ export function Navigation() {
               </div>
             ))}
           </nav>
+
           <div className="mt-6 pt-4 border-t border-red-200 space-y-4">
             <div className="space-y-3">
-              <Button asChild className="w-full bg-red-600 hover:bg-red-700" size="lg" variant="default">
+              <Button asChild className="w-full bg-red-600 hover:bg-red-700 touch-target focus-ring" size="lg" variant="default">
                 <Link href="/contact">
                   <User className="mr-2 h-4 w-4" />
                   Contact Us
                 </Link>
               </Button>
-              <Button asChild className="w-full bg-red-600 hover:bg-red-700" size="lg">
+              <Button asChild className="w-full bg-red-600 hover:bg-red-700 touch-target focus-ring" size="lg">
                 <Link href="/custom-cake">
                   <Cake className="mr-2 h-4 w-4" />
                   Order Now
@@ -287,14 +286,14 @@ export function Navigation() {
               </Button>
               <a
                 href="tel:+2348060147046"
-                className="inline-flex items-center justify-center w-full rounded-md bg-red-600 px-4 py-3 text-sm font-medium text-white hover:bg-red-700 transition-colors"
+                className="inline-flex items-center justify-center w-full rounded-md bg-red-600 px-4 py-3 text-sm font-medium text-white hover:bg-red-700 transition-colors touch-target focus-ring"
               >
                 <Phone className="mr-2 h-4 w-4" />
                 Call Us: +234 806 014 7046
               </a>
               <a
                 href="mailto:support@zereth-cakes-hub.com?subject=Cake%20Inquiry"
-                className="inline-flex items-center justify-center w-full rounded-md border border-red-200 bg-white px-4 py-3 text-sm font-medium text-red-600 hover:bg-red-50 transition-colors"
+                className="inline-flex items-center justify-center w-full rounded-md border border-red-200 bg-white px-4 py-3 text-sm font-medium text-red-600 hover:bg-red-50 transition-colors touch-target focus-ring"
               >
                 <Mail className="mr-2 h-4 w-4" />
                 Email Us
@@ -302,7 +301,7 @@ export function Navigation() {
             </div>
             <div className="mt-4 text-sm text-muted-foreground text-center">
               <p>Enugu, Nigeria</p>
-              <a href="mailto:support@zereth-cakes-hub.com" className="hover:underline hover:text-red-600">
+              <a href="mailto:support@zereth-cakes-hub.com" className="hover:underline hover:text-red-600 transition-colors">
                 support@zereth-cakes-hub.com
               </a>
             </div>

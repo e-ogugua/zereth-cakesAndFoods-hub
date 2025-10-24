@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
@@ -426,7 +426,9 @@ const allProducts = [
   }
 ];
 
-export function ProductShowcase() {
+// Using React.memo to prevent unnecessary re-renders of the product showcase
+// This component has large static data arrays and doesn't need frequent re-renders
+export const ProductShowcase = memo(function ProductShowcase() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [showAllProducts, setShowAllProducts] = useState(false);
@@ -490,10 +492,10 @@ export function ProductShowcase() {
           </div>
         </div>
 
-        {/* Products Grid */}
-        <div className={`grid gap-6 ${
+        {/* Products Grid - Mobile-first responsive design */}
+        <div className={`grid gap-4 sm:gap-6 ${
           viewMode === 'grid'
-            ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
+            ? 'grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
             : 'grid-cols-1'
         }`}>
           {displayedProducts.map((product, index) => (
@@ -502,18 +504,19 @@ export function ProductShowcase() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
             >
-              <Card className="group hover:shadow-lg transition-all duration-300 overflow-hidden border-0 bg-background">
-                <div className="relative h-48 overflow-hidden">
+              <Card className="group hover:shadow-lg transition-all duration-300 overflow-hidden border-0 bg-background h-full">
+                <div className="relative h-48 sm:h-56 overflow-hidden">
                   <Image
                     src={product.image}
                     alt={product.name}
                     fill
                     className="group-hover:scale-105 transition-transform duration-300 object-cover"
+                    sizes="(max-width: 475px) 100vw, (max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   />
                   <div className="absolute top-2 right-2 flex flex-col gap-2">
-                    <Button variant="secondary" size="icon" className="h-8 w-8 rounded-full bg-background/80 backdrop-blur-sm hover:bg-background/100">
+                    <Button variant="secondary" size="icon" className="h-8 w-8 rounded-full bg-background/80 backdrop-blur-sm hover:bg-background/100 touch-target focus-ring">
                       <Heart className="h-4 w-4" />
                     </Button>
                     {product.isCustomizable && (
@@ -524,33 +527,30 @@ export function ProductShowcase() {
                   </div>
                 </div>
 
-                <CardContent className="p-4">
-                  <div className="mb-2">
-                    <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                <CardContent className="p-4 flex flex-col h-full">
+                  <div className="flex-grow mb-3">
+                    <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-2">
                       {product.name}
                     </h3>
-                    <p className="text-sm product-description line-clamp-2">
+                    <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
                       {product.description}
                     </p>
                   </div>
 
-                  <div className="flex items-center gap-1 mb-2">
+                  <div className="flex items-center gap-1 mb-3">
                     <Star className="h-4 w-4 fill-secondary text-secondary" />
                     <span className="text-sm font-medium">{product.rating}</span>
-                    <span className="text-sm muted-text">({product.reviewCount})</span>
+                    <span className="text-sm text-muted-foreground">({product.reviewCount})</span>
                   </div>
 
-                  <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center justify-between mb-4">
                     <div className="text-lg font-bold text-foreground">
                       ${product.price.USD}
-                      <span className="text-sm muted-text ml-1">
-                        (${product.price.GBP} GBP | ₦{product.price.NGN.toLocaleString()} NGN)
-                      </span>
                     </div>
-                    <div className="text-xs muted-text">{product.preparationTime}</div>
+                    <div className="text-xs text-muted-foreground">{product.preparationTime}</div>
                   </div>
 
-                  <Button className="w-full btn-text" size="sm">
+                  <Button className="w-full touch-target focus-ring" size="sm">
                     <ShoppingCart className="h-4 w-4 mr-2" />
                     Add to Cart
                   </Button>
@@ -595,4 +595,4 @@ export function ProductShowcase() {
       </div>
     </section>
   );
-}
+})

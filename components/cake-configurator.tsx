@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, memo } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -129,7 +129,9 @@ const timeSlots = [
   "7:00 PM - 9:00 PM",
 ]
 
-export function CakeConfigurator() {
+// Using React.memo to prevent unnecessary re-renders of the cake configurator
+// This component is heavy with many UI elements and state, memoization improves performance
+export const CakeConfigurator = memo(function CakeConfigurator() {
   const [currentStep, setCurrentStep] = useState(1)
   const [config, setConfig] = useState<CakeConfig>({
     size: "",
@@ -590,36 +592,33 @@ export function CakeConfigurator() {
 
   return (
     <div className="max-w-6xl mx-auto">
-      {/* Progress Header */}
-      <div className="mb-8">
-        <div className="flex items-center justify-between mb-4">
+      {/* Progress Header - Mobile-optimized layout */}
+      <div className="mb-6 sm:mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-4">
           <div>
-            <h2 className="text-2xl font-bold text-foreground">
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground">
               Step {currentStep} of {steps.length}
             </h2>
-            <p className="text-muted-foreground">{steps[currentStep - 1]?.description}</p>
+            <p className="text-sm sm:text-base text-muted-foreground">{steps[currentStep - 1]?.description}</p>
           </div>
-          <div className="text-right">
+          <div className="text-left sm:text-right">
             <div className="text-sm text-muted-foreground mb-1">Estimated Total</div>
-            <div className="text-2xl font-bold text-primary">{formatPrice(calculatePrice())}</div>
+            <div className="text-xl sm:text-2xl font-bold text-primary">{formatPrice(calculatePrice())}</div>
           </div>
         </div>
 
-        <Progress value={progress} className="h-2" />
+        <Progress value={progress} className="h-2 mb-6" />
 
-        {/* Step indicators */}
-        <div className="flex justify-between mt-4">
+        {/* Step indicators - Responsive layout */}
+        <div className="grid grid-cols-7 gap-2 sm:gap-4 lg:flex lg:justify-between">
           {steps.map((step) => (
             <div
               key={step.id}
-              className={cn(
-                "flex flex-col items-center text-xs",
-                step.id <= currentStep ? "text-primary" : "text-muted-foreground",
-              )}
+              className="flex flex-col items-center text-center"
             >
               <div
                 className={cn(
-                  "w-8 h-8 rounded-full flex items-center justify-center mb-1 text-xs font-medium",
+                  "w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center mb-2 text-sm font-medium transition-colors",
                   step.id < currentStep
                     ? "bg-primary text-primary-foreground"
                     : step.id === currentStep
@@ -629,34 +628,47 @@ export function CakeConfigurator() {
               >
                 {step.id}
               </div>
-              <span className="hidden sm:block text-center">{step.title}</span>
+              <span className="text-xs sm:text-sm font-medium leading-tight">
+                {step.title.split(' ').slice(0, 2).join(' ')}
+              </span>
+              {step.title.split(' ').length > 2 && (
+                <span className="text-xs text-muted-foreground hidden sm:block">
+                  {step.title.split(' ').slice(2).join(' ')}
+                </span>
+              )}
             </div>
           ))}
         </div>
       </div>
 
-      {/* Step Content */}
-      <Card className="mb-8">
-        <CardContent className="p-8">{renderStepContent()}</CardContent>
+      {/* Step Content - Responsive padding */}
+      <Card className="mb-6 sm:mb-8">
+        <CardContent className="p-4 sm:p-6 lg:p-8">{renderStepContent()}</CardContent>
       </Card>
 
-      {/* Navigation */}
-      <div className="flex justify-between">
+      {/* Navigation - Touch-friendly mobile layout */}
+      <div className="flex flex-col sm:flex-row justify-between gap-4">
         <Button
           variant="outline"
           onClick={prevStep}
           disabled={currentStep === 1}
-          className="flex items-center gap-2 bg-transparent"
+          className="flex items-center justify-center gap-2 bg-transparent touch-target focus-ring order-2 sm:order-1"
         >
           <ChevronLeft className="h-4 w-4" />
-          Previous
+          <span className="sm:hidden">Back</span>
+          <span className="hidden sm:inline">Previous</span>
         </Button>
 
-        <Button onClick={nextStep} disabled={currentStep === steps.length} className="flex items-center gap-2">
-          {currentStep === steps.length ? "Complete Order" : "Next"}
+        <Button
+          onClick={nextStep}
+          disabled={currentStep === steps.length}
+          className="flex items-center justify-center gap-2 touch-target focus-ring order-1 sm:order-2"
+        >
+          <span className="sm:hidden">{currentStep === steps.length ? "Complete" : "Next"}</span>
+          <span className="hidden sm:inline">{currentStep === steps.length ? "Complete Order" : "Next"}</span>
           <ChevronRight className="h-4 w-4" />
         </Button>
       </div>
     </div>
   )
-}
+})

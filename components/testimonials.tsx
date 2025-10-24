@@ -1,6 +1,7 @@
 'use client';
 
 import { Star } from 'lucide-react';
+import { memo } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
@@ -53,26 +54,28 @@ const StarRating = ({ rating }: { rating: number }) => {
   );
 };
 
-export function Testimonials() {
+// Using React.memo to prevent unnecessary re-renders of testimonials
+// This component renders static testimonial data and doesn't need frequent updates
+export const Testimonials = memo(function Testimonials() {
   return (
-    <section className="py-20 bg-background">
-      <div className="container px-4 mx-auto">
+    <section className="section-spacing bg-background">
+      <div className="container mx-auto container-spacing">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           <span className="inline-block text-primary font-medium mb-3 text-sm uppercase tracking-wider">Testimonials</span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">What Our Clients Say</h2>
-          <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
-          <p className="text-muted-foreground/90 max-w-2xl mx-auto text-lg">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-foreground">What Our Clients Say</h2>
+          <div className="w-16 sm:w-20 h-1 bg-primary mx-auto mb-6"></div>
+          <p className="text-muted-foreground/90 max-w-2xl mx-auto text-base sm:text-lg">
             Don&apos;t just take our word for it. Here&apos;s what our customers have to say about their experience with Zereth Cakes.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.id}
@@ -80,10 +83,10 @@ export function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group bg-card p-8 rounded-xl shadow-sm border border-border/50 hover:shadow-lg transition-all duration-300 hover:border-primary/20"
+              className="group bg-card p-4 sm:p-6 lg:p-8 rounded-xl shadow-sm border border-border/50 hover:shadow-lg transition-all duration-300 hover:border-primary/20"
             >
-              <div className="flex items-center gap-4 mb-6">
-                <div className="relative h-14 w-14 rounded-full overflow-hidden border-2 border-white shadow-md">
+              <div className="flex items-center gap-4 mb-4 sm:mb-6">
+                <div className="relative h-12 w-12 sm:h-14 sm:w-14 rounded-full overflow-hidden border-2 border-white shadow-md">
                   <Image
                     src={testimonial.image}
                     alt={testimonial.name}
@@ -93,32 +96,32 @@ export function Testimonials() {
                   />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground">{testimonial.name}</h4>
-                  <p className="text-sm muted-text/90">{testimonial.role}</p>
+                  <h4 className="font-semibold text-foreground text-sm sm:text-base">{testimonial.name}</h4>
+                  <p className="text-xs sm:text-sm text-muted-foreground/90">{testimonial.role}</p>
                 </div>
               </div>
 
-              <div className="mb-5">
+              <div className="mb-4 sm:mb-5">
                 <StarRating rating={testimonial.rating} />
               </div>
 
               <blockquote className="relative">
-                <div className="absolute -top-3 -left-3 text-5xl text-primary/10 font-serif leading-none">&ldquo;</div>
-                <p className="text-foreground/90 relative z-10 leading-relaxed">
+                <div className="absolute -top-2 -left-2 text-3xl sm:text-4xl text-primary/10 font-serif leading-none">&ldquo;</div>
+                <p className="text-foreground/90 relative z-10 leading-relaxed text-sm sm:text-base">
                   {testimonial.content}
                 </p>
               </blockquote>
 
-              <div className="mt-6 pt-4 border-t border-border/20">
+              <div className="mt-4 sm:mt-6 pt-4 border-t border-border/20">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-muted-foreground">
+                  <span className="text-xs sm:text-sm text-muted-foreground">
                     {testimonial.rating.toFixed(1)}/5.0
                   </span>
                   <div className="flex space-x-1">
                     {[1, 2, 3, 4, 5].map((star) => (
                       <Star
                         key={star}
-                        className={`h-3.5 w-3.5 ${star <= testimonial.rating ? 'text-yellow-400 fill-current' : 'text-muted-foreground/30'}`}
+                        className={`h-3 sm:h-3.5 w-3 sm:w-3.5 ${star <= testimonial.rating ? 'text-yellow-400 fill-current' : 'text-muted-foreground/30'}`}
                       />
                     ))}
                   </div>
@@ -130,4 +133,4 @@ export function Testimonials() {
       </div>
     </section>
   );
-}
+})

@@ -13,7 +13,7 @@
     "ecommerce",
     "custom-cake-designer"
   ],
-  "author": "Zereth Cakes Hub – by CEO (Chukwuka Emmanuel Ogugua) <support@zereth-cakes-hub.com>",
+  "author": "Zereth Cakes Hub – Developed by CEO (Chukwuka Emmanuel Ogugua) <support@zereth-cakes-hub.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -108,6 +108,7 @@
     "eslint": "^8.56.0",
     "eslint-config-next": "15.0.3",
     "input-otp": "^1.4.2",
+    "jest-environment-jsdom": "^29.7.0",
     "postcss": "^8.5.6",
     "prettier": "^3.2.5",
     "react-resizable-panels": "^3.0.6",

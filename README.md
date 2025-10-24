@@ -1,35 +1,326 @@
 # Zereth Cakes Hub
 
-Modern cake marketplace and custom cake design platform built with Next.js 14, React 18, and TypeScript.
+Zereth Cakes Hub is a modular cake-commerce and design platform built with Next.js 14, React 18, and TypeScript. The platform provides tools for custom cake design, marketplace functionality, and baker management.
 
-## Features
+**Developed by CEO – Chukwuka Emmanuel Ogugua**
 
-### Core Functionality
-- **Custom Cake Designer** - Interactive cake customization tool
-- **Marketplace** - Browse cakes from local bakers
-- **Baker Dashboard** - Management system for bakers
-- **Multi-currency Support** - NGN, USD, EUR, GBP
-- **Responsive Design** - Cross-device compatibility
-- **Dark Mode Support** - Complete theme system
-- **Image Optimization** - Automatic WebP conversion and optimization
+## Platform Overview
 
-### User Experience
-- **Navigation** - Clean, intuitive navigation with branding
-- **Hero Sections** - Optimized images with text contrast
-- **Search and Filtering** - Product discovery
-- **Real-time Forms** - Instant feedback and validation
-- **Mobile-First Design** - Optimized for mobile users
+This application serves as a comprehensive solution for:
+- Interactive custom cake design and configuration
+- Multi-vendor marketplace for local bakers
+- Baker dashboard and management system
+- Multi-currency e-commerce functionality
+- Responsive web application with dark mode support
 
-## Technology Stack
+## Technical Architecture
 
+### Core Technologies
 - **Framework**: Next.js 14 (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS with CSS Variables
-- **UI Components**: Radix UI + Custom Components
-- **Animations**: Framer Motion
-- **Icons**: Lucide React
-- **Database**: PostgreSQL (SQL scripts included)
-- **Deployment**: Vercel-ready
+- **Language**: TypeScript with strict type checking
+- **Styling**: Tailwind CSS with CSS custom properties
+- **UI Components**: Radix UI primitives with custom implementations
+- **Animations**: Framer Motion with accessibility support
+- **Database**: PostgreSQL with structured schema
+- **Deployment**: Vercel-optimized configuration
+
+### System Features
+- **Custom Cake Designer**: Interactive cake configuration tool with real-time pricing
+- **Marketplace**: Product browsing with advanced filtering and search
+- **Multi-currency Support**: NGN, USD, GBP with automatic conversion
+- **Responsive Design**: Mobile-first approach with touch-friendly interfaces
+- **Dark Mode**: Complete theme system with user preference persistence
+- **Image Optimization**: WebP conversion with responsive sizing
+
+## Project Structure
+
+```
+zereth-cakes-hub/
+├── app/                    # Next.js App Router pages and API routes
+│   ├── (auth)/            # Authentication pages
+│   ├── api/               # Server-side API endpoints
+│   ├── about/             # About page
+│   ├── baker-dashboard/   # Baker management interface
+│   ├── baker-signup/      # Baker registration process
+│   ├── categories/        # Product marketplace
+│   ├── checkout/          # Payment processing
+│   ├── contact/           # Contact form
+│   ├── custom-cake/       # Interactive cake designer
+│   ├── gallery/           # Portfolio showcase
+│   ├── order/             # Order management
+│   └── services/          # Service descriptions
+├── components/            # Reusable React components
+│   ├── ui/               # Base UI components (buttons, cards, forms)
+│   ├── navigation.tsx    # Main navigation component
+│   ├── footer.tsx        # Site footer
+│   └── cake-configurator.tsx # Core cake design component
+├── lib/                  # Utility functions and configurations
+├── public/               # Static assets and optimized images
+├── scripts/              # Database setup and migration scripts
+└── styles/               # Global styles and CSS custom properties
+```
+
+## Development Setup
+
+### Prerequisites
+- Node.js 18.17 or later
+- npm or pnpm package manager
+- PostgreSQL 13+ database server
+- Git for version control
+
+### Installation Steps
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd zereth-cakes-hub
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   pnpm install
+   ```
+
+3. **Configure environment variables**
+
+   Copy the example environment file:
+   ```bash
+   cp .env.example .env.local
+   ```
+
+   Edit `.env.local` with your configuration:
+   ```bash
+   # Database Configuration
+   DATABASE_URL="postgresql://username:password@localhost:5432/zereth_cakes_hub"
+
+   # Next.js Configuration
+   NEXTAUTH_URL="http://localhost:3000"
+   NEXTAUTH_SECRET="your-secret-key-here"
+
+   # Email Configuration (for contact forms)
+   EMAIL_SERVER_HOST="smtp.gmail.com"
+   EMAIL_SERVER_PORT=587
+   EMAIL_SERVER_USER="your-email@gmail.com"
+   EMAIL_SERVER_PASSWORD="your-app-password"
+   EMAIL_FROM="noreply@zerethcakes.com"
+
+   # Payment Processing (Stripe)
+   STRIPE_PUBLISHABLE_KEY="pk_test_your_key_here"
+   STRIPE_SECRET_KEY="sk_test_your_key_here"
+   STRIPE_WEBHOOK_SECRET="whsec_your_webhook_secret"
+
+   # Development Settings
+   NODE_ENV="development"
+   ```
+
+4. **Set up PostgreSQL database**
+
+   Create a new PostgreSQL database:
+   ```bash
+   createdb zereth_cakes_hub
+   ```
+
+   Run the database schema:
+   ```bash
+   psql -d zereth_cakes_hub < scripts/01-create-database-schema.sql
+   ```
+
+   Optional - seed with sample data:
+   ```bash
+   psql -d zereth_cakes_hub < scripts/02-seed-sample-data.sql
+   ```
+
+5. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+6. **Verify installation**
+
+   Open http://localhost:3000 in your browser. The application should load without errors.
+
+### Stripe Payment Setup
+
+1. **Create Stripe account** at https://stripe.com
+2. **Get API keys** from the Stripe dashboard
+3. **Configure webhooks** for payment events
+4. **Update environment variables** with your Stripe keys
+5. **Test payments** using Stripe test cards in development
+
+### Email Configuration
+
+The application supports email notifications for:
+- Contact form submissions
+- Order confirmations
+- Password resets
+
+Configure SMTP settings in your environment variables for email functionality.
+
+## Development Workflow
+
+### Available Scripts
+
+```bash
+npm run dev          # Start development server (localhost:3000)
+npm run build        # Build for production
+npm run start        # Start production server
+npm run lint         # Run ESLint for code quality
+npm run lint:fix     # Fix ESLint issues automatically
+npm run type-check   # TypeScript type checking
+npm run format       # Format code with Prettier
+npm run format:check # Check code formatting
+npm run analyze      # Bundle analysis for optimization
+```
+
+### Code Quality Standards
+
+- **TypeScript**: Strict mode enabled with comprehensive type coverage
+- **ESLint**: Configured with Next.js and TypeScript rules
+- **Prettier**: Consistent code formatting across the project
+- **Component Architecture**: Clear separation between client and server components
+
+### Performance Optimization
+
+- **Image Optimization**: Automatic WebP conversion and responsive images
+- **Code Splitting**: Route-based and component-based splitting
+- **Bundle Analysis**: Built-in bundle analyzer for optimization insights
+- **Caching Strategy**: Optimized for static and dynamic content
+
+## Platform Features
+
+### Custom Cake Designer (`/custom-cake`)
+- Interactive cake visualization with 3D-like interface
+- Step-by-step configuration process (flavor, size, decorations)
+- Real-time price calculation based on selections
+- Save and share design configurations
+- Mobile-responsive touch interface
+
+### Marketplace (`/categories`)
+- Product browsing with category filtering
+- Advanced search functionality
+- Baker profiles with ratings and reviews
+- Wishlist functionality for saved items
+- Multi-currency price display
+
+### Baker Dashboard (`/baker-dashboard`)
+- Product inventory management
+- Order processing and status updates
+- Customer communication tools
+- Performance analytics and reporting
+- Profile and business settings management
+
+## Database Schema
+
+The PostgreSQL database includes tables for:
+- **Users**: Customer and baker accounts with role-based access
+- **Products**: Marketplace inventory with pricing and metadata
+- **Orders**: Transaction records with status tracking
+- **Baker Profiles**: Business information and service areas
+- **Categories**: Product classification system
+- **Reviews**: Customer feedback and ratings
+
+## Deployment
+
+### Production Deployment (Vercel)
+
+1. **Build the application**
+   ```bash
+   npm run build
+   ```
+
+2. **Deploy to Vercel**
+   ```bash
+   vercel --prod
+   ```
+
+3. **Configure environment variables** in Vercel dashboard
+4. **Set up PostgreSQL database** (Vercel Postgres or external provider)
+5. **Configure domain** and SSL certificates
+
+### Environment Variables for Production
+
+```bash
+# Production URLs
+NEXTAUTH_URL="https://your-domain.vercel.app"
+SITE_URL="https://your-domain.vercel.app"
+
+# Database (use connection string from your provider)
+DATABASE_URL="postgresql://..."
+
+# Stripe (use live keys)
+STRIPE_PUBLISHABLE_KEY="pk_live_..."
+STRIPE_SECRET_KEY="sk_live_..."
+STRIPE_WEBHOOK_SECRET="whsec_..."
+
+# Email (use production SMTP)
+EMAIL_SERVER_HOST="your-smtp-provider.com"
+EMAIL_SERVER_PORT=587
+EMAIL_SERVER_USER="noreply@your-domain.com"
+EMAIL_SERVER_PASSWORD="your-production-password"
+
+# Production settings
+NODE_ENV="production"
+```
+
+### Alternative Deployment Platforms
+
+- **Railway**: Supports PostgreSQL and automatic deployments
+- **Netlify**: Static generation with serverless functions
+- **AWS**: S3 + CloudFront for static assets, Lambda for API
+
+## Documentation
+
+- **[API Documentation](API.md)**: Complete API reference and usage examples
+- **[Development Guide](DEVELOPMENT.md)**: Technical details for contributors
+- **[Database Setup](DATABASE.md)**: PostgreSQL configuration and management
+- **[Deployment Guide](DEPLOYMENT.md)**: Production deployment procedures
+- **[Contributing Guidelines](CONTRIBUTING.md)**: How to contribute to the project
+
+## Testing
+
+```bash
+# Run all tests (when implemented)
+npm run test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Generate test coverage
+npm run test:coverage
+```
+
+## Security Considerations
+
+- Input validation on all user-facing forms
+- CSRF protection via Next.js built-in security
+- XSS prevention through React's automatic escaping
+- SQL injection prevention via parameterized queries
+- HTTPS enforcement in production
+- Security headers configured via Next.js
+
+## Performance Metrics
+
+- **Bundle Size**: Optimized for sub-200KB initial load
+- **Core Web Vitals**: LCP < 2.5s, FID < 100ms, CLS < 0.1
+- **Lighthouse Score**: 95+ across all categories
+- **Image Optimization**: 60%+ size reduction with modern formats
+
+## Support
+
+**Zereth Cakes Hub**
+- **Email**: support@zereth-cakes-hub.com
+- **Phone**: +234 806 014 7046
+- **Location**: Enugu, Nigeria
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+**Zereth Cakes Hub – Developed by CEO (Chukwuka Emmanuel Ogugua)**
 
 ## Project Structure
 
@@ -60,230 +351,15 @@ zereth-cakes-hub/
 └── styles/               # Global styles
 ```
 
-## Design System
-
-### Colors
-- **Primary**: #EF4444 (Brand Red) - Consistent brand color
-- **Background**: #FFFFFF (Light) / #0A0A0A (Dark)
-- **Text**: High contrast for accessibility
-- **Accent**: Green (#22C55E) for highlights
-- **Secondary**: Soft backgrounds with red tinting
-
-### Typography
-- **Headings**: Serif fonts for elegance
-- **Body**: Sans-serif for readability
-- **Hero Text**: Large, bold with drop shadows
-- **Buttons**: Rounded, with hover effects
-
-### Components
-- **Navigation**: Sticky header with logo and menu
-- **Hero Sections**: Full-width with overlay text
-- **Cards**: Rounded corners with shadows
-- **Forms**: Consistent styling with validation
-
-## Getting Started
-
-### Prerequisites
-- Node.js 18+
-- npm or pnpm
-- PostgreSQL (for database)
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd zereth-cakes-hub
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   # or
-   pnpm install
-   ```
-
-3. **Set up environment variables**
-   ```bash
-   cp .env.example .env.local
-   # Add your database URL and other secrets
-   ```
-
-4. **Set up the database**
-   ```bash
-   # Run the SQL scripts in scripts/ directory
-   psql -d your_database < scripts/01-create-database-schema.sql
-   psql -d your_database < scripts/02-seed-sample-data.sql
-   ```
-
-5. **Start the development server**
-   ```bash
-   npm run dev
-   # or
-   pnpm dev
-   ```
-
-6. **Open your browser**
-   ```
-   http://localhost:3000
-   ```
-
-## Pages Overview
-
-### Public Pages
-- **Home** (`/`) - Landing page with hero section
-- **About** (`/about`) - Company information and team
-- **Services** (`/services`) - Available services
-- **Gallery** (`/gallery`) - Portfolio showcase
-- **Contact** (`/contact`) - Contact form and information
-
-### Marketplace
-- **Categories** (`/categories`) - Browse products with filtering
-- **Custom Cake** (`/custom-cake`) - Interactive cake designer
-- **Bakers** (`/bakers`) - Local baker profiles
-
-### User Features
-- **Authentication** - Login/signup system
-- **User Dashboard** - Order management
-- **Checkout** - Secure payment processing
-- **Order Tracking** - Real-time order status
-
-### Baker Features
-- **Baker Signup** (`/baker-signup`) - Registration process
-- **Baker Dashboard** (`/baker-dashboard`) - Management interface
-- **Product Management** - Add/edit products
-- **Order Management** - Handle customer orders
-
-## Key Features
-
-### Custom Cake Designer
-- Interactive cake visualization
-- Multiple flavors, sizes, and decorations
-- Real-time price calculation
-- Save and share designs
-
-### Marketplace
-- Advanced search and filtering
-- Baker profiles and ratings
-- Wishlist functionality
-- Multi-currency support
-
-### Admin Dashboard
-- Order management
-- Customer support
-- Analytics and reporting
-- Content management
-
-## Development
-
-### Available Scripts
-```bash
-npm run dev          # Start development server
-npm run build        # Build for production
-npm run start        # Start production server
-npm run lint         # Run ESLint
-npm run type-check   # TypeScript type checking
-```
-
-### Code Quality
-- **TypeScript**: Full type safety
-- **ESLint**: Code linting and formatting
-- **Prettier**: Code formatting
-- **Husky**: Git hooks for quality
-
-### Performance
-- **Image Optimization**: Automatic WebP conversion
-- **Code Splitting**: Automatic route-based splitting
-- **Caching**: Optimized asset caching
-- **Bundle Analysis**: Built-in bundle analyzer
-
-## Recent Improvements
-
-### Critical Bug Fixes
-- **CSS Processing**: Fixed CSS compilation errors causing blank pages
-- **Image Loading**: Resolved all 404 errors for missing images
-- **Theme System**: Fixed CSS variables not being generated
-- **Hydration Issues**: Eliminated React hydration mismatches
-- **Module Errors**: Fixed MODULE_NOT_FOUND errors in development
-
-### UI/UX Enhancements
-- **Brand Colors**: Updated to red (#EF4444) theme throughout
-- **CSS Variables**: Complete theme system with proper CSS custom properties
-- **Component Styling**: All components now use theme-aware colors
-- **Professional Appearance**: Clean, modern design with proper contrast
-- **Error Handling**: No console warnings or errors
-
-### Technical Improvements
-- **Build Process**: Optimized Next.js configuration for development
-- **CSS Optimization**: Proper Tailwind CSS compilation and processing
-- **Image References**: Fixed all broken image paths and mappings
-- **Component Architecture**: Clean separation of client/server components
-- **Development Experience**: Smooth development server with no errors
-
-## Performance Metrics
-
-- **Lighthouse Score**: 95+ (Performance, Accessibility, Best Practices, SEO)
-- **Core Web Vitals**: All metrics in green
-- **Bundle Size**: Optimized for fast loading
-- **Image Optimization**: 60%+ size reduction with WebP
-
-## Security
-
-- **Input Validation**: Server-side validation for all forms
-- **CSRF Protection**: Built-in Next.js protection
-- **XSS Prevention**: Sanitized user inputs
-- **HTTPS**: SSL/TLS encryption
-- **Headers**: Security headers configured
-
-## Deployment
-
-### Live Application
-**Production URL**: https://zereth-cakes-hub.vercel.app
-
-### Vercel (Recommended)
-```bash
-npm run build
-vercel --prod
-```
-
-### Other Platforms
-- **Netlify**: Configure build settings
-- **Railway**: Deploy with PostgreSQL
-- **AWS**: S3 + CloudFront + Lambda
-
-### Environment Variables
-```bash
-NEXTAUTH_URL=https://zereth-cakes-hub.vercel.app
-NEXTAUTH_SECRET=your-production-secret
-NODE_ENV=production
-```
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Support
-
-- **Email**: support@zereth-cakes-hub.com
-- **Phone**: +234 806 014 7046
-- **Location**: Enugu, Nigeria
-
 ## Acknowledgments
 
-- **Next.js Team** - Framework development
-- **Tailwind CSS** - Utility-first styling
-- **Radix UI** - Accessible components
+- **Next.js Team** - Framework development and documentation
+- **Tailwind CSS** - Utility-first CSS framework
+- **Radix UI** - Accessible component primitives
 - **Framer Motion** - Animation library
+- **PostgreSQL** - Database system
 - **Vercel** - Hosting and deployment platform
 
 ---
 
-**Zereth Cakes Hub – by CEO (Chukwuka Emmanuel Ogugua)**
+**Zereth Cakes Hub – Developed by CEO (Chukwuka Emmanuel Ogugua)**
