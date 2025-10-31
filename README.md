@@ -4,6 +4,10 @@ Zereth Cakes Hub is a modular cake-commerce and design platform built with Next.
 
 **Developed by CEO – Chukwuka Emmanuel Ogugua**
 
+## Live Demo
+
+- https://zereth-cakes-hub.vercel.app/
+
 ## Platform Overview
 
 This application serves as a comprehensive solution for:
@@ -307,8 +311,11 @@ NODE_ENV="production"
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
-
 **Zereth Cakes Hub – Developed by CEO (Chukwuka Emmanuel Ogugua)**
+
+## Ecosystem Links
+- EmmanuelOS: https://github.com/e-ogugua/emmanuelos
+- Portfolio Hub: https://ceodev.vercel.app/
 
 ## Project Structure
 
